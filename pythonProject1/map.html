@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9ccf09a1296453fe923ce8bd664a48fd {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
+    
+            <style>
+                #export {
+                    position: absolute;
+                    top: 5px;
+                    right: 10px;
+                    z-index: 999;
+                    background: white;
+                    color: black;
+                    padding: 6px;
+                    border-radius: 4px;
+                    font-family: 'Helvetica Neue';
+                    cursor: pointer;
+                    font-size: 12px;
+                    text-decoration: none;
+                    top: 90px;
+                }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_9ccf09a1296453fe923ce8bd664a48fd" ></div>
+        
+    <a href='#' id='export'>Export</a>
+</body>
+<script>
+    
+    
+            var map_9ccf09a1296453fe923ce8bd664a48fd = L.map(
+                "map_9ccf09a1296453fe923ce8bd664a48fd",
+                {
+                    center: [51.760687810375956, 19.458312506837643],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c31e743f4957c8fe9fd4151fdc120791 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_9ccf09a1296453fe923ce8bd664a48fd);
+        
+    
+            var options = {
+              position: "topleft",
+              draw: {},
+              edit: {},
+            }
+            // FeatureGroup is to store editable layers.
+            var drawnItems = new L.featureGroup().addTo(
+                map_9ccf09a1296453fe923ce8bd664a48fd
+            );
+            options.edit.featureGroup = drawnItems;
+            var draw_control_31d9bf45bfe23d3a2ffe556b9b9af1ec = new L.Control.Draw(
+                options
+            ).addTo( map_9ccf09a1296453fe923ce8bd664a48fd );
+            map_9ccf09a1296453fe923ce8bd664a48fd.on(L.Draw.Event.CREATED, function(e) {
+                var layer = e.layer,
+                    type = e.layerType;
+                var coords = JSON.stringify(layer.toGeoJSON());
+                layer.on('click', function() {
+                    alert(coords);
+                    console.log(coords);
+                });
+                drawnItems.addLayer(layer);
+             });
+            map_9ccf09a1296453fe923ce8bd664a48fd.on('draw:created', function(e) {
+                drawnItems.addLayer(e.layer);
+            });
+            
+            document.getElementById('export').onclick = function(e) {
+                var data = drawnItems.toGeoJSON();
+                var convertedData = 'text/json;charset=utf-8,'
+                    + encodeURIComponent(JSON.stringify(data));
+                document.getElementById('export').setAttribute(
+                    'href', 'data:' + convertedData
+                );
+                document.getElementById('export').setAttribute(
+                    'download', "data.geojson"
+                );
+            }
+            
+        
+    
+            var marker_ad849b48888c67a37a31bad7fd21f889 = L.marker(
+                [51.76469177181548, 19.45746972538261],
+                {}
+            ).addTo(map_9ccf09a1296453fe923ce8bd664a48fd);
+        
+    
+            var icon_6ee17884acde06aac59af0438d595d36 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_ad849b48888c67a37a31bad7fd21f889.setIcon(icon_6ee17884acde06aac59af0438d595d36);
+        
+    
+        var popup_ad6320f38bdbddc064409978068dd7fa = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e224460d11bd133f6f4242f87c923c95 = $(`<div id="html_e224460d11bd133f6f4242f87c923c95" style="width: 100.0%; height: 100.0%;"><h1>Laweczka Tuwima</h1><p></p></div>`)[0];
+                popup_ad6320f38bdbddc064409978068dd7fa.setContent(html_e224460d11bd133f6f4242f87c923c95);
+            
+        
+
+        marker_ad849b48888c67a37a31bad7fd21f889.bindPopup(popup_ad6320f38bdbddc064409978068dd7fa)
+        ;
+
+        
+    
+    
+            marker_ad849b48888c67a37a31bad7fd21f889.bindTooltip(
+                `<div>
+                     Laweczka Tuwima
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_db909f0e3a00e03076f6ecd124021064 = L.marker(
+                [51.766564986894885, 19.456798138876003],
+                {}
+            ).addTo(map_9ccf09a1296453fe923ce8bd664a48fd);
+        
+    
+            var icon_fbecb20d76eee06983dff401a6462988 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_db909f0e3a00e03076f6ecd124021064.setIcon(icon_fbecb20d76eee06983dff401a6462988);
+        
+    
+        var popup_2c1091a2b9f8a314d5c96350344d5037 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_862197656581a26b3a3ede8b8ef3dee8 = $(`<div id="html_862197656581a26b3a3ede8b8ef3dee8" style="width: 100.0%; height: 100.0%;"><h1>Mis Uszatek</h1><img src='photos/pobrane.jpg' width = 400px/><p> <Teddy Bear Uszatek in Lodz is a small sculpture of this famous fairy tale character, reaching about a meter, standing on the main promenade - Piotrkowska Street.></p></div>`)[0];
+                popup_2c1091a2b9f8a314d5c96350344d5037.setContent(html_862197656581a26b3a3ede8b8ef3dee8);
+            
+        
+
+        marker_db909f0e3a00e03076f6ecd124021064.bindPopup(popup_2c1091a2b9f8a314d5c96350344d5037)
+        ;
+
+        
+    
+    
+            marker_db909f0e3a00e03076f6ecd124021064.bindTooltip(
+                `<div>
+                     Mis Uszatek
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3a4499c20c8901fcec1d93924a0f7316 = L.marker(
+                [51.77721719686519, 19.45463642538355],
+                {}
+            ).addTo(map_9ccf09a1296453fe923ce8bd664a48fd);
+        
+    
+            var icon_adf122b771812f22541468e65d6c9bc5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_3a4499c20c8901fcec1d93924a0f7316.setIcon(icon_adf122b771812f22541468e65d6c9bc5);
+        
+    
+        var popup_87e3c2ff88e57e9ceb378190578c2746 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_cea2502d1ec0020e9838726785b39eff = $(`<div id="html_cea2502d1ec0020e9838726785b39eff" style="width: 100.0%; height: 100.0%;"><h1>Freedom Square</h1></div>`)[0];
+                popup_87e3c2ff88e57e9ceb378190578c2746.setContent(html_cea2502d1ec0020e9838726785b39eff);
+            
+        
+
+        marker_3a4499c20c8901fcec1d93924a0f7316.bindPopup(popup_87e3c2ff88e57e9ceb378190578c2746)
+        ;
+
+        
+    
+    
+            marker_3a4499c20c8901fcec1d93924a0f7316.bindTooltip(
+                `<div>
+                     Laweczka Tuwima
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_fb462bbc7542bb24238512718787465a = L.marker(
+                [51.76792979001689, 19.456680333446094],
+                {}
+            ).addTo(map_9ccf09a1296453fe923ce8bd664a48fd);
+        
+    
+            var icon_aff04d1a1bdecc2213bdb0e471de9e28 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_fb462bbc7542bb24238512718787465a.setIcon(icon_aff04d1a1bdecc2213bdb0e471de9e28);
+        
+    
+        var popup_1fd070fcb98e30f1ae19fe1a5dcf1f7f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_16dea09b0bd4556f1b85564d8bcf8c38 = $(`<div id="html_16dea09b0bd4556f1b85564d8bcf8c38" style="width: 100.0%; height: 100.0%;"><h1>Rubenstein Piano</h1><img src='photos/piano.jpg' width = 400px/></div>`)[0];
+                popup_1fd070fcb98e30f1ae19fe1a5dcf1f7f.setContent(html_16dea09b0bd4556f1b85564d8bcf8c38);
+            
+        
+
+        marker_fb462bbc7542bb24238512718787465a.bindPopup(popup_1fd070fcb98e30f1ae19fe1a5dcf1f7f)
+        ;
+
+        
+    
+    
+            marker_fb462bbc7542bb24238512718787465a.bindTooltip(
+                `<div>
+                     Rubenstein Piano
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_735a619633f063e722db493175ff87f2 = L.marker(
+                [51.77287876573184, 19.455790267712022],
+                {}
+            ).addTo(map_9ccf09a1296453fe923ce8bd664a48fd);
+        
+    
+            var icon_0b0f0fdc9cb5d8708572823270bf0d25 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_735a619633f063e722db493175ff87f2.setIcon(icon_0b0f0fdc9cb5d8708572823270bf0d25);
+        
+    
+        var popup_b0e85594796f139960864456f9912ef2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9f745208c69dbf8a7ab8d3655b06608d = $(`<div id="html_9f745208c69dbf8a7ab8d3655b06608d" style="width: 100.0%; height: 100.0%;"><h1>Three manufactures</h1><img src='photos/manufactures.jpg' width = 400px/></div>`)[0];
+                popup_b0e85594796f139960864456f9912ef2.setContent(html_9f745208c69dbf8a7ab8d3655b06608d);
+            
+        
+
+        marker_735a619633f063e722db493175ff87f2.bindPopup(popup_b0e85594796f139960864456f9912ef2)
+        ;
+
+        
+    
+    
+            marker_735a619633f063e722db493175ff87f2.bindTooltip(
+                `<div>
+                     Three manufactures
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>
