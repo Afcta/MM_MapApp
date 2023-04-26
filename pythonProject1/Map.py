@@ -1,7 +1,7 @@
 import folium
 from folium import IFrame
 from folium.plugins import Draw
-
+from flask import render_template
 
 class Map:
     def __init__(self):
@@ -28,7 +28,6 @@ class Map:
             tooltip="Mis Uszatek",
             icon=folium.Icon(icon="heart", icon_color="pink")
         )
-
         marker2 = folium.Marker(
             [51.77721719686519, 19.45463642538355],
             popup="<h1>Freedom Square</h1>",
