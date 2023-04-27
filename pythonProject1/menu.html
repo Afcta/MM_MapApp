@@ -12,12 +12,37 @@
 			height: 100vh;
 		}
 
+				.header {
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: center;
+		  align-items: center;
+		  background-color: #333;
+		  color: white;
+		  height: 85px;
+		  font-family: Garamond;
+		  font-size: 2rem;
+		  width: 100%;
+		  position: fixed;
+		  top: 0;
+		  z-index: 1;
+		}
+
+		.header h2 {
+		  margin: 0;
+		}
+
+		.header p {
+		  margin: 0;
+		  font-size: 1.2rem;
+		}
+
 		.column {
 			flex: 1;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			padding-top: 400px;
+			padding-top: 480px;
 			justify-content: center;
 			color: black;
 			font-size: 1.5rem;
@@ -86,7 +111,7 @@
 			background-color: rgba(255, 255, 255, 0.8);
 		}
 
-					.column h2 {
+		.column h2 {
 			margin: 0;
 			position: relative;
 			z-index: 1;
@@ -96,10 +121,14 @@
 			padding: 10px;
 			border-radius: 10px;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-			}
+		}
 	</style>
 </head>
 <body>
+	<div class="header">
+    <h2>Explore Lodz</h2>
+    <p>A virtual tour of Poland's hidden gem</p>
+</div>
 	<a href="map.html" class="column" style="background-image: url('map.jpg');">
 		<h2>Map</h2>
 	</a>
