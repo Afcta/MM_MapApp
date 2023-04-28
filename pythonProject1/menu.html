@@ -122,21 +122,57 @@
 			border-radius: 10px;
 			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 		}
+
+			#intro-video {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	}
+
+			#menu-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
 	</style>
 </head>
 <body>
-	<div class="header">
-    <h2>Explore Lodz</h2>
-    <p>A virtual tour of Poland's hidden gem</p>
-</div>
-	<a href="map.html" class="column" style="background-image: url('photos/map.jpg');">
-		<h2>Map</h2>
-	</a>
-	<a href="history.html" class="column" style="background-image: url('photos/history.jpg');">
-		<h2>History</h2>
-	</a>
-	<a href="culture.html" class="column" style="background-image: url('photos/culture.jpg');">
-		<h2>Culture</h2>
-	</a>
+	<video id="intro-video" width="100%" height="100%" autoplay>
+		<source src="intro.mp4" type="video/mp4">
+	</video>
+
+	<div id="menu-content" style="display: none;">
+		<div class="header">
+			<h2>Explore Lodz</h2>
+			<p>A virtual tour of Poland's hidden gem</p>
+		</div>
+		<a href="map.html" class="column" style="background-image: url('photos/map.jpg');">
+			<h2>Map</h2>
+		</a>
+		<a href="history.html" class="column" style="background-image: url('photos/history.jpg');">
+			<h2>History</h2>
+		</a>
+		<a href="culture.html" class="column" style="background-image: url('photos/culture.jpg');">
+			<h2>Culture</h2>
+		</a>
+	</div>
+
+	<script>
+		const introVideo = document.getElementById("intro-video");
+		const menuContent = document.getElementById("menu-content");
+
+		introVideo.addEventListener("ended", function() {
+			introVideo.style.display = "none";
+			menuContent.style.display = "flex";
+			menuContent.classList.add("fade-in");
+		});
+	</script>
 </body>
 </html>
