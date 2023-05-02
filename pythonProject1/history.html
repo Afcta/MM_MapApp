@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet">
     <title>History</title>
 </head>
 <style>
@@ -13,21 +13,22 @@
         box-sizing: border-box;
     }
 
-   body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    min-height: 100vh;
-    background-image: url("photos/lodz_archiwalne_foto.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    z-index: -3;
-}
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        min-height: 100vh;
+        background-image: url("photos/lodz_archiwalne_foto.jpg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        z-index: -3;
 
-h4 {
-       height: 200px;
+    }
+
+    h4 {
+        height: 200px;
         width: 500px;
         position: absolute;
         margin-bottom: 450px;
@@ -37,10 +38,10 @@ h4 {
         cursor: pointer;
         transition: 0.2s all;
         margin-right: 760px;
-    text-align: center;
-    color:white;
-
-}
+        text-align: center;
+        color: white;
+        font-family: Arial;
+    }
 
     .container {
         height: 350px;
@@ -53,58 +54,58 @@ h4 {
         box-shadow: 0 0 10px gray;
         transition: 3s all;
         border: 3px solid #FFFFFF;
+        font-family: Arial;
     }
 
-  .container div {
-    height: 50%;
-    width: 200px;
-    clip-path: polygon(100% 0, 50% 100%, 0 0);
-    transform: translateX(-50%);
-    transform-origin: bottom;
-    position: absolute;
-    left: 21%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-family: monospace;
-    font-weight: 1000;
-    color: #FFFFFF;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    writing-mode: vertical-rl;
-      text-align: center;
-
-}
+    .container div {
+        height: 50%;
+        width: 200px;
+        clip-path: polygon(100% 0, 50% 100%, 0 0);
+        transform: translateX(-50%);
+        transform-origin: bottom;
+        position: absolute;
+        left: 21%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        font-family: monospace;
+        font-weight: 1000;
+        color: #FFFFFF;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        writing-mode: vertical-rl;
+        text-align: center;
+        font-family: Arial;
+    }
 
     .container .one {
         background: #53534a;
         left: 50%;
+        font-family: Verdana;
+        font-size: 21px;
     }
 
     .container .two {
         background: #a19c8c;
-        transform: rotate(60deg);
+        transform: rotate(90deg);
+        font-family: Verdana;
+        font-size: 21px;
     }
 
     .container .three {
         background: #53534a;
-        transform: rotate(120deg);
+        transform: rotate(180deg);
+        font-family: Verdana;
+        font-size: 21px;
     }
 
     .container .four {
         background: #a19c8c;
-        transform: rotate(180deg);
+        transform: rotate(270deg);
+        font-family: Verdana;
+        font-size: 21px;
     }
 
-    .container .five {
-        background: #53534a;
-        transform: rotate(240deg);
-    }
-
-    .container .six {
-        background: #a19c8c;
-        transform: rotate(300deg);
-    }
 
     .mid {
         height: 25px;
@@ -129,7 +130,9 @@ h4 {
         cursor: pointer;
         box-shadow: 0 5px 10px gray;
         transition: 0.2s all;
-        margin-right: 750px;
+        margin-right: 766px;
+        text-align: center;
+        font-family: Verdana;
     }
 
     #spin:hover {
@@ -148,7 +151,7 @@ h4 {
     }
 
     h3 {
-       height: 200px;
+        height: 200px;
         width: 500px;
         position: absolute;
         margin-bottom: 450px;
@@ -158,112 +161,121 @@ h4 {
         cursor: pointer;
         transition: 0.2s all;
         margin-left: 720px;
-    text-align: center;
-    color:white;
+        text-align: center;
+        color: white;
+        font-family: Verdana;
 
-}
+    }
 
 
+    #menu {
+        position: absolute;
+        top: 200px;
+        right: 0;
+        height: 47%;
+        width: 300px;
+        background: #53534a;
+        list-style-type: none;
+        padding: 20px;
+        box-sizing: border-box;
+        margin-right: 250px;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        font-family: Arial;
 
- #menu {
-  position: absolute;
-  top: 200px;
-  right: 0;
-  height: 47%;
-  width: 300px;
-  background: #53534a;
-  list-style-type: none;
-  padding: 20px;
-  box-sizing: border-box;
-  margin-right: 250px;
-  border-radius: 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-}
+    }
 
-#menu li {
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #a19c8c;
-  transition: all 0.3s ease;
-    text-align: center;
-}
+    #menu li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px;
+        height: 67px;
+        border-radius: 5px;
+        background-color: #a19c8c;
+        transition: all 0.3s ease;
+        text-align: center;
 
-#menu li:hover {
-  background-color: #fff;
-  color: #a19c8c;
-}
+    }
 
-.header {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 40px;
-    background-color: #333;
-    color: white;
-    font-family: Garamond;
-    font-size: 1.2rem;
-    z-index: 2;
-    transition: width 0.2s ease-in-out;
-  }
+    #menu li:hover {
+        background-color: #fff;
+        color: #a19c8c;
+    }
 
-  .header:hover {
-    width: 200px;
-  }
+    .header {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 40px;
+        background-color: #333;
+        color: white;
+        font-family: Arial;
+        font-size: 1.2rem;
+        z-index: 2;
+        transition: width 0.2s ease-in-out;
 
-  .header nav {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
+    }
 
-  .header nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
+    .header:hover {
+        width: 200px;
+    }
 
-  .header nav ul li {
-    margin: 10px 0;
-    width: 100%;
-  }
+    .header nav {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        font-family: Arial;
+    }
 
-  .header nav ul li a {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    color: white;
-    text-decoration: none;
-    padding: 5px;
-    border-right: 3px solid transparent;
-    transition: border-right 0.2s ease-in-out;
-  }
+    .header nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
 
-  .header nav ul li a:hover {
-    border-right: 3px solid white;
-  }
+    .header nav ul li {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .header nav ul li a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: white;
+        text-decoration: none;
+        padding: 5px;
+        border-right: 3px solid transparent;
+        transition: border-right 0.2s ease-in-out;
+    }
+
+    .header nav ul li a:hover {
+        border-right: 3px solid white;
+    }
 
 
 </style>
 <body>
 
-               <header class="header">
-  <nav>
-    <ul>
-      <li><a href="menu.html">Menu</a></li>
-      <li><a href="map.html">Map</a></li>
-      <li><a href="history.html">History</a></li>
-    </ul>
-  </nav>
+<header class="header">
+    <nav>
+        <ul>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="history.html">History</a></li>
+        </ul>
+    </nav>
 </header>
 
 
@@ -273,22 +285,18 @@ h4 {
     <div class="two">Lodz during war</div>
     <div class="three">Communism age</div>
     <div class="four">Industrial Lodz</div>
-    <div class="five">Restored Poland</div>
-    <div class="six">Big Boom</div>
 </div>
 <span class="mid"></span>
 <button id="spin">Spin</button>
 <div class="stoper"></div>
 
 <h3>Select the particular periods from Lodz's history that you would like to delve into.</h3>
-  <ul id="menu">
+<ul id="menu">
     <li>Medival Period</li>
     <li>Restored Poland</li>
-    <li>Big Boom</li>
     <li>Communism age</li>
-    <li>Big Boom</li>
     <li>Industrial Lod</li>
-  </ul>
+</ul>
 <script src="wheel.js"></script>
 </body>
 </html>

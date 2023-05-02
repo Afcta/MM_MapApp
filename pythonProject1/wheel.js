@@ -11,15 +11,11 @@ btn.onclick = function() {
 
   setTimeout(function() {
     let angle = number % 360;
-    if (angle < 60) {
+    if (angle < 90) {
       window.location.href = "map.html";
-    } else if (angle < 120) {
-    window.location.href = "map.html";
     } else if (angle < 180) {
     window.location.href = "map.html";
-    } else if (angle < 240) {
-    window.location.href = "map.html";
-    } else if (angle < 300) {
+    } else if (angle < 270) {
     window.location.href = "map.html";
     } else {
     window.location.href = "map.html";
