@@ -12,9 +12,9 @@ btn.onclick = function() {
   setTimeout(function() {
     let angle = number % 360;
     if (angle < 90) {
-      window.location.href = "map.html";
+      window.location.href = "worldwar.html";
     } else if (angle < 180) {
-    window.location.href = "map.html";
+    window.location.href = "worldwar.html";
     } else if (angle < 270) {
     window.location.href = "map.html";
     } else {
