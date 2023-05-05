@@ -1,80 +1,106 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My Videos</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        color: #333;
-        margin: 0;
-        padding: 0;
+<head>
+	<title>Video Menu</title>
+	<link rel="stylesheet" type="text/css" href="videostyle.css">
+  <script>
+  function filterVideos(category) {
+    // Get all video rows
+    var rows = document.getElementsByClassName("row");
+    // Loop through all video rows
+    for (var i = 0; i < rows.length; i++) {
+      if (rows[i].id == category || category == "all") {
+        rows[i].style.display = "flex";
       }
-      header {
-        background-color: #222;
-        color: #fff;
-        padding: 10px;
-        text-align: center;
+      // Otherwise, hide the row
+      else {
+        rows[i].style.display = "none";
       }
-      h1 {
-        margin: 0;
-        font-size: 36px;
-        text-transform: uppercase;
-      }
-      .video-grid {
-        max-width: 800px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        grid-gap: 20px;
-        justify-items: center;
-      }
-      .video-player {
-        width: 100%;
-        max-width: 800px;
-        margin: 20px auto;
-      }
-      .video-title {
-        background-color: rgba(0, 0, 0, 0.7);
-        color: #fff;
-        font-size: 16px;
-        padding: 10px;
-        box-sizing: border-box;
-        margin: 0;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>My Videos</h1>
-    </header>
-    <div class="container">
-      <div class="video-grid">
-        <div class="video-container">
-          <video class="video-player" src="intro.mp4" controls></video>
-          <p class="video-title">Intro movie</p>
+    }
+  }
+</script>
+</head>
+<body>
+  <div class="navbar">
+    <button class="active" onclick="filterVideos('all')">All</button>
+    <button onclick="filterVideos('category1')">Famous people</button>
+    <button onclick="filterVideos('category2')">Famous places</button>
+    <button onclick="filterVideos('category3')">Others</button>
+  </div>
+
+  <div class="videos">
+    <div id="category1" class="row">
+      <div class="video-container">
+        <video controls>
+          <source src="videos/Poznanski.mp4" type="video/mp4">
+        </video>
+        <div class="video-info">
+          <div class="title">Izrael Poznanski</div>
+          <div class="description">Description of Category 1 Video 1</div>
         </div>
-        <div class="video-container">
-          <video class="video-player" src="videos/Poznanski.mp4" controls></video>
-          <p class="video-title">Izrael Poznanski</p>
+      </div>
+      <div class="video-container">
+        <video controls>
+          <source src="videos/Ludwik.mp4" type="video/mp4">
+        </video>
+        <div class="video-info">
+          <div class="title">Ludwik Geyer</div>
+          <div class="description">Description of Category 1 Video 2</div>
         </div>
-        <div class="video-container">
-          <video class="video-player" src="videos/PoznanskiFactory.mp4" controls></video>
-          <p class="video-title">Poznanski Factory</p>
+      </div>
+            <div class="video-container">
+        <video controls>
+          <source src="videos/Ludwik.mp4" type="video/mp4">
+        </video>
+        <div class="video-info">
+          <div class="title">ktos tam</div>
+          <div class="description">Description of Category 1 Video 2</div>
         </div>
-        <div class="video-container">
-          <video class="video-player" src="videos/PoznanskiPalace.mp4" controls></video>
-          <p class="video-title">Poznanski Palace</p>
+      </div>
+      </div>
+
+    <div id="category2" class="row">
+      <div class="video-container">
+        <video controls>
+          <source src="videos/PoznanskiPalace.mp4" type="video/mp4">
+        </video>
+        <div class="video-info">
+          <div class="title">Poznanski Palace</div>
+          <div class="description">Description of Category 2 Video 1</div>
         </div>
-        <div class="video-container">
-          <video class="video-player" src="videos/Ludwik.mp4" controls></video>
-          <p class="video-title">Ludwik Geyer</p>
-        </div>
-        <div class="video-container">
-          <video class="video-player" src="videos/Karol.mp4" controls></video>
-          <p class="video-title">Karol Scheibler</p>
+      </div>
+      <div class="video-container">
+        <video controls>
+          <source src="videos/PoznanskiFactory.mp4" type="video/mp4">
+        </video>
+        <div class="video-info">
+          <div class="title">Poznanski Factory</div>
+          <div class="description">Description of Category 2 Video 2</div>
         </div>
       </div>
     </div>
-  </body>
+
+    <div id="category3" class="row">
+      <div class="video-container">
+        <video controls>
+          <source src=intro.mp4" type="video/mp4">
+        </video>
+        <div class="video-info">
+          <div class="title">Intro movie</div>
+          <div class="description">Description of Category 3 Video 1</div>
+        </div>
+      </div>
+      <div class="video-container">
+        <video controls>
+          <source src="category3-video2.mp4" type="video/mp4">
+        </video>
+        <div class="video-info">
+          <div class="title">Category 3 Video 2</div>
+          <div class="description">Description of Category 3 Video 2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
