@@ -12,7 +12,7 @@ class Map:
 
         marker = folium.Marker(
             [51.76469177181548, 19.45746972538261],
-            popup="<h1>Laweczka Tuwima</h1><p></p>",
+            popup='<a href="allVideos.html#Karolvideo" target="_self">Laweczka Tuwima</a>',
             tooltip="Laweczka Tuwima",
             icon=folium.Icon(icon="heart", icon_color="pink")
         )
