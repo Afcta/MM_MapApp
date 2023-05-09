@@ -14,11 +14,11 @@ btn.onclick = function() {
     if (angle < 90) {
       window.location.href = "worldwar.html";
     } else if (angle < 180) {
-    window.location.href = "worldwar.html";
+    window.location.href = "https://player.stornaway.io/watch/3e9a9f0e";
     } else if (angle < 270) {
     window.location.href = "map.html";
     } else {
-    window.location.href = "map.html";
+    window.location.href = "allVideos.html";
     }
   }, 4000);
 };
