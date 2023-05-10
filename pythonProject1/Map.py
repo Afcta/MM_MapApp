@@ -62,8 +62,28 @@ class Map:
 
     marker5 = folium.Marker([51.778906051771884, 19.451293974304274],
                             popup="<h1>Poznanski Palace</h1>"
-                                  '<a style="font-size:20px;" href="famousPlaces.html#PoznanskiPalace"">video</a>',
+                                  '<a style="font-size:20px;" href="famousPlaces.html#PoznanskiPalace" onclick="highlightVideoContainer("famousPlaces.html", "PoznanskiPalace)">video</a>',
+
                             tooltip="Poznanski Palace",
+                            icon=folium.Icon(icon="heart", icon_color="pink")
+                            )
+
+    marker6 = folium.Marker([51.778906051771884, 19.451293974304274],
+                            popup="<h1>Manufacture</h1>"
+                                 "<img src='photos/manufaktura.jpg' width = 400px/>"
+                                  '<a style="font-size:20px;" href="famousPlaces.html#PoznanskiFactory" '
+                                  'onclick="highlightVideoContainer()">video</a>',
+
+                            tooltip="Manufacture",
+                            icon=folium.Icon(icon="heart", icon_color="pink")
+                            )
+
+    marker7 = folium.Marker([51.75942655450387, 19.457584362659563],
+                            popup="<h1>Unicorn Stable</h1>"
+                                 "<img src='photos/UnicornStable.jpg' width = 400px/>"
+                                  '<a style="font-size:20px;" href="famousPlaces.html#PoznanskiFactory" ',
+
+                            tooltip="Unicorn Stable",
                             icon=folium.Icon(icon="heart", icon_color="pink")
                             )
 
@@ -73,6 +93,8 @@ class Map:
     marker3.add_to(m)
     marker4.add_to(m)
     marker5.add_to(m)
+    marker6.add_to(m)
+    marker7.add_to(m)
 
     map_file = os.path.abspath('map.html')
     print(map_file)

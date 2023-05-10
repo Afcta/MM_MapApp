@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
 	<title>Famous Places</title>
 	<link rel="stylesheet" type="text/css" href="videostyle.css">
+      <style>
+        .highlight {
+            border: 2px solid red;
+            animation: highlight 1s;
+        }
+
+        @keyframes highlight {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+  <script>
+
+</script>
 </head>
 <body>
     <nav>
@@ -25,7 +39,7 @@
           <div class="description">19th-century palace in Łódź, Poland. Initially the site of a tenement building, the property was transformed into a Neo-Renaissance</div>
         </div>
       </div>
-      <div class="video-container">
+      <div class="video-container" id = "PoznanskiFactory">
         <video controls>
           <source src="videos/PoznanskiFactory.mp4" type="video/mp4">
         </video>
