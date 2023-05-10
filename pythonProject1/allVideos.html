@@ -3,46 +3,21 @@
 <head>
 	<title>Video Menu</title>
 	<link rel="stylesheet" type="text/css" href="videostyle.css">
-  <script>
-  function filterVideos(category) {
-    var rows = document.getElementsByClassName("row");
-    for (var i = 0; i < rows.length; i++) {
-      if (rows[i].id == category || category == "all") {
-        rows[i].style.display = "flex";
-      }
-      else {
-        rows[i].style.display = "none";
-      }
-    }
-  }
-</script>
-  <script>
-  // Get the URL parameters
-  const urlParams = new URLSearchParams(window.location.search);
-
-  // Check if the "highlight" parameter is set
-  if (urlParams.has('highlight')) {
-    // Get the ID of the element to highlight
-    const elementID = urlParams.get('highlight');
-
-    // Add the "highlight" class to the element
-    const element = document.getElementById(elementID);
-    if (element) {
-      element.classList.add('highlight');
-    }
-  }
-</script>
 </head>
 <body>
   <div class="navbar">
-    <button class="active" onclick="filterVideos('all')">All</button>
-    <button onclick="filterVideos('category1')">Famous people</button>
-    <button id="category2-button" onclick="filterVideos('category2')">Famous places</button>
-    <button onclick="filterVideos('category3')">Others</button>
+  <nav>
+    <h1 class="nav-title">All videos</h1>
+    <ul>
+      <li><a href="famousPlaces.html">Famous Places</a></li>
+      <li><a href="famousPeople.html">Famous People</a></li>
+      <li><a href="others.html">Others</a></li>
+    </ul>
+  </nav>
+
   </div>
 
   <div class="videos">
-<div id="category1" class="row">
   <div class="video-container">
     <video controls>
       <source src="videos/Poznanski.mp4" type="video/mp4">
@@ -79,16 +54,13 @@
       <div class="description">Description of Category 1 Video 2</div>
     </div>
   </div>
-</div>
-
-    <div id="category2" class="row" >
       <div class="video-container" id="PoznanskiPalace">
         <video controls>
           <source src="videos/PoznanskiPalace.mp4" type="video/mp4">
         </video>
         <div class="video-info">
           <div class="title">Poznanski Palace</div>
-          <div class="description">19th-century palace in Łódź, Poland. Initially the site of a tenement building, the property was transformed into a Neo-Renaissance and Neo-baroque style residence</div>
+          <div class="description">19th-century palace in Łódź, Poland. Initially the site of a tenement building, the property was transformed into a Neo-Renaissance</div>
         </div>
       </div>
       <div class="video-container">
@@ -109,12 +81,9 @@
           <div class="description">Description of Category 1 Video 2</div>
         </div>
       </div>
-    </div>
-
-    <div id="category3" class="row">
       <div class="video-container">
         <video controls>
-          <source src=intro.mp4" type="video/mp4">
+          <source src="videos/intro.mp4" type="video/mp4">
         </video>
         <div class="video-info">
           <div class="title">Intro movie</div>
@@ -140,7 +109,6 @@
         </div>
       </div>
     </div>
-  </div>
 </body>
 
 </html>

@@ -19,7 +19,7 @@ class Map:
     video_iframe = IFrame(video_html, width=560, height=315)
     popup = folium.Popup(video_iframe, max_width=650)
 
-    popup1 = folium.Popup('<a href="allVideos.html#Karolvideo">Click here to view the video</a>'
+    popup1 = folium.Popup('<a href="famousPlaces.html">Click here to view the video</a>'
                               )
     marker = folium.Marker(
             [51.76469177181548, 19.45746972538261], popup=popup1,
@@ -48,14 +48,21 @@ class Map:
 
     marker4 = folium.Marker(
             [51.77287876573184, 19.455790267712022],
-            popup="<h1>Three manufactures</h1><img src='photos/manufactures.jpg' width = 400px/>",
+            popup='<h1 style="font-size:30px;">Three manufactures</h1>'
+                  "<img src='photos/manufactures.jpg' width = 400px/>"
+                  "<h2> Izrael Poznański</h2>"
+                  '<a style="font-size:20px;" href="famousPeople.html#Izrael">video</a>'
+                  '<h2 style="font-size:30px;">Karol Scheibler</h2>'
+                  '<a style="font-size:20px;" href="famousPeople.html#Karol">video</a>'
+                  '<h2 style="font-size:30px;">Henryk Grohman</h2>'
+        ,
             tooltip="Three manufactures",
             icon=folium.Icon(icon="heart", icon_color="pink")
         )
 
     marker5 = folium.Marker([51.778906051771884, 19.451293974304274],
                             popup="<h1>Poznanski Palace</h1>"
-                                  '<a href="allVideos.html#category2-button"">video</a>',
+                                  '<a style="font-size:20px;" href="famousPlaces.html#PoznanskiPalace"">video</a>',
                             tooltip="Poznanski Palace",
                             icon=folium.Icon(icon="heart", icon_color="pink")
                             )
