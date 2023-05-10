@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_b4907325adfada743f7f8fef5bf6b1b8 {
+                #map_dfc511833d5e8393e89408dc7728d415 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -39,18 +39,56 @@
 <body>
     
     
-            <div class="folium-map" id="map_b4907325adfada743f7f8fef5bf6b1b8" ></div>
+        <div class="top-bar">
+            <div class="toggle-theme-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i></div>
+            <div class="title">Explore Lodz</div>
+        </div>
+    <style>
+    .title{
+        font-size:3.5rem;
+        font-weight:bold;
+        text-align: center;
+        position: top;
+        flex-grow: 1;
+        color: white;
+    }
+    .top-bar{
+        display: flex;
+        align-items: center;
+        background-color: #333;
+    }
+    .toggle-theme-button{
+        color: white;
+        margin-left: 10px;
+    }
+    </style>
+    
+    
+            <div class="folium-map" id="map_dfc511833d5e8393e89408dc7728d415" ></div>
         
 </body>
 <script>
     
     
-            var map_b4907325adfada743f7f8fef5bf6b1b8 = L.map(
-                "map_b4907325adfada743f7f8fef5bf6b1b8",
+        function toggleTheme() {
+            var body = document.getElementsByTagName('body')[0];
+            var mapDiv = document.getElementsByClassName('folium-map')[0];
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                mapDiv.style.filter = 'none';
+            } else {
+                body.classList.add('dark-theme');
+                mapDiv.style.filter = 'invert(100%) hue-rotate(180deg)';
+            }
+        }
+    
+    
+            var map_dfc511833d5e8393e89408dc7728d415 = L.map(
+                "map_dfc511833d5e8393e89408dc7728d415",
                 {
                     center: [51.760687810375956, 19.458312506837643],
                     crs: L.CRS.EPSG3857,
-                    zoom: 12,
+                    zoom: 16,
                     zoomControl: true,
                     preferCanvas: false,
                 }
@@ -60,40 +98,131 @@
 
         
     
-            var tile_layer_e1d73f6fb01eb6652cfdbb182bdb4fc1 = L.tileLayer(
+            var tile_layer_8be32d6f4ed0538a695af69391064370 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_b4907325adfada743f7f8fef5bf6b1b8);
+            ).addTo(map_dfc511833d5e8393e89408dc7728d415);
         
     
-            var marker_9d6c8cd224c10d2472a67937ab9b053f = L.marker(
-                [51.76469177181548, 19.45746972538261],
+            var feature_group_74171c15d287b6185f8993b70a09ae28 = L.featureGroup(
                 {}
-            ).addTo(map_b4907325adfada743f7f8fef5bf6b1b8);
+            ).addTo(map_dfc511833d5e8393e89408dc7728d415);
         
     
-            var icon_ab690242c2cc89379ddbc1efcf12d1f1 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
+            var marker_52216e8937b0a359a960ef84eec52887 = L.marker(
+                [51.76301779499515, 19.458066994697752],
+                {}
+            ).addTo(feature_group_74171c15d287b6185f8993b70a09ae28);
+        
+    
+            var icon_c19993e3a6e08bdeafcf459da29456f5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_9d6c8cd224c10d2472a67937ab9b053f.setIcon(icon_ab690242c2cc89379ddbc1efcf12d1f1);
+            marker_52216e8937b0a359a960ef84eec52887.setIcon(icon_c19993e3a6e08bdeafcf459da29456f5);
         
     
-        var popup_7510e6a311c30d10c817ad10ecbc387a = L.popup({"maxWidth": "100%"});
+        var popup_44b443b79987b2eca9e5ab3042b541c4 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_48dae9302d65033dda7e77a064bab4db = $(`<div id="html_48dae9302d65033dda7e77a064bab4db" style="width: 100.0%; height: 100.0%;"><a href="famousPlaces.html">Click here to view the video</a></div>`)[0];
-                popup_7510e6a311c30d10c817ad10ecbc387a.setContent(html_48dae9302d65033dda7e77a064bab4db);
+                var html_5dab670f4a47c362b94977bf96186a6b = $(`<div id="html_5dab670f4a47c362b94977bf96186a6b" style="width: 100.0%; height: 100.0%;"><h4>Otwarte drzwi</h4><p>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.6</p></div>`)[0];
+                popup_44b443b79987b2eca9e5ab3042b541c4.setContent(html_5dab670f4a47c362b94977bf96186a6b);
             
         
 
-        marker_9d6c8cd224c10d2472a67937ab9b053f.bindPopup(popup_7510e6a311c30d10c817ad10ecbc387a)
+        marker_52216e8937b0a359a960ef84eec52887.bindPopup(popup_44b443b79987b2eca9e5ab3042b541c4)
         ;
 
         
     
     
-            marker_9d6c8cd224c10d2472a67937ab9b053f.bindTooltip(
+            var marker_92136751b46d974fe427bb34db82406d = L.marker(
+                [51.76876938105906, 19.456353925382906],
+                {}
+            ).addTo(feature_group_74171c15d287b6185f8993b70a09ae28);
+        
+    
+            var icon_767c23d4980f7fbdb5a1b4d2052ad5fb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_92136751b46d974fe427bb34db82406d.setIcon(icon_767c23d4980f7fbdb5a1b4d2052ad5fb);
+        
+    
+        var popup_5be1ab33971a90611a61a19839130836 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7143145f09e891ad3ea2a6e70093ce08 = $(`<div id="html_7143145f09e891ad3ea2a6e70093ce08" style="width: 100.0%; height: 100.0%;"><h4>Chlopska Izba</h4><p>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>`)[0];
+                popup_5be1ab33971a90611a61a19839130836.setContent(html_7143145f09e891ad3ea2a6e70093ce08);
+            
+        
+
+        marker_92136751b46d974fe427bb34db82406d.bindPopup(popup_5be1ab33971a90611a61a19839130836)
+        ;
+
+        
+    
+    
+            var marker_edc49e869d2b6edc38dc190ded55fcfb = L.marker(
+                [51.77928756113294, 19.449665533826533],
+                {}
+            ).addTo(feature_group_74171c15d287b6185f8993b70a09ae28);
+        
+    
+            var icon_b6433424e34fd73cbae92a1eb24a6080 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_edc49e869d2b6edc38dc190ded55fcfb.setIcon(icon_b6433424e34fd73cbae92a1eb24a6080);
+        
+    
+        var popup_77821af8517074637b670ca6edb02afb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_76325f92f7add5937f8e53429cfdeb75 = $(`<div id="html_76325f92f7add5937f8e53429cfdeb75" style="width: 100.0%; height: 100.0%;"><h4>Galicja</h4><p>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>`)[0];
+                popup_77821af8517074637b670ca6edb02afb.setContent(html_76325f92f7add5937f8e53429cfdeb75);
+            
+        
+
+        marker_edc49e869d2b6edc38dc190ded55fcfb.bindPopup(popup_77821af8517074637b670ca6edb02afb)
+        ;
+
+        
+    
+    
+            var feature_group_f44e4d9d9c6f8544de5efe77c239d0b1 = L.featureGroup(
+                {}
+            ).addTo(map_dfc511833d5e8393e89408dc7728d415);
+        
+    
+            var marker_32a84456f389c1beae327be1e26b580b = L.marker(
+                [51.76469177181548, 19.45746972538261],
+                {}
+            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
+        
+    
+            var icon_d0ce8bb0c46f1ae22d6c76e0d9cebd53 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_32a84456f389c1beae327be1e26b580b.setIcon(icon_d0ce8bb0c46f1ae22d6c76e0d9cebd53);
+        
+    
+        var popup_a4e6057b260304e65eaa958e2486d11e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_61f953850a65f36336af2cc68147bb95 = $(`<div id="html_61f953850a65f36336af2cc68147bb95" style="width: 100.0%; height: 100.0%;"><a href="famousPlaces.html">Click here to view the video</a></div>`)[0];
+                popup_a4e6057b260304e65eaa958e2486d11e.setContent(html_61f953850a65f36336af2cc68147bb95);
+            
+        
+
+        marker_32a84456f389c1beae327be1e26b580b.bindPopup(popup_a4e6057b260304e65eaa958e2486d11e)
+        ;
+
+        
+    
+    
+            marker_32a84456f389c1beae327be1e26b580b.bindTooltip(
                 `<div>
                      Twoja stara
                  </div>`,
@@ -101,34 +230,34 @@
             );
         
     
-            var marker_0c43f8f7cef40e8430fce3006e803b9c = L.marker(
+            var marker_633e44ca28bf5bfa17bea5816daae68c = L.marker(
                 [51.766564986894885, 19.456798138876003],
                 {}
-            ).addTo(map_b4907325adfada743f7f8fef5bf6b1b8);
+            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
         
     
-            var icon_4a315eca8870c65cd29408022f1ee4a1 = L.AwesomeMarkers.icon(
+            var icon_b66916c5d90bbbd9615387f9ca73ce65 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_0c43f8f7cef40e8430fce3006e803b9c.setIcon(icon_4a315eca8870c65cd29408022f1ee4a1);
+            marker_633e44ca28bf5bfa17bea5816daae68c.setIcon(icon_b66916c5d90bbbd9615387f9ca73ce65);
         
     
-        var popup_8a6dc3e2823506f4e61c55024d1ee59a = L.popup({"maxWidth": 650});
+        var popup_1dca7a282f4febab6df21acd9d296fd2 = L.popup({"maxWidth": 650});
 
         
             
-                var i_frame_9c779098bd4d9858832a529770b01965 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICA8aWZyYW1lIHdpZHRoPSI1NjAiIGhlaWdodD0iMzE1IiBzcmM9Imh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL2VtYmVkLzZKQmwyUWJlMlp3IiBmcmFtZWJvcmRlcj0iMCIgYWxsb3c9ImFjY2VsZXJvbWV0ZXI7IGF1dG9wbGF5OyBjbGlwYm9hcmQtd3JpdGU7IGVuY3J5cHRlZC1tZWRpYTsgZ3lyb3Njb3BlOyBwaWN0dXJlLWluLXBpY3R1cmUiIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT4=" width="560" style="border:none !important;" height="315"></iframe>`)[0];
-                popup_8a6dc3e2823506f4e61c55024d1ee59a.setContent(i_frame_9c779098bd4d9858832a529770b01965);
+                var i_frame_d07011be38b741e85d4a56b48d2ce9a1 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICA8aWZyYW1lIHdpZHRoPSI1NjAiIGhlaWdodD0iMzE1IiBzcmM9Imh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL2VtYmVkLzZKQmwyUWJlMlp3IiBmcmFtZWJvcmRlcj0iMCIgYWxsb3c9ImFjY2VsZXJvbWV0ZXI7IGF1dG9wbGF5OyBjbGlwYm9hcmQtd3JpdGU7IGVuY3J5cHRlZC1tZWRpYTsgZ3lyb3Njb3BlOyBwaWN0dXJlLWluLXBpY3R1cmUiIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT4=" width="560" style="border:none !important;" height="315"></iframe>`)[0];
+                popup_1dca7a282f4febab6df21acd9d296fd2.setContent(i_frame_d07011be38b741e85d4a56b48d2ce9a1);
             
         
 
-        marker_0c43f8f7cef40e8430fce3006e803b9c.bindPopup(popup_8a6dc3e2823506f4e61c55024d1ee59a)
+        marker_633e44ca28bf5bfa17bea5816daae68c.bindPopup(popup_1dca7a282f4febab6df21acd9d296fd2)
         ;
 
         
     
     
-            marker_0c43f8f7cef40e8430fce3006e803b9c.bindTooltip(
+            marker_633e44ca28bf5bfa17bea5816daae68c.bindTooltip(
                 `<div>
                      Mis Uszatek
                  </div>`,
@@ -136,34 +265,34 @@
             );
         
     
-            var marker_136378166c129ceac892020a0bbfd679 = L.marker(
+            var marker_b65e9f403b3f1d65540b04a5e1e8f6c8 = L.marker(
                 [51.77721719686519, 19.45463642538355],
                 {}
-            ).addTo(map_b4907325adfada743f7f8fef5bf6b1b8);
+            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
         
     
-            var icon_e1a4bceb2e53a02cc7492f6b8d9d5569 = L.AwesomeMarkers.icon(
+            var icon_89e883c3e59ae8e2b8ba502da71a67ec = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_136378166c129ceac892020a0bbfd679.setIcon(icon_e1a4bceb2e53a02cc7492f6b8d9d5569);
+            marker_b65e9f403b3f1d65540b04a5e1e8f6c8.setIcon(icon_89e883c3e59ae8e2b8ba502da71a67ec);
         
     
-        var popup_cea7824845d87e2f8567731cc561b98e = L.popup({"maxWidth": "100%"});
+        var popup_abfc9ab94b0e7987359b3ab6f7ddb8c0 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_578d8c38c3fc4e1b9b9789f24bb3fd9f = $(`<div id="html_578d8c38c3fc4e1b9b9789f24bb3fd9f" style="width: 100.0%; height: 100.0%;"><h1>Freedom Square</h1></div>`)[0];
-                popup_cea7824845d87e2f8567731cc561b98e.setContent(html_578d8c38c3fc4e1b9b9789f24bb3fd9f);
+                var html_1eb0444e9c3c7f824d159b2ae20e8e12 = $(`<div id="html_1eb0444e9c3c7f824d159b2ae20e8e12" style="width: 100.0%; height: 100.0%;"><h1>Freedom Square</h1></div>`)[0];
+                popup_abfc9ab94b0e7987359b3ab6f7ddb8c0.setContent(html_1eb0444e9c3c7f824d159b2ae20e8e12);
             
         
 
-        marker_136378166c129ceac892020a0bbfd679.bindPopup(popup_cea7824845d87e2f8567731cc561b98e)
+        marker_b65e9f403b3f1d65540b04a5e1e8f6c8.bindPopup(popup_abfc9ab94b0e7987359b3ab6f7ddb8c0)
         ;
 
         
     
     
-            marker_136378166c129ceac892020a0bbfd679.bindTooltip(
+            marker_b65e9f403b3f1d65540b04a5e1e8f6c8.bindTooltip(
                 `<div>
                      Freedom Square
                  </div>`,
@@ -171,34 +300,34 @@
             );
         
     
-            var marker_c73cbc8376787fd464ae2cca246cb9d8 = L.marker(
+            var marker_fc784056a2a17128cd91788c637d92d1 = L.marker(
                 [51.76792979001689, 19.456680333446094],
                 {}
-            ).addTo(map_b4907325adfada743f7f8fef5bf6b1b8);
+            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
         
     
-            var icon_525d1b53b458a6a15464a7558a2de84d = L.AwesomeMarkers.icon(
+            var icon_3cb64b39234ec064e56259afc27a609d = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_c73cbc8376787fd464ae2cca246cb9d8.setIcon(icon_525d1b53b458a6a15464a7558a2de84d);
+            marker_fc784056a2a17128cd91788c637d92d1.setIcon(icon_3cb64b39234ec064e56259afc27a609d);
         
     
-        var popup_ae98cc87cfa143e87e8fb17e1642de08 = L.popup({"maxWidth": "100%"});
+        var popup_225b69509c24a8ed79bfc66e7983089b = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_8856a525947cd851ad824ae0b6adb541 = $(`<div id="html_8856a525947cd851ad824ae0b6adb541" style="width: 100.0%; height: 100.0%;"><h1>Rubenstein Piano</h1><img src='photos/piano.jpg' width = 400px/></div>`)[0];
-                popup_ae98cc87cfa143e87e8fb17e1642de08.setContent(html_8856a525947cd851ad824ae0b6adb541);
+                var html_52298ef6e1801e60615d05e18e7be5d0 = $(`<div id="html_52298ef6e1801e60615d05e18e7be5d0" style="width: 100.0%; height: 100.0%;"><h1>Rubenstein Piano</h1><img src='photos/piano.jpg' width = 400px/></div>`)[0];
+                popup_225b69509c24a8ed79bfc66e7983089b.setContent(html_52298ef6e1801e60615d05e18e7be5d0);
             
         
 
-        marker_c73cbc8376787fd464ae2cca246cb9d8.bindPopup(popup_ae98cc87cfa143e87e8fb17e1642de08)
+        marker_fc784056a2a17128cd91788c637d92d1.bindPopup(popup_225b69509c24a8ed79bfc66e7983089b)
         ;
 
         
     
     
-            marker_c73cbc8376787fd464ae2cca246cb9d8.bindTooltip(
+            marker_fc784056a2a17128cd91788c637d92d1.bindTooltip(
                 `<div>
                      Rubenstein Piano
                  </div>`,
@@ -206,34 +335,34 @@
             );
         
     
-            var marker_1681c8d6fc05e9207fbc82a5f8d4d91e = L.marker(
+            var marker_1f1452ba3c52ee45bba200fe5908698c = L.marker(
                 [51.77287876573184, 19.455790267712022],
                 {}
-            ).addTo(map_b4907325adfada743f7f8fef5bf6b1b8);
+            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
         
     
-            var icon_563efc968575f30e259e6bba8cfefac9 = L.AwesomeMarkers.icon(
+            var icon_5026b55f60f4cc549805d8c547da92e5 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_1681c8d6fc05e9207fbc82a5f8d4d91e.setIcon(icon_563efc968575f30e259e6bba8cfefac9);
+            marker_1f1452ba3c52ee45bba200fe5908698c.setIcon(icon_5026b55f60f4cc549805d8c547da92e5);
         
     
-        var popup_c099157616faf4e2ef5b436be40103fd = L.popup({"maxWidth": "100%"});
+        var popup_56209c931aef6e505e416ace4c2f628a = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_9e094d2c519aee94aa8398577313e75c = $(`<div id="html_9e094d2c519aee94aa8398577313e75c" style="width: 100.0%; height: 100.0%;"><h1 style="font-size:30px;">Three manufactures</h1><img src='photos/manufactures.jpg' width = 400px/><h2> Izrael Poznański</h2><a style="font-size:20px;" href="famousPeople.html#Izrael">video</a><h2 style="font-size:30px;">Karol Scheibler</h2><a style="font-size:20px;" href="famousPeople.html#Karol">video</a><h2 style="font-size:30px;">Henryk Grohman</h2></div>`)[0];
-                popup_c099157616faf4e2ef5b436be40103fd.setContent(html_9e094d2c519aee94aa8398577313e75c);
+                var html_6719d64e0a502abcc9a860a0a9e42dd2 = $(`<div id="html_6719d64e0a502abcc9a860a0a9e42dd2" style="width: 100.0%; height: 100.0%;"><h1 style="font-size:30px;">Three manufactures</h1><img src='photos/manufactures.jpg' width = 400px/><h2> Izrael Poznański</h2><a style="font-size:20px;" href="famousPeople.html#Izrael">video</a><h2 style="font-size:30px;">Karol Scheibler</h2><a style="font-size:20px;" href="famousPeople.html#Karol">video</a><h2 style="font-size:30px;">Henryk Grohman</h2></div>`)[0];
+                popup_56209c931aef6e505e416ace4c2f628a.setContent(html_6719d64e0a502abcc9a860a0a9e42dd2);
             
         
 
-        marker_1681c8d6fc05e9207fbc82a5f8d4d91e.bindPopup(popup_c099157616faf4e2ef5b436be40103fd)
+        marker_1f1452ba3c52ee45bba200fe5908698c.bindPopup(popup_56209c931aef6e505e416ace4c2f628a)
         ;
 
         
     
     
-            marker_1681c8d6fc05e9207fbc82a5f8d4d91e.bindTooltip(
+            marker_1f1452ba3c52ee45bba200fe5908698c.bindTooltip(
                 `<div>
                      Three manufactures
                  </div>`,
@@ -241,34 +370,34 @@
             );
         
     
-            var marker_43a53e1598b2778ab79f0399e9307ada = L.marker(
+            var marker_165e61e4b8f0bd0f833d5fe69d418614 = L.marker(
                 [51.778906051771884, 19.451293974304274],
                 {}
-            ).addTo(map_b4907325adfada743f7f8fef5bf6b1b8);
+            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
         
     
-            var icon_fdc4cd9beba8a60bbba990d45daa2b7a = L.AwesomeMarkers.icon(
+            var icon_3a81246f38a821efd2c04b37b16eb719 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_43a53e1598b2778ab79f0399e9307ada.setIcon(icon_fdc4cd9beba8a60bbba990d45daa2b7a);
+            marker_165e61e4b8f0bd0f833d5fe69d418614.setIcon(icon_3a81246f38a821efd2c04b37b16eb719);
         
     
-        var popup_45514e0c5ef090314acdb4b15969a2a9 = L.popup({"maxWidth": "100%"});
+        var popup_15e08abc29b89aee8c43437f6ccc013d = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_a76a973b107ba7327960435a1927cc15 = $(`<div id="html_a76a973b107ba7327960435a1927cc15" style="width: 100.0%; height: 100.0%;"><h1>Poznanski Palace</h1><a style="font-size:20px;" href="famousPlaces.html#PoznanskiPalace" onclick="highlightVideoContainer("famousPlaces.html", "PoznanskiPalace)">video</a></div>`)[0];
-                popup_45514e0c5ef090314acdb4b15969a2a9.setContent(html_a76a973b107ba7327960435a1927cc15);
+                var html_5f3517bc25800aedeefe42632f88fd98 = $(`<div id="html_5f3517bc25800aedeefe42632f88fd98" style="width: 100.0%; height: 100.0%;"><h1>Poznanski Palace</h1><a style="font-size:20px;" href="famousPlaces.html#PoznanskiPalace" onclick="highlightVideoContainer('famousPlaces.html', 'PoznanskiPalace')">video</a></div>`)[0];
+                popup_15e08abc29b89aee8c43437f6ccc013d.setContent(html_5f3517bc25800aedeefe42632f88fd98);
             
         
 
-        marker_43a53e1598b2778ab79f0399e9307ada.bindPopup(popup_45514e0c5ef090314acdb4b15969a2a9)
+        marker_165e61e4b8f0bd0f833d5fe69d418614.bindPopup(popup_15e08abc29b89aee8c43437f6ccc013d)
         ;
 
         
     
     
-            marker_43a53e1598b2778ab79f0399e9307ada.bindTooltip(
+            marker_165e61e4b8f0bd0f833d5fe69d418614.bindTooltip(
                 `<div>
                      Poznanski Palace
                  </div>`,
@@ -276,34 +405,34 @@
             );
         
     
-            var marker_23345f185d37c8f6d7ba8510eeeb6e32 = L.marker(
-                [51.778906051771884, 19.451293974304274],
+            var marker_58f483383b712931b32eed88cecb4022 = L.marker(
+                [51.77933314100332, 19.444952116435193],
                 {}
-            ).addTo(map_b4907325adfada743f7f8fef5bf6b1b8);
+            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
         
     
-            var icon_670772540109d3f915eaa200a259035f = L.AwesomeMarkers.icon(
+            var icon_eaf68b5aa572fa9c51d5bea8b84101fc = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_23345f185d37c8f6d7ba8510eeeb6e32.setIcon(icon_670772540109d3f915eaa200a259035f);
+            marker_58f483383b712931b32eed88cecb4022.setIcon(icon_eaf68b5aa572fa9c51d5bea8b84101fc);
         
     
-        var popup_5bfaa4d3d44849518a3773c34f044d04 = L.popup({"maxWidth": "100%"});
+        var popup_1b931ec6fb307040b69df2e201c3dcff = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_87f6c3273d57535fd893ef189333bd3f = $(`<div id="html_87f6c3273d57535fd893ef189333bd3f" style="width: 100.0%; height: 100.0%;"><h1>Manufacture</h1><img src='photos/manufaktura.jpg' width = 400px/><a style="font-size:20px;" href="famousPlaces.html#PoznanskiFactory" onclick="highlightVideoContainer()">video</a></div>`)[0];
-                popup_5bfaa4d3d44849518a3773c34f044d04.setContent(html_87f6c3273d57535fd893ef189333bd3f);
+                var html_259dd625411446f66eb4e13a14193d26 = $(`<div id="html_259dd625411446f66eb4e13a14193d26" style="width: 100.0%; height: 100.0%;"><h1>Manufacture</h1><img src='photos/manufaktura.jpg' width = 400px/><a style="font-size:20px;" href="famousPlaces.html#PoznanskiFactory" onclick="highlightVideoContainer()">video</a></div>`)[0];
+                popup_1b931ec6fb307040b69df2e201c3dcff.setContent(html_259dd625411446f66eb4e13a14193d26);
             
         
 
-        marker_23345f185d37c8f6d7ba8510eeeb6e32.bindPopup(popup_5bfaa4d3d44849518a3773c34f044d04)
+        marker_58f483383b712931b32eed88cecb4022.bindPopup(popup_1b931ec6fb307040b69df2e201c3dcff)
         ;
 
         
     
     
-            marker_23345f185d37c8f6d7ba8510eeeb6e32.bindTooltip(
+            marker_58f483383b712931b32eed88cecb4022.bindTooltip(
                 `<div>
                      Manufacture
                  </div>`,
@@ -311,39 +440,55 @@
             );
         
     
-            var marker_87024c94857f9561d30fda0d1f17b057 = L.marker(
+            var marker_279c022d2d8878c55b36401c15cfc8cb = L.marker(
                 [51.75942655450387, 19.457584362659563],
                 {}
-            ).addTo(map_b4907325adfada743f7f8fef5bf6b1b8);
+            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
         
     
-            var icon_8fc0beb898862840c4459918a9b6ae26 = L.AwesomeMarkers.icon(
+            var icon_71462f5d0cc84262cf86029968447830 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_87024c94857f9561d30fda0d1f17b057.setIcon(icon_8fc0beb898862840c4459918a9b6ae26);
+            marker_279c022d2d8878c55b36401c15cfc8cb.setIcon(icon_71462f5d0cc84262cf86029968447830);
         
     
-        var popup_5ed846083a997b0d4bbdf8fd067d12cf = L.popup({"maxWidth": "100%"});
+        var popup_52c3b256e516b66ce19b7906465ca718 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_9830ed332ecb1f45a3cba580f0a65512 = $(`<div id="html_9830ed332ecb1f45a3cba580f0a65512" style="width: 100.0%; height: 100.0%;"><h1>Unicorn Stable</h1><img src='photos/UnicornStable.jpg' width = 400px/><a style="font-size:20px;" href="famousPlaces.html#PoznanskiFactory" </div>`)[0];
-                popup_5ed846083a997b0d4bbdf8fd067d12cf.setContent(html_9830ed332ecb1f45a3cba580f0a65512);
+                var html_5a9db25fc54f266624a8f1cc665178fb = $(`<div id="html_5a9db25fc54f266624a8f1cc665178fb" style="width: 100.0%; height: 100.0%;"><h1>Unicorn Stable</h1><img src='photos/UnicornStable.jpg' width = 400px/><a style="font-size:20px;" href="famousPlaces.html#PoznanskiFactory" </div>`)[0];
+                popup_52c3b256e516b66ce19b7906465ca718.setContent(html_5a9db25fc54f266624a8f1cc665178fb);
             
         
 
-        marker_87024c94857f9561d30fda0d1f17b057.bindPopup(popup_5ed846083a997b0d4bbdf8fd067d12cf)
+        marker_279c022d2d8878c55b36401c15cfc8cb.bindPopup(popup_52c3b256e516b66ce19b7906465ca718)
         ;
 
         
     
     
-            marker_87024c94857f9561d30fda0d1f17b057.bindTooltip(
+            marker_279c022d2d8878c55b36401c15cfc8cb.bindTooltip(
                 `<div>
                      Unicorn Stable
                  </div>`,
                 {"sticky": true}
             );
+        
+    
+            var layer_control_8e25cfa264d73f6c604d1c83209f1249 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_8be32d6f4ed0538a695af69391064370,
+                },
+                overlays :  {
+                    "Restaurants" : feature_group_74171c15d287b6185f8993b70a09ae28,
+                    "Monuments" : feature_group_f44e4d9d9c6f8544de5efe77c239d0b1,
+                },
+            };
+            L.control.layers(
+                layer_control_8e25cfa264d73f6c604d1c83209f1249.base_layers,
+                layer_control_8e25cfa264d73f6c604d1c83209f1249.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_dfc511833d5e8393e89408dc7728d415);
         
 </script>
 </html>

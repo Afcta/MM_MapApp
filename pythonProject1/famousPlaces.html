@@ -15,9 +15,6 @@
             100% { opacity: 1; }
         }
     </style>
-  <script>
-
-</script>
 </head>
 <body>
     <nav>
@@ -58,5 +55,20 @@
         </div>
       </div>
     </div>
+<script>
+function highlightVideoContainer(htmlFile, containerID) {
+    // Get the video container element by ID
+    var videoContainer = document.getElementById(containerID);
+
+    // Play the video
+    videoContainer.getElementsByTagName("video")[0].play();
+
+    // Scroll to the video container
+    videoContainer.scrollIntoView();
+
+    // Change the URL to the HTML file with the video container highlighted
+    window.history.pushState(null, null, htmlFile + "#" + containerID);
+}
+</script>
 </body>
 </html>
