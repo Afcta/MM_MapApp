@@ -3,10 +3,10 @@ body {
   background-attachment: fixed;
 
 }
-
-:target {
-  border: 2px solid yellow;
+.highlight {
+  background-color: yellow;
 }
+
 
 #category1,
 #category2,

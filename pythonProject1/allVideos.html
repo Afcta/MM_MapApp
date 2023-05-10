@@ -5,17 +5,30 @@
 	<link rel="stylesheet" type="text/css" href="videostyle.css">
   <script>
   function filterVideos(category) {
-    // Get all video rows
     var rows = document.getElementsByClassName("row");
-    // Loop through all video rows
     for (var i = 0; i < rows.length; i++) {
       if (rows[i].id == category || category == "all") {
         rows[i].style.display = "flex";
       }
-      // Otherwise, hide the row
       else {
         rows[i].style.display = "none";
       }
+    }
+  }
+</script>
+  <script>
+  // Get the URL parameters
+  const urlParams = new URLSearchParams(window.location.search);
+
+  // Check if the "highlight" parameter is set
+  if (urlParams.has('highlight')) {
+    // Get the ID of the element to highlight
+    const elementID = urlParams.get('highlight');
+
+    // Add the "highlight" class to the element
+    const element = document.getElementById(elementID);
+    if (element) {
+      element.classList.add('highlight');
     }
   }
 </script>
@@ -24,53 +37,52 @@
   <div class="navbar">
     <button class="active" onclick="filterVideos('all')">All</button>
     <button onclick="filterVideos('category1')">Famous people</button>
-    <button onclick="filterVideos('category2')">Famous places</button>
+    <button id="category2-button" onclick="filterVideos('category2')">Famous places</button>
     <button onclick="filterVideos('category3')">Others</button>
   </div>
 
   <div class="videos">
-    <div id="category1" class="row">
-      <div class="video-container">
-        <video controls>
-          <source src="videos/Poznanski.mp4" type="video/mp4">
-        </video>
-        <div class="video-info">
-          <div class="title">Izrael Poznanski</div>
-          <div class="description">Polish-Jewish businessman, textile magnate and philanthropist in Łódź</div>
-        </div>
-      </div>
-      <div class="video-container">
-        <video controls>
-          <source src="videos/Ludwik.mp4" type="video/mp4">
-        </video>
-        <div class="video-info">
-          <div class="title">Ludwik Geyer</div>
-          <div class="description">Industrialist, one of the pioneers of the development of the textile industry in Lodz and Poland</div>
-        </div>
-      </div>
+<div id="category1" class="row">
+  <div class="video-container">
+    <video controls>
+      <source src="videos/Poznanski.mp4" type="video/mp4">
+    </video>
+    <div class="video-info">
+      <div class="title">Izrael Poznanski</div>
+      <div class="description">Polish-Jewish businessman, textile magnate and philanthropist in Łódź</div>
+    </div>
+  </div>
+  <div class="video-container">
+    <video controls>
+      <source src="videos/Ludwik.mp4" type="video/mp4">
+    </video>
+    <div class="video-info">
+      <div class="title">Ludwik Geyer</div>
+      <div class="description">Industrialist, one of the pioneers of the development of the textile industry in Lodz and Poland</div>
+    </div>
+  </div>
+  <div class="video-container" id="Karolvideo">
+    <video controls>
+      <source src="videos/Karol.mp4" type="video/mp4">
+    </video>
+    <div class="video-info">
+      <div class="title">Karol Scheibler</div>
+      <div class="description">German-born Polish industrialist, businessman and textile manufacturer.</div>
+    </div>
+  </div>
+  <div class="video-container">
+    <video controls>
+      <source src="videos/Ludwik.mp4" type="video/mp4">
+    </video>
+    <div class="video-info">
+      <div class="title">Nothing yet</div>
+      <div class="description">Description of Category 1 Video 2</div>
+    </div>
+  </div>
+</div>
 
-      <div class="video-container" id="Karolvideo">
-        <video controls>
-          <source src="videos/Karol.mp4" type="video/mp4">
-        </video>
-        <div class="video-info">
-          <div class="title">Karol Scheibler</div>
-          <div class="description">German-born Polish industrialist, businessman and textile manufacturer.</div>
-        </div>
-      </div>
-            <div class="video-container">
-        <video controls>
-          <source src="videos/Ludwik.mp4" type="video/mp4">
-        </video>
-        <div class="video-info">
-          <div class="title">Nothing yet</div>
-          <div class="description">Description of Category 1 Video 2</div>
-        </div>
-      </div>
-      </div>
-
-    <div id="category2" class="row">
-      <div class="video-container">
+    <div id="category2" class="row" >
+      <div class="video-container" id="PoznanskiPalace">
         <video controls>
           <source src="videos/PoznanskiPalace.mp4" type="video/mp4">
         </video>
