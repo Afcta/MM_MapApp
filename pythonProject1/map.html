@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_dfc511833d5e8393e89408dc7728d415 {
+                #map_a10418799984e303bbbef2c384ebf611 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -51,6 +51,7 @@
         position: top;
         flex-grow: 1;
         color: white;
+        font-family: Arial;
     }
     .top-bar{
         display: flex;
@@ -64,27 +65,26 @@
     </style>
     
     
-            <div class="folium-map" id="map_dfc511833d5e8393e89408dc7728d415" ></div>
+            <div class="folium-map" id="map_a10418799984e303bbbef2c384ebf611" ></div>
         
 </body>
 <script>
     
     
         function toggleTheme() {
-            var body = document.getElementsByTagName('body')[0];
-            var mapDiv = document.getElementsByClassName('folium-map')[0];
-            if (body.classList.contains('dark-theme')) {
-                body.classList.remove('dark-theme');
+            var mapDiv = document.getElementsByClassName('leaflet-container')[0];
+            if (mapDiv.classList.contains('dark-theme')) {
+                mapDiv.classList.remove('dark-theme');
                 mapDiv.style.filter = 'none';
             } else {
-                body.classList.add('dark-theme');
+                mapDiv.classList.add('dark-theme');
                 mapDiv.style.filter = 'invert(100%) hue-rotate(180deg)';
             }
         }
     
     
-            var map_dfc511833d5e8393e89408dc7728d415 = L.map(
-                "map_dfc511833d5e8393e89408dc7728d415",
+            var map_a10418799984e303bbbef2c384ebf611 = L.map(
+                "map_a10418799984e303bbbef2c384ebf611",
                 {
                     center: [51.760687810375956, 19.458312506837643],
                     crs: L.CRS.EPSG3857,
@@ -98,131 +98,251 @@
 
         
     
-            var tile_layer_8be32d6f4ed0538a695af69391064370 = L.tileLayer(
+            var tile_layer_c22a27addf0e2235ebe953539f0ea101 = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_dfc511833d5e8393e89408dc7728d415);
+            ).addTo(map_a10418799984e303bbbef2c384ebf611);
         
     
-            var feature_group_74171c15d287b6185f8993b70a09ae28 = L.featureGroup(
+            var tile_layer_77e63400b69d6ffd3c8d8590ebf24f1e = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca target=\"_blank\" href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca target=\"_blank\" href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca target=\"_blank\" href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a10418799984e303bbbef2c384ebf611);
+        
+    
+            var tile_layer_c53106f23a7257c98d4a46aac061c0e7 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca target=\"_blank\" href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca target=\"_blank\" href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca target=\"_blank\" href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_a10418799984e303bbbef2c384ebf611);
+        
+    
+            var feature_group_ea29ba26ac8661d91212c10055d487b5 = L.featureGroup(
                 {}
-            ).addTo(map_dfc511833d5e8393e89408dc7728d415);
+            ).addTo(map_a10418799984e303bbbef2c384ebf611);
         
     
-            var marker_52216e8937b0a359a960ef84eec52887 = L.marker(
+            var marker_e9dd9ef2706932c20586307f1602ef7c = L.marker(
                 [51.76301779499515, 19.458066994697752],
                 {}
-            ).addTo(feature_group_74171c15d287b6185f8993b70a09ae28);
+            ).addTo(feature_group_ea29ba26ac8661d91212c10055d487b5);
         
     
-            var icon_c19993e3a6e08bdeafcf459da29456f5 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_8c03b173bbc49a41ec59515c51182cd8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_52216e8937b0a359a960ef84eec52887.setIcon(icon_c19993e3a6e08bdeafcf459da29456f5);
+            marker_e9dd9ef2706932c20586307f1602ef7c.setIcon(icon_8c03b173bbc49a41ec59515c51182cd8);
         
     
-        var popup_44b443b79987b2eca9e5ab3042b541c4 = L.popup({"maxWidth": "100%"});
+        var popup_a2ef7b50844821074cb87c14a35f996b = L.popup({"maxWidth": 500});
 
         
             
-                var html_5dab670f4a47c362b94977bf96186a6b = $(`<div id="html_5dab670f4a47c362b94977bf96186a6b" style="width: 100.0%; height: 100.0%;"><h4>Otwarte drzwi</h4><p>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.6</p></div>`)[0];
-                popup_44b443b79987b2eca9e5ab3042b541c4.setContent(html_5dab670f4a47c362b94977bf96186a6b);
+                var html_9d52ba31fe939c75f08da3bd3ad8bfdd = $(`<div id="html_9d52ba31fe939c75f08da3bd3ad8bfdd" style="width: 100.0%; height: 100.0%;"><h4>Otwarte drzwi</h4><p>Type of cuisine: Italian<br>Google price level: $$<br>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.6</p></div>`)[0];
+                popup_a2ef7b50844821074cb87c14a35f996b.setContent(html_9d52ba31fe939c75f08da3bd3ad8bfdd);
             
         
 
-        marker_52216e8937b0a359a960ef84eec52887.bindPopup(popup_44b443b79987b2eca9e5ab3042b541c4)
+        marker_e9dd9ef2706932c20586307f1602ef7c.bindPopup(popup_a2ef7b50844821074cb87c14a35f996b)
         ;
 
         
     
     
-            var marker_92136751b46d974fe427bb34db82406d = L.marker(
+            var marker_186a7f497619e32959fa6d60f9dd9f5c = L.marker(
                 [51.76876938105906, 19.456353925382906],
                 {}
-            ).addTo(feature_group_74171c15d287b6185f8993b70a09ae28);
+            ).addTo(feature_group_ea29ba26ac8661d91212c10055d487b5);
         
     
-            var icon_767c23d4980f7fbdb5a1b4d2052ad5fb = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_710b95d036bde077beebbcdd0c286f1f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_92136751b46d974fe427bb34db82406d.setIcon(icon_767c23d4980f7fbdb5a1b4d2052ad5fb);
+            marker_186a7f497619e32959fa6d60f9dd9f5c.setIcon(icon_710b95d036bde077beebbcdd0c286f1f);
         
     
-        var popup_5be1ab33971a90611a61a19839130836 = L.popup({"maxWidth": "100%"});
+        var popup_6158d4615900b4113b2d071f44f88cf3 = L.popup({"maxWidth": 500});
 
         
             
-                var html_7143145f09e891ad3ea2a6e70093ce08 = $(`<div id="html_7143145f09e891ad3ea2a6e70093ce08" style="width: 100.0%; height: 100.0%;"><h4>Chlopska Izba</h4><p>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>`)[0];
-                popup_5be1ab33971a90611a61a19839130836.setContent(html_7143145f09e891ad3ea2a6e70093ce08);
+                var html_966cd593f7be987d558691e6b288cce6 = $(`<div id="html_966cd593f7be987d558691e6b288cce6" style="width: 100.0%; height: 100.0%;"><h4>Chlopska Izba</h4><p>Type of cuisine: Polish<br>Google price level: $$<br>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> 3.8</p></div>`)[0];
+                popup_6158d4615900b4113b2d071f44f88cf3.setContent(html_966cd593f7be987d558691e6b288cce6);
             
         
 
-        marker_92136751b46d974fe427bb34db82406d.bindPopup(popup_5be1ab33971a90611a61a19839130836)
+        marker_186a7f497619e32959fa6d60f9dd9f5c.bindPopup(popup_6158d4615900b4113b2d071f44f88cf3)
         ;
 
         
     
     
-            var marker_edc49e869d2b6edc38dc190ded55fcfb = L.marker(
+            var marker_7fb42dc790571d8cd2d07e968bba5e9b = L.marker(
                 [51.77928756113294, 19.449665533826533],
                 {}
-            ).addTo(feature_group_74171c15d287b6185f8993b70a09ae28);
+            ).addTo(feature_group_ea29ba26ac8661d91212c10055d487b5);
         
     
-            var icon_b6433424e34fd73cbae92a1eb24a6080 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_9699e45a389c9c30e74dfeb736e9403c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_edc49e869d2b6edc38dc190ded55fcfb.setIcon(icon_b6433424e34fd73cbae92a1eb24a6080);
+            marker_7fb42dc790571d8cd2d07e968bba5e9b.setIcon(icon_9699e45a389c9c30e74dfeb736e9403c);
         
     
-        var popup_77821af8517074637b670ca6edb02afb = L.popup({"maxWidth": "100%"});
+        var popup_81e4a8bea37e3011e4369d8d35a44f87 = L.popup({"maxWidth": 500});
 
         
             
-                var html_76325f92f7add5937f8e53429cfdeb75 = $(`<div id="html_76325f92f7add5937f8e53429cfdeb75" style="width: 100.0%; height: 100.0%;"><h4>Galicja</h4><p>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>`)[0];
-                popup_77821af8517074637b670ca6edb02afb.setContent(html_76325f92f7add5937f8e53429cfdeb75);
+                var html_5ab70fdba4ee10c6c2ecd68f6fa05846 = $(`<div id="html_5ab70fdba4ee10c6c2ecd68f6fa05846" style="width: 100.0%; height: 100.0%;"><h4>Galicja</h4><p>Type of cuisine: Polish<br>Google price level: $$<br>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.5</p></div>`)[0];
+                popup_81e4a8bea37e3011e4369d8d35a44f87.setContent(html_5ab70fdba4ee10c6c2ecd68f6fa05846);
             
         
 
-        marker_edc49e869d2b6edc38dc190ded55fcfb.bindPopup(popup_77821af8517074637b670ca6edb02afb)
+        marker_7fb42dc790571d8cd2d07e968bba5e9b.bindPopup(popup_81e4a8bea37e3011e4369d8d35a44f87)
         ;
 
         
     
     
-            var feature_group_f44e4d9d9c6f8544de5efe77c239d0b1 = L.featureGroup(
+            var marker_5c8b601eacc7b70549b242ee3dc76775 = L.marker(
+                [51.76188505647845, 19.461487548198058],
                 {}
-            ).addTo(map_dfc511833d5e8393e89408dc7728d415);
+            ).addTo(feature_group_ea29ba26ac8661d91212c10055d487b5);
         
     
-            var marker_32a84456f389c1beae327be1e26b580b = L.marker(
+            var icon_b773787053cc8ca223b145c7648b19bb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_5c8b601eacc7b70549b242ee3dc76775.setIcon(icon_b773787053cc8ca223b145c7648b19bb);
+        
+    
+        var popup_49a3e7c86304f40ce760920d7eae3d52 = L.popup({"maxWidth": 500});
+
+        
+            
+                var html_8ca2ecc207e568325fdf5c1be2b043db = $(`<div id="html_8ca2ecc207e568325fdf5c1be2b043db" style="width: 100.0%; height: 100.0%;"><h4>DOKI</h4><p>Type of cuisine: Mediterranean<br>Google price level: $$<br>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.5</p></div>`)[0];
+                popup_49a3e7c86304f40ce760920d7eae3d52.setContent(html_8ca2ecc207e568325fdf5c1be2b043db);
+            
+        
+
+        marker_5c8b601eacc7b70549b242ee3dc76775.bindPopup(popup_49a3e7c86304f40ce760920d7eae3d52)
+        ;
+
+        
+    
+    
+            var marker_a8b6cc0f61c875a45fb0164ad3c9de3a = L.marker(
+                [51.77028589498561, 19.460605927270585],
+                {}
+            ).addTo(feature_group_ea29ba26ac8661d91212c10055d487b5);
+        
+    
+            var icon_b1e120ced2932085e331aa47915e74cb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a8b6cc0f61c875a45fb0164ad3c9de3a.setIcon(icon_b1e120ced2932085e331aa47915e74cb);
+        
+    
+        var popup_3c6967b0f9320878698169021f75dd82 = L.popup({"maxWidth": 500});
+
+        
+            
+                var html_de3ebd4cb747146768cd93ad9a6c8d4f = $(`<div id="html_de3ebd4cb747146768cd93ad9a6c8d4f" style="width: 100.0%; height: 100.0%;"><h4>Tango Argentino Steakhouse</h4><p>Type of cuisine: Argentinian<br>Google price level: $$$<br>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.8</p></div>`)[0];
+                popup_3c6967b0f9320878698169021f75dd82.setContent(html_de3ebd4cb747146768cd93ad9a6c8d4f);
+            
+        
+
+        marker_a8b6cc0f61c875a45fb0164ad3c9de3a.bindPopup(popup_3c6967b0f9320878698169021f75dd82)
+        ;
+
+        
+    
+    
+            var marker_95d0b22922f7df15dc5492f7e29d67d4 = L.marker(
+                [51.766699906500406, 19.46124564878098],
+                {}
+            ).addTo(feature_group_ea29ba26ac8661d91212c10055d487b5);
+        
+    
+            var icon_29b1d6e68b375ead86541e41f54c01ef = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_95d0b22922f7df15dc5492f7e29d67d4.setIcon(icon_29b1d6e68b375ead86541e41f54c01ef);
+        
+    
+        var popup_e260d9e36b7060d150996901c2448f52 = L.popup({"maxWidth": 500});
+
+        
+            
+                var html_3bc035054bcc0b7c49bd21a0e257bc7e = $(`<div id="html_3bc035054bcc0b7c49bd21a0e257bc7e" style="width: 100.0%; height: 100.0%;"><h4>Zloty Imbir</h4><p>Type of cuisine: Chinese<br>Google price level: $$<br>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.7</p></div>`)[0];
+                popup_e260d9e36b7060d150996901c2448f52.setContent(html_3bc035054bcc0b7c49bd21a0e257bc7e);
+            
+        
+
+        marker_95d0b22922f7df15dc5492f7e29d67d4.bindPopup(popup_e260d9e36b7060d150996901c2448f52)
+        ;
+
+        
+    
+    
+            var marker_419fffd8a51832f40c53f24fd621a93f = L.marker(
+                [51.76908497809051, 19.45632981826978],
+                {}
+            ).addTo(feature_group_ea29ba26ac8661d91212c10055d487b5);
+        
+    
+            var icon_3edb4c40e07cef6281a15eae7bb503f0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "cutlery", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_419fffd8a51832f40c53f24fd621a93f.setIcon(icon_3edb4c40e07cef6281a15eae7bb503f0);
+        
+    
+        var popup_61979fdb8c4e79ab7e6aa4d2a7656078 = L.popup({"maxWidth": 500});
+
+        
+            
+                var html_49fe28d29d87ef5fec8ef582c2a5c85d = $(`<div id="html_49fe28d29d87ef5fec8ef582c2a5c85d" style="width: 100.0%; height: 100.0%;"><h4>Manekin</h4><p>Type of cuisine: Creperie<br>Google price level: $<br>Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 4.5</p></div>`)[0];
+                popup_61979fdb8c4e79ab7e6aa4d2a7656078.setContent(html_49fe28d29d87ef5fec8ef582c2a5c85d);
+            
+        
+
+        marker_419fffd8a51832f40c53f24fd621a93f.bindPopup(popup_61979fdb8c4e79ab7e6aa4d2a7656078)
+        ;
+
+        
+    
+    
+            var feature_group_988d3dbe0f2c3127c5611321f9866c58 = L.featureGroup(
+                {}
+            ).addTo(map_a10418799984e303bbbef2c384ebf611);
+        
+    
+            var marker_e6c7bd5f37b6cac50fceb1c93ff2517d = L.marker(
                 [51.76469177181548, 19.45746972538261],
                 {}
-            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
+            ).addTo(feature_group_988d3dbe0f2c3127c5611321f9866c58);
         
     
-            var icon_d0ce8bb0c46f1ae22d6c76e0d9cebd53 = L.AwesomeMarkers.icon(
+            var icon_799f972fa389662d7910541c50e5fc9e = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_32a84456f389c1beae327be1e26b580b.setIcon(icon_d0ce8bb0c46f1ae22d6c76e0d9cebd53);
+            marker_e6c7bd5f37b6cac50fceb1c93ff2517d.setIcon(icon_799f972fa389662d7910541c50e5fc9e);
         
     
-        var popup_a4e6057b260304e65eaa958e2486d11e = L.popup({"maxWidth": "100%"});
+        var popup_d6ecb2838ce87fe1ec19f3d37672ab3a = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_61f953850a65f36336af2cc68147bb95 = $(`<div id="html_61f953850a65f36336af2cc68147bb95" style="width: 100.0%; height: 100.0%;"><a href="famousPlaces.html">Click here to view the video</a></div>`)[0];
-                popup_a4e6057b260304e65eaa958e2486d11e.setContent(html_61f953850a65f36336af2cc68147bb95);
+                var html_ac8232399c20ff76e789580be56dcc3c = $(`<div id="html_ac8232399c20ff76e789580be56dcc3c" style="width: 100.0%; height: 100.0%;"><a href="famousPlaces.html">Click here to view the video</a></div>`)[0];
+                popup_d6ecb2838ce87fe1ec19f3d37672ab3a.setContent(html_ac8232399c20ff76e789580be56dcc3c);
             
         
 
-        marker_32a84456f389c1beae327be1e26b580b.bindPopup(popup_a4e6057b260304e65eaa958e2486d11e)
+        marker_e6c7bd5f37b6cac50fceb1c93ff2517d.bindPopup(popup_d6ecb2838ce87fe1ec19f3d37672ab3a)
         ;
 
         
     
     
-            marker_32a84456f389c1beae327be1e26b580b.bindTooltip(
+            marker_e6c7bd5f37b6cac50fceb1c93ff2517d.bindTooltip(
                 `<div>
                      Twoja stara
                  </div>`,
@@ -230,34 +350,34 @@
             );
         
     
-            var marker_633e44ca28bf5bfa17bea5816daae68c = L.marker(
+            var marker_31e54038be8b71439bde38a654c212b5 = L.marker(
                 [51.766564986894885, 19.456798138876003],
                 {}
-            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
+            ).addTo(feature_group_988d3dbe0f2c3127c5611321f9866c58);
         
     
-            var icon_b66916c5d90bbbd9615387f9ca73ce65 = L.AwesomeMarkers.icon(
+            var icon_7d9655ee397137aca0fbfb759c06b501 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_633e44ca28bf5bfa17bea5816daae68c.setIcon(icon_b66916c5d90bbbd9615387f9ca73ce65);
+            marker_31e54038be8b71439bde38a654c212b5.setIcon(icon_7d9655ee397137aca0fbfb759c06b501);
         
     
-        var popup_1dca7a282f4febab6df21acd9d296fd2 = L.popup({"maxWidth": 650});
+        var popup_0ff060e5e08ac4efcaddabe3dc556a7a = L.popup({"maxWidth": 650});
 
         
             
-                var i_frame_d07011be38b741e85d4a56b48d2ce9a1 = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICA8aWZyYW1lIHdpZHRoPSI1NjAiIGhlaWdodD0iMzE1IiBzcmM9Imh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL2VtYmVkLzZKQmwyUWJlMlp3IiBmcmFtZWJvcmRlcj0iMCIgYWxsb3c9ImFjY2VsZXJvbWV0ZXI7IGF1dG9wbGF5OyBjbGlwYm9hcmQtd3JpdGU7IGVuY3J5cHRlZC1tZWRpYTsgZ3lyb3Njb3BlOyBwaWN0dXJlLWluLXBpY3R1cmUiIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT4=" width="560" style="border:none !important;" height="315"></iframe>`)[0];
-                popup_1dca7a282f4febab6df21acd9d296fd2.setContent(i_frame_d07011be38b741e85d4a56b48d2ce9a1);
+                var i_frame_f59963d98ff520465f36d961e7add59a = $(`<iframe src="data:text/html;charset=utf-8;base64,CiAgICA8aWZyYW1lIHdpZHRoPSI1NjAiIGhlaWdodD0iMzE1IiBzcmM9Imh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL2VtYmVkLzZKQmwyUWJlMlp3IiBmcmFtZWJvcmRlcj0iMCIgYWxsb3c9ImFjY2VsZXJvbWV0ZXI7IGF1dG9wbGF5OyBjbGlwYm9hcmQtd3JpdGU7IGVuY3J5cHRlZC1tZWRpYTsgZ3lyb3Njb3BlOyBwaWN0dXJlLWluLXBpY3R1cmUiIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT4=" width="560" style="border:none !important;" height="315"></iframe>`)[0];
+                popup_0ff060e5e08ac4efcaddabe3dc556a7a.setContent(i_frame_f59963d98ff520465f36d961e7add59a);
             
         
 
-        marker_633e44ca28bf5bfa17bea5816daae68c.bindPopup(popup_1dca7a282f4febab6df21acd9d296fd2)
+        marker_31e54038be8b71439bde38a654c212b5.bindPopup(popup_0ff060e5e08ac4efcaddabe3dc556a7a)
         ;
 
         
     
     
-            marker_633e44ca28bf5bfa17bea5816daae68c.bindTooltip(
+            marker_31e54038be8b71439bde38a654c212b5.bindTooltip(
                 `<div>
                      Mis Uszatek
                  </div>`,
@@ -265,34 +385,34 @@
             );
         
     
-            var marker_b65e9f403b3f1d65540b04a5e1e8f6c8 = L.marker(
+            var marker_930767f1e2ea6de665e259aadcd5aaf5 = L.marker(
                 [51.77721719686519, 19.45463642538355],
                 {}
-            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
+            ).addTo(feature_group_988d3dbe0f2c3127c5611321f9866c58);
         
     
-            var icon_89e883c3e59ae8e2b8ba502da71a67ec = L.AwesomeMarkers.icon(
+            var icon_6b6186b3dc3d25ac7228eac7ee33d58f = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_b65e9f403b3f1d65540b04a5e1e8f6c8.setIcon(icon_89e883c3e59ae8e2b8ba502da71a67ec);
+            marker_930767f1e2ea6de665e259aadcd5aaf5.setIcon(icon_6b6186b3dc3d25ac7228eac7ee33d58f);
         
     
-        var popup_abfc9ab94b0e7987359b3ab6f7ddb8c0 = L.popup({"maxWidth": "100%"});
+        var popup_1b0f73619632314e32ebd0055ba8c120 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_1eb0444e9c3c7f824d159b2ae20e8e12 = $(`<div id="html_1eb0444e9c3c7f824d159b2ae20e8e12" style="width: 100.0%; height: 100.0%;"><h1>Freedom Square</h1></div>`)[0];
-                popup_abfc9ab94b0e7987359b3ab6f7ddb8c0.setContent(html_1eb0444e9c3c7f824d159b2ae20e8e12);
+                var html_ad44a64638033ef70829faccf143b75f = $(`<div id="html_ad44a64638033ef70829faccf143b75f" style="width: 100.0%; height: 100.0%;"><h1>Freedom Square</h1></div>`)[0];
+                popup_1b0f73619632314e32ebd0055ba8c120.setContent(html_ad44a64638033ef70829faccf143b75f);
             
         
 
-        marker_b65e9f403b3f1d65540b04a5e1e8f6c8.bindPopup(popup_abfc9ab94b0e7987359b3ab6f7ddb8c0)
+        marker_930767f1e2ea6de665e259aadcd5aaf5.bindPopup(popup_1b0f73619632314e32ebd0055ba8c120)
         ;
 
         
     
     
-            marker_b65e9f403b3f1d65540b04a5e1e8f6c8.bindTooltip(
+            marker_930767f1e2ea6de665e259aadcd5aaf5.bindTooltip(
                 `<div>
                      Freedom Square
                  </div>`,
@@ -300,34 +420,34 @@
             );
         
     
-            var marker_fc784056a2a17128cd91788c637d92d1 = L.marker(
+            var marker_74a0ff4de6d33e789c1c47066e3bb26b = L.marker(
                 [51.76792979001689, 19.456680333446094],
                 {}
-            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
+            ).addTo(feature_group_988d3dbe0f2c3127c5611321f9866c58);
         
     
-            var icon_3cb64b39234ec064e56259afc27a609d = L.AwesomeMarkers.icon(
+            var icon_9c9a4b9260a0b9708d6c9d484d932281 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_fc784056a2a17128cd91788c637d92d1.setIcon(icon_3cb64b39234ec064e56259afc27a609d);
+            marker_74a0ff4de6d33e789c1c47066e3bb26b.setIcon(icon_9c9a4b9260a0b9708d6c9d484d932281);
         
     
-        var popup_225b69509c24a8ed79bfc66e7983089b = L.popup({"maxWidth": "100%"});
+        var popup_63587a32748e86e29786f46adaac4c46 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_52298ef6e1801e60615d05e18e7be5d0 = $(`<div id="html_52298ef6e1801e60615d05e18e7be5d0" style="width: 100.0%; height: 100.0%;"><h1>Rubenstein Piano</h1><img src='photos/piano.jpg' width = 400px/></div>`)[0];
-                popup_225b69509c24a8ed79bfc66e7983089b.setContent(html_52298ef6e1801e60615d05e18e7be5d0);
+                var html_40844fde99226ff2e9dc4412e60ee89b = $(`<div id="html_40844fde99226ff2e9dc4412e60ee89b" style="width: 100.0%; height: 100.0%;"><h1>Rubenstein Piano</h1><img src='photos/piano.jpg' width = 400px/></div>`)[0];
+                popup_63587a32748e86e29786f46adaac4c46.setContent(html_40844fde99226ff2e9dc4412e60ee89b);
             
         
 
-        marker_fc784056a2a17128cd91788c637d92d1.bindPopup(popup_225b69509c24a8ed79bfc66e7983089b)
+        marker_74a0ff4de6d33e789c1c47066e3bb26b.bindPopup(popup_63587a32748e86e29786f46adaac4c46)
         ;
 
         
     
     
-            marker_fc784056a2a17128cd91788c637d92d1.bindTooltip(
+            marker_74a0ff4de6d33e789c1c47066e3bb26b.bindTooltip(
                 `<div>
                      Rubenstein Piano
                  </div>`,
@@ -335,34 +455,34 @@
             );
         
     
-            var marker_1f1452ba3c52ee45bba200fe5908698c = L.marker(
+            var marker_7695969935f0d2da336448bcedb8950a = L.marker(
                 [51.77287876573184, 19.455790267712022],
                 {}
-            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
+            ).addTo(feature_group_988d3dbe0f2c3127c5611321f9866c58);
         
     
-            var icon_5026b55f60f4cc549805d8c547da92e5 = L.AwesomeMarkers.icon(
+            var icon_d5c041d73a422cb420993c8ed0685db3 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_1f1452ba3c52ee45bba200fe5908698c.setIcon(icon_5026b55f60f4cc549805d8c547da92e5);
+            marker_7695969935f0d2da336448bcedb8950a.setIcon(icon_d5c041d73a422cb420993c8ed0685db3);
         
     
-        var popup_56209c931aef6e505e416ace4c2f628a = L.popup({"maxWidth": "100%"});
+        var popup_4ca5b11f54b1fb9272cf090766b38ff8 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_6719d64e0a502abcc9a860a0a9e42dd2 = $(`<div id="html_6719d64e0a502abcc9a860a0a9e42dd2" style="width: 100.0%; height: 100.0%;"><h1 style="font-size:30px;">Three manufactures</h1><img src='photos/manufactures.jpg' width = 400px/><h2> Izrael Poznański</h2><a style="font-size:20px;" href="famousPeople.html#Izrael">video</a><h2 style="font-size:30px;">Karol Scheibler</h2><a style="font-size:20px;" href="famousPeople.html#Karol">video</a><h2 style="font-size:30px;">Henryk Grohman</h2></div>`)[0];
-                popup_56209c931aef6e505e416ace4c2f628a.setContent(html_6719d64e0a502abcc9a860a0a9e42dd2);
+                var html_b22a4ccd640453bdbf7e5d4c7f3d52ec = $(`<div id="html_b22a4ccd640453bdbf7e5d4c7f3d52ec" style="width: 100.0%; height: 100.0%;"><h1 style="font-size:30px;">Three manufactures</h1><img src='photos/manufactures.jpg' width = 400px/><h2> Izrael Poznański</h2><a style="font-size:20px;" href="famousPeople.html#Izrael">video</a><h2 style="font-size:30px;">Karol Scheibler</h2><a style="font-size:20px;" href="famousPeople.html#Karol">video</a><h2 style="font-size:30px;">Henryk Grohman</h2></div>`)[0];
+                popup_4ca5b11f54b1fb9272cf090766b38ff8.setContent(html_b22a4ccd640453bdbf7e5d4c7f3d52ec);
             
         
 
-        marker_1f1452ba3c52ee45bba200fe5908698c.bindPopup(popup_56209c931aef6e505e416ace4c2f628a)
+        marker_7695969935f0d2da336448bcedb8950a.bindPopup(popup_4ca5b11f54b1fb9272cf090766b38ff8)
         ;
 
         
     
     
-            marker_1f1452ba3c52ee45bba200fe5908698c.bindTooltip(
+            marker_7695969935f0d2da336448bcedb8950a.bindTooltip(
                 `<div>
                      Three manufactures
                  </div>`,
@@ -370,34 +490,34 @@
             );
         
     
-            var marker_165e61e4b8f0bd0f833d5fe69d418614 = L.marker(
+            var marker_8ee4c5bf55b1bc5abfce3b997dc0aca4 = L.marker(
                 [51.778906051771884, 19.451293974304274],
                 {}
-            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
+            ).addTo(feature_group_988d3dbe0f2c3127c5611321f9866c58);
         
     
-            var icon_3a81246f38a821efd2c04b37b16eb719 = L.AwesomeMarkers.icon(
+            var icon_bd7b53c2e714ddf2c857d035a27a93ec = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_165e61e4b8f0bd0f833d5fe69d418614.setIcon(icon_3a81246f38a821efd2c04b37b16eb719);
+            marker_8ee4c5bf55b1bc5abfce3b997dc0aca4.setIcon(icon_bd7b53c2e714ddf2c857d035a27a93ec);
         
     
-        var popup_15e08abc29b89aee8c43437f6ccc013d = L.popup({"maxWidth": "100%"});
+        var popup_2b256c906cf0376f697da18eee04073b = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_5f3517bc25800aedeefe42632f88fd98 = $(`<div id="html_5f3517bc25800aedeefe42632f88fd98" style="width: 100.0%; height: 100.0%;"><h1>Poznanski Palace</h1><a style="font-size:20px;" href="famousPlaces.html#PoznanskiPalace" onclick="highlightVideoContainer('famousPlaces.html', 'PoznanskiPalace')">video</a></div>`)[0];
-                popup_15e08abc29b89aee8c43437f6ccc013d.setContent(html_5f3517bc25800aedeefe42632f88fd98);
+                var html_e9e6d83522fdb076c021351a3a73527c = $(`<div id="html_e9e6d83522fdb076c021351a3a73527c" style="width: 100.0%; height: 100.0%;"><h1>Poznanski Palace</h1><a style="font-size:20px;" href="famousPlaces.html#PoznanskiPalace" onclick="highlightVideoContainer('famousPlaces.html', 'PoznanskiPalace')">video</a></div>`)[0];
+                popup_2b256c906cf0376f697da18eee04073b.setContent(html_e9e6d83522fdb076c021351a3a73527c);
             
         
 
-        marker_165e61e4b8f0bd0f833d5fe69d418614.bindPopup(popup_15e08abc29b89aee8c43437f6ccc013d)
+        marker_8ee4c5bf55b1bc5abfce3b997dc0aca4.bindPopup(popup_2b256c906cf0376f697da18eee04073b)
         ;
 
         
     
     
-            marker_165e61e4b8f0bd0f833d5fe69d418614.bindTooltip(
+            marker_8ee4c5bf55b1bc5abfce3b997dc0aca4.bindTooltip(
                 `<div>
                      Poznanski Palace
                  </div>`,
@@ -405,34 +525,34 @@
             );
         
     
-            var marker_58f483383b712931b32eed88cecb4022 = L.marker(
+            var marker_bfcb01c64407c4a84bf77fdd7c18c952 = L.marker(
                 [51.77933314100332, 19.444952116435193],
                 {}
-            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
+            ).addTo(feature_group_988d3dbe0f2c3127c5611321f9866c58);
         
     
-            var icon_eaf68b5aa572fa9c51d5bea8b84101fc = L.AwesomeMarkers.icon(
+            var icon_a6c5c4fad5c8bf5366384a132f83ab44 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_58f483383b712931b32eed88cecb4022.setIcon(icon_eaf68b5aa572fa9c51d5bea8b84101fc);
+            marker_bfcb01c64407c4a84bf77fdd7c18c952.setIcon(icon_a6c5c4fad5c8bf5366384a132f83ab44);
         
     
-        var popup_1b931ec6fb307040b69df2e201c3dcff = L.popup({"maxWidth": "100%"});
+        var popup_d13ebcd77673e22ad891623d56d120d2 = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_259dd625411446f66eb4e13a14193d26 = $(`<div id="html_259dd625411446f66eb4e13a14193d26" style="width: 100.0%; height: 100.0%;"><h1>Manufacture</h1><img src='photos/manufaktura.jpg' width = 400px/><a style="font-size:20px;" href="famousPlaces.html#PoznanskiFactory" onclick="highlightVideoContainer()">video</a></div>`)[0];
-                popup_1b931ec6fb307040b69df2e201c3dcff.setContent(html_259dd625411446f66eb4e13a14193d26);
+                var html_9a93fb20c35812e53ee289ecb593dfe7 = $(`<div id="html_9a93fb20c35812e53ee289ecb593dfe7" style="width: 100.0%; height: 100.0%;"><h1>Manufacture</h1><img src='photos/manufaktura.jpg' width = 400px/><a style="font-size:20px;" href="famousPlaces.html#PoznanskiFactory" onclick="highlightVideoContainer()">video</a></div>`)[0];
+                popup_d13ebcd77673e22ad891623d56d120d2.setContent(html_9a93fb20c35812e53ee289ecb593dfe7);
             
         
 
-        marker_58f483383b712931b32eed88cecb4022.bindPopup(popup_1b931ec6fb307040b69df2e201c3dcff)
+        marker_bfcb01c64407c4a84bf77fdd7c18c952.bindPopup(popup_d13ebcd77673e22ad891623d56d120d2)
         ;
 
         
     
     
-            marker_58f483383b712931b32eed88cecb4022.bindTooltip(
+            marker_bfcb01c64407c4a84bf77fdd7c18c952.bindTooltip(
                 `<div>
                      Manufacture
                  </div>`,
@@ -440,34 +560,34 @@
             );
         
     
-            var marker_279c022d2d8878c55b36401c15cfc8cb = L.marker(
+            var marker_f1ac0ef434ef32210bee87a248f15784 = L.marker(
                 [51.75942655450387, 19.457584362659563],
                 {}
-            ).addTo(feature_group_f44e4d9d9c6f8544de5efe77c239d0b1);
+            ).addTo(feature_group_988d3dbe0f2c3127c5611321f9866c58);
         
     
-            var icon_71462f5d0cc84262cf86029968447830 = L.AwesomeMarkers.icon(
+            var icon_ca0d9fe88466c962f38af20507fb22b0 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "heart", "iconColor": "pink", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_279c022d2d8878c55b36401c15cfc8cb.setIcon(icon_71462f5d0cc84262cf86029968447830);
+            marker_f1ac0ef434ef32210bee87a248f15784.setIcon(icon_ca0d9fe88466c962f38af20507fb22b0);
         
     
-        var popup_52c3b256e516b66ce19b7906465ca718 = L.popup({"maxWidth": "100%"});
+        var popup_bcf805917b34311c9ee895888958fbee = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_5a9db25fc54f266624a8f1cc665178fb = $(`<div id="html_5a9db25fc54f266624a8f1cc665178fb" style="width: 100.0%; height: 100.0%;"><h1>Unicorn Stable</h1><img src='photos/UnicornStable.jpg' width = 400px/><a style="font-size:20px;" href="famousPlaces.html#PoznanskiFactory" </div>`)[0];
-                popup_52c3b256e516b66ce19b7906465ca718.setContent(html_5a9db25fc54f266624a8f1cc665178fb);
+                var html_40a47be9b881316ba82a7eeabe5ba145 = $(`<div id="html_40a47be9b881316ba82a7eeabe5ba145" style="width: 100.0%; height: 100.0%;"><h1>Unicorn Stable</h1><img src='photos/UnicornStable.jpg' width = 400px/><a style="font-size:20px;" href="famousPlaces.html#PoznanskiFactory" </div>`)[0];
+                popup_bcf805917b34311c9ee895888958fbee.setContent(html_40a47be9b881316ba82a7eeabe5ba145);
             
         
 
-        marker_279c022d2d8878c55b36401c15cfc8cb.bindPopup(popup_52c3b256e516b66ce19b7906465ca718)
+        marker_f1ac0ef434ef32210bee87a248f15784.bindPopup(popup_bcf805917b34311c9ee895888958fbee)
         ;
 
         
     
     
-            marker_279c022d2d8878c55b36401c15cfc8cb.bindTooltip(
+            marker_f1ac0ef434ef32210bee87a248f15784.bindTooltip(
                 `<div>
                      Unicorn Stable
                  </div>`,
@@ -475,20 +595,24 @@
             );
         
     
-            var layer_control_8e25cfa264d73f6c604d1c83209f1249 = {
+            var layer_control_eecd6682332f12267eedc9be401ea175 = {
                 base_layers : {
-                    "openstreetmap" : tile_layer_8be32d6f4ed0538a695af69391064370,
+                    "openstreetmap" : tile_layer_c22a27addf0e2235ebe953539f0ea101,
+                    "stamenterrain" : tile_layer_77e63400b69d6ffd3c8d8590ebf24f1e,
+                    "cartodbdark_matter" : tile_layer_c53106f23a7257c98d4a46aac061c0e7,
                 },
                 overlays :  {
-                    "Restaurants" : feature_group_74171c15d287b6185f8993b70a09ae28,
-                    "Monuments" : feature_group_f44e4d9d9c6f8544de5efe77c239d0b1,
+                    "Restaurants" : feature_group_ea29ba26ac8661d91212c10055d487b5,
+                    "Monuments" : feature_group_988d3dbe0f2c3127c5611321f9866c58,
                 },
             };
             L.control.layers(
-                layer_control_8e25cfa264d73f6c604d1c83209f1249.base_layers,
-                layer_control_8e25cfa264d73f6c604d1c83209f1249.overlays,
+                layer_control_eecd6682332f12267eedc9be401ea175.base_layers,
+                layer_control_eecd6682332f12267eedc9be401ea175.overlays,
                 {"autoZIndex": true, "collapsed": true, "position": "topright"}
-            ).addTo(map_dfc511833d5e8393e89408dc7728d415);
+            ).addTo(map_a10418799984e303bbbef2c384ebf611);
+            tile_layer_77e63400b69d6ffd3c8d8590ebf24f1e.remove();
+            tile_layer_c53106f23a7257c98d4a46aac061c0e7.remove();
         
 </script>
 </html>

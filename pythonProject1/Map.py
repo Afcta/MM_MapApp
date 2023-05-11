@@ -10,19 +10,23 @@ class Map:
 
     m = folium.Map(location=[51.760687810375956, 19.458312506837643], zoom_start=16)
 
+    tile1 = folium.TileLayer('Stamen Terrain')
+    tile2 = folium.TileLayer('cartodbdark_matter')
+
+    tile1.add_to(m)
+    tile2.add_to(m)
 
     fg_restaurants = folium.FeatureGroup(name='Restaurants')
     fg_monuments = folium.FeatureGroup(name='Monuments')
 
     js_function = """
         function toggleTheme() {
-            var body = document.getElementsByTagName('body')[0];
-            var mapDiv = document.getElementsByClassName('folium-map')[0];
-            if (body.classList.contains('dark-theme')) {
-                body.classList.remove('dark-theme');
+            var mapDiv = document.getElementsByClassName('leaflet-container')[0];
+            if (mapDiv.classList.contains('dark-theme')) {
+                mapDiv.classList.remove('dark-theme');
                 mapDiv.style.filter = 'none';
             } else {
-                body.classList.add('dark-theme');
+                mapDiv.classList.add('dark-theme');
                 mapDiv.style.filter = 'invert(100%) hue-rotate(180deg)';
             }
         }
@@ -40,6 +44,7 @@ class Map:
         position: top;
         flex-grow: 1;
         color: white;
+        font-family: Arial;
     }
     .top-bar{
         display: flex;
@@ -141,44 +146,113 @@ class Map:
     #Restaurants
     rest_rating = 4.6
     rating_icon = 'fa-star'
-    popup_html = f'<h4>Otwarte drzwi</h4><p>Rating: '
+    cuisine_type = 'Italian'
+    google_price_level = '$$'
+    popup_html = f'<h4>Otwarte drzwi</h4><p>Type of cuisine: {cuisine_type}<br>Google price level: {google_price_level}<br>Rating: '
     for i in range(5):
         if rest_rating >= i + 0.5:
             popup_html += f'<i class="fas {rating_icon}"></i>'
         else:
             popup_html += f'<i class="far {rating_icon}"></i>'
     popup_html += f' {rest_rating}</p>'
-    marker = folium.Marker([51.76301779499515, 19.458066994697752], popup=popup_html, icon = folium.Icon(color='green'))
+    popup = folium.Popup(html=popup_html, max_width=500)
+    marker = folium.Marker([51.76301779499515, 19.458066994697752], popup=popup, icon = folium.Icon(icon="cutlery",color='green'))
     marker.add_to(fg_restaurants)
 
+
+    cuisine_type = 'Polish'
+    google_price_level = '$$'
     rest_rating = 3.8
-    popup_html = f'<h4>Chlopska Izba</h4><p>Rating: '
+    popup_html = f'<h4>Chlopska Izba</h4><p>Type of cuisine: {cuisine_type}<br>Google price level: {google_price_level}<br>Rating: '
     for i in range(5):
         if rest_rating >= i + 0.5:
             popup_html += f'<i class="fas {rating_icon}"></i>'
         else:
             popup_html += f'<i class="far {rating_icon}"></i>'
-    marker2 = folium.Marker(location=[51.76876938105906, 19.456353925382906], popup=popup_html, icon = folium.Icon(color='green'))
+    popup_html += f' {rest_rating}</p>'
+    popup = folium.Popup(html=popup_html, max_width=500)
+    marker2 = folium.Marker(location=[51.76876938105906, 19.456353925382906], popup=popup, icon = folium.Icon(icon="cutlery", color='green'))
     marker2.add_to(fg_restaurants)
 
+
+
+    cuisine_type = 'Polish'
+    google_price_level = '$$'
     rest_rating = 4.5
-    popup_html = f'<h4>Galicja</h4><p>Rating: '
+    popup_html = f'<h4>Galicja</h4><p>Type of cuisine: {cuisine_type}<br>Google price level: {google_price_level}<br>Rating: '
     for i in range(5):
         if rest_rating >= i + 0.5:
             popup_html += f'<i class="fas {rating_icon}"></i>'
         else:
             popup_html += f'<i class="far {rating_icon}"></i>'
-    marker3 = folium.Marker(location=[51.77928756113294, 19.449665533826533], popup=popup_html, icon = folium.Icon(color='green'))
+    popup_html += f' {rest_rating}</p>'
+    popup = folium.Popup(html=popup_html, max_width=500)
+    marker3 = folium.Marker(location=[51.77928756113294, 19.449665533826533], popup=popup, icon = folium.Icon(icon="cutlery", color='green'))
     marker3.add_to(fg_restaurants)
 
 
+    cuisine_type = 'Mediterranean'
+    google_price_level = '$$'
+    rest_rating = 4.5
+    popup_html = f'<h4>DOKI</h4><p>Type of cuisine: {cuisine_type}<br>Google price level: {google_price_level}<br>Rating: '
+    for i in range(5):
+        if rest_rating >= i + 0.5:
+            popup_html += f'<i class="fas {rating_icon}"></i>'
+        else:
+            popup_html += f'<i class="far {rating_icon}"></i>'
+    popup_html += f' {rest_rating}</p>'
+    popup = folium.Popup(html=popup_html, max_width=500)
+    marker4 = folium.Marker(location=[51.76188505647845, 19.461487548198058], popup=popup, icon = folium.Icon(icon="cutlery", color='green'))
+    marker4.add_to(fg_restaurants)
 
 
+    cuisine_type = 'Argentinian'
+    google_price_level = '$$$'
+    rest_rating = 4.8
+    popup_html = f'<h4>Tango Argentino Steakhouse</h4><p>Type of cuisine: {cuisine_type}<br>Google price level: {google_price_level}<br>Rating: '
+    for i in range(5):
+        if rest_rating >= i + 0.5:
+            popup_html += f'<i class="fas {rating_icon}"></i>'
+        else:
+            popup_html += f'<i class="far {rating_icon}"></i>'
+    popup_html += f' {rest_rating}</p>'
+    popup = folium.Popup(html=popup_html, max_width=500)
+    marker4 = folium.Marker(location=[51.77028589498561, 19.460605927270585], popup=popup, icon = folium.Icon(icon="cutlery", color='green'))
+    marker4.add_to(fg_restaurants)
 
+
+    cuisine_type = 'Chinese'
+    google_price_level = '$$'
+    rest_rating = 4.7
+    popup_html = f'<h4>Zloty Imbir</h4><p>Type of cuisine: {cuisine_type}<br>Google price level: {google_price_level}<br>Rating: '
+    for i in range(5):
+        if rest_rating >= i + 0.5:
+            popup_html += f'<i class="fas {rating_icon}"></i>'
+        else:
+            popup_html += f'<i class="far {rating_icon}"></i>'
+    popup_html += f' {rest_rating}</p>'
+    popup = folium.Popup(html=popup_html, max_width=500)
+    marker5 = folium.Marker(location=[51.766699906500406, 19.46124564878098], popup=popup, icon = folium.Icon(icon="cutlery", color='green'))
+    marker5.add_to(fg_restaurants)
+
+    cuisine_type = 'Creperie'
+    google_price_level = '$'
+    rest_rating = 4.5
+    popup_html = f'<h4>Manekin</h4><p>Type of cuisine: {cuisine_type}<br>Google price level: {google_price_level}<br>Rating: '
+    for i in range(5):
+        if rest_rating >= i + 0.5:
+            popup_html += f'<i class="fas {rating_icon}"></i>'
+        else:
+            popup_html += f'<i class="far {rating_icon}"></i>'
+    popup_html += f' {rest_rating}</p>'
+    popup = folium.Popup(html=popup_html, max_width=500)
+    marker5 = folium.Marker(location=[51.76908497809051, 19.45632981826978], popup=popup, icon = folium.Icon(icon="cutlery", color='green'))
+    marker5.add_to(fg_restaurants)
 
     fg_restaurants.add_to(m)
     fg_monuments.add_to(m)
     folium.LayerControl().add_to(m)
+
 
     # Add the top bar to the map
     m.get_root().html.add_child(folium.Element(top_bar_html))

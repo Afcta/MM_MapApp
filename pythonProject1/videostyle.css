@@ -33,6 +33,7 @@ nav {
   text-align: left;
   margin: 0;
   flex: 1;
+  font-family: Arial;
 }
 
 ul {
@@ -51,6 +52,7 @@ a {
   text-decoration: none;
   font-size: 18px;
   text-transform: uppercase;
+  font-family: Arial;
 }
 
 
