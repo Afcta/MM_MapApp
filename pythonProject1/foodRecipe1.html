@@ -10,40 +10,139 @@
     .video {
       flex: 1;
     }
+
+    video {
+      width: 100%; /* Set the initial width to 100% */
+    }
     
     .text {
+      justify-content: space-between;
       flex: 1;
     }
-    
-    .highlight {
+
+    .text p {
+      line-height: 5px;
+      display: grid;
+      flex-direction: column;
+    }
+
+    #smallParagraph{
+      line-height: 1px;
+    }
+
+    .text2 {
+      justify-content: space-between;
+      flex: 1;
+    }
+
+    .text2 p {
+      line-height: 5px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text p:first-child {
+      margin-right: 10px; /* Add spacing between the two texts */
+    }
+
+    .text p:second-child {
+      margin-left: 10px; /* Add spacing between the two texts */
+    }
+
+    .highlight p{
       background-color: yellow;
     }
-    
+
+    mark { 
+      background-color: yellow;
+      color: black;
+    }
+
     .links {
       margin-top: 20px;
+    }
+
+    .links :hover{
+      font-size: 50px;
     }
   </style>
 </head>
 <body>
+  
+  
   <div class="container">
     <div class="video">
       <!-- Replace 'video_url' with the URL of your video -->
       <video id="videoPlayer" width="560" height="315" controls>
-        <source src="videos/intro.mp4" type="video/mp4">
+        <source src="videos/foodVideo.mp4" type="video/mp4">
       </video>
     </div>
     
     <div class="text">
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat, <span id="highlight1">highlighted text 1</span> consequat suscipit, <span id="highlight2">highlighted text 2</span> nulla orci convallis mi, nec iaculis felis risus ac risus.
-      </p>
+      
+        <span id="highlight1">
+          <p><b>1. Pierogies</b></p>
+          <p>-4 cups of wheat flour</p>
+          <p>-1.5 cups hot water</p>
+          <p>-2 tablespoons of butter</p>
+          <p>-teaspoon of salt</p>
+          <p>-800 g sauerkraut</p>
+          <p>-60 g dried mushrooms</p>
+          <p>-2 medium onions - 300 g</p>
+          <p>-7 tablespoons of oil</p></span>
+      
+
+        <span id="highlight3"></span>
+          <p><b>2. Beetrot soup</b></p>
+          <p>-2 liters of vegetable or poultry broth</p>
+          <p>-1 kg of red beets</p>
+          <p>-2 cloves of garlic</p>
+          <p>-2 dried mushrooms</p>
+          <p id="smallParagraph">-seasonings: a teaspoon each of marjoram and sugar, </p><p id="small
+            ">a tablespoon of vinegar, salt and pepper</p>
+        
+        </span>
+
+        <span id="highlight5"></span>
+        <p><b>5. Karpatka</b></p>
+        <p>6 medium eggs</p>
+        <p>3/4 cube of butter - 150 g</p>
+        <p>1 cup of whole-wheat flour - 200 g</p>
+        <p>1 glass of water</p>
+        <p>flat teaspoon of baking powder</p>
+        <p>pinch of salt</p>
+        <p>butter cube - 200 g</p>
+        <p>2 cups of milk - 500 - 600 ml</p>
+        <p>2 sugar-free puddings</p>
+        <p>3 tablespoons of sugar or more if you like sweet custard</p>
+        
+        </span>
+      
     </div>
-  </div>
-  
-  <div class="links">
-    <a href="foodRecipe2.html">White Borscht</a>
-    <a href="foodRecipe3.html">Beetroot soup</a>
-    <a href="foodRecipe4.html">Cheesecake</a>
+    <div class="text2">
+        <span id="highlight2">
+          <p><b>2. White borscht</b></p>
+          <p>-500 ml of sourdough for white borscht</p>
+          <p>-400 g white raw or steamed sausage</p>
+          <p>-500 g potatoes </p>
+          <p>-1 medium-sized carrot - about 100 g</p>
+          <p>-50 ml of cream</p>
+          <p>-1 liter of water - four cups</p>
+          <p>-spices: a tablespoon of marjoram, </p><p>1.5 flat teaspoons  of salt, half a flat teaspoon of pepper</p>
+        </span>
+
+        <span id="highlight4"></span>
+        <p><b>4. Cheescake</b></p>
+        <p>-1 kg of cheese from a bucket, e.g. Piątnica, Mlekovita</p>
+        <p>-4 medium eggs</p>
+        <p>-butter cube - 200 g</p>
+        <p>-3/4 cup sugar - about 150 g</p>
+        <p>-4 tablespoons of potato starch - up to 100 g</p>
+        <p>-3 drops of vanilla oil</p>
+        
+        </span>
+      
+    </div>
   </div>
 
   <script>
@@ -51,14 +150,23 @@
       const videoElement = document.getElementById('videoPlayer');
       const highlight1Element = document.getElementById('highlight1');
       const highlight2Element = document.getElementById('highlight2');
+      const highlight3Element = document.getElementById('highlight3');
+      const highlight4Element = document.getElementById('highlight4');    
+      const highlight5Element = document.getElementById('highlight5');  
 
       videoElement.addEventListener('timeupdate', () => {
         const currentTime = videoElement.currentTime;
 
-        const highlight1Start = 0; // Example start time for the first highlight in seconds
-        const highlight1End = 10; // Example end time for the first highlight in seconds
-        const highlight2Start = 20; // Example start time for the second highlight in seconds
-        const highlight2End = 30; // Example end time for the second highlight in seconds
+        const highlight1Start = 0; //Piegories Example start time for the first highlight in seconds
+        const highlight1End = 35; // Example end time for the first highlight in seconds
+        const highlight2Start = 35; //Bialy Barszcz Example start time for the second highlight in seconds
+        const highlight2End = 73; // Example end time for the second highlight in seconds
+        const highlight3Start = 73; // Polish red borschtExample start time for the second highlight in seconds
+        const highlight3End = 103; //Polish red Borscht Example end time for the second highlight in seconds
+        const highlight4Start = 103; //Polish potato pancakes Example start time for the second highlight in seconds
+        const highlight4End = 60*2+48; // Example end time for the second highlight in seconds
+        const highlight5Start = 60*2+48; //Cheesecake Example start time for the second highlight in seconds
+        const highlight5End = 60*3+56; // Example end time for the second highlight in seconds
 
         if (currentTime >= highlight1Start && currentTime <= highlight1End) {
           highlight1Element.classList.add('highlight');
@@ -71,6 +179,24 @@
         } else {
           highlight2Element.classList.remove('highlight');
         }
+
+        if (currentTime >= highlight3Start && currentTime <= highlight3End) {
+          highlight3Element.classList.add('highlight');
+        } else {
+          highlight3Element.classList.remove('highlight');
+        }        
+
+        if (currentTime >= highlight4Start && currentTime <= highlight4End) {
+          highlight4Element.classList.add('highlight');
+        } else {
+          highlight4Element.classList.remove('highlight');
+        }
+        
+        if (currentTime >= highlight5Start && currentTime <= highlight5End) {
+          highlight5Element.classList.add('highlight');
+        } else {
+          highlight5Element.classList.remove('highlight');
+        }        
       });
     });
   </script>
