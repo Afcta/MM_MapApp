@@ -9,50 +9,8 @@
             background-size: cover;
             background-repeat: no-repeat;
             z-index: -3;
+            overflow: auto; /* Allow page scrolling */
         }
-
-        #center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-top: 150px;
-        }
-
-        .hidden-text {
-            position: absolute;
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            cursor: pointer;
-            padding: 10px;
-            height: 45px;
-            border-radius: 5px;
-            background-color: #a19c8c;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .hidden-text.top-left {
-            top: 0;
-            left: 0;
-        }
-
-        .hidden-text.top-right {
-            top: 0;
-            right: 0;
-        }
-
-        .hidden-text.bottom-left {
-            bottom: 0;
-            left: 0;
-        }
-
-        .hidden-text.bottom-right {
-            bottom: 0;
-            right: 0;
-        }
-
 
         .hidden-text p:hover {
             background-color: #fff;
@@ -76,116 +34,159 @@
         }
 
         #video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9999;
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
         }
 
-        .riddle {
+        .question {
             font-weight: bold;
             color: #fff;
             font-size: 18px;
-            text-align: center;
+            margin-left: 20%;
+            margin-right: 20%;
             border-radius: 5px;
             background-color: #a19c8c;
             transition: all 0.3s ease;
             cursor: pointer;
-            margin-left: 600px;
-            margin-right: 600px;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
         }
 
-        .middle {
-            margin-left: 675px;
+         .question2 {
+            font-weight: bold;
+            color: #fff;
+            font-size: 18px;
+            margin-left: 40%;
+            margin-right: 40%;
+            border-radius: 5px;
+            background-color: #a19c8c;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
         }
 
+        .title {
+            font-weight: bold;
+            color: #fff;
+            font-size: 30px;
+            margin-left: 35%;
+            margin-right: 35%;
+            border-radius: 10px;
+            background-color: #a19c8c;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .jumpButtonContainer {
+            text-align: center;
+        }
+
+        .jumpButton {
+            margin-left: 10px;
+        }
+
+          .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .column {
+    flex: 25%;
+    padding: 5px;
+  }
     </style>
-    <script>
-        function detectBrightness() {
-            navigator.mediaDevices.getUserMedia({video: true})
-                .then(function (stream) {
-                    var video = document.createElement('video');
-                    video.srcObject = stream;
-                    video.onloadedmetadata = function (e) {
-                        video.play();
-                        var canvas = document.createElement('canvas');
-                        canvas.width = video.videoWidth;
-                        canvas.height = video.videoHeight;
-                        var ctx = canvas.getContext('2d');
-                        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                        var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-                        var brightness = 0;
-                        for (var i = 0; i < data.length; i += 4) {
-                            brightness += (data[i] + data[i + 1] + data[i + 2]) / 3;
-                        }
-                        brightness /= (canvas.width * canvas.height);
-                        if (brightness > 155) {
-                            document.body.style.backgroundColor = "white";
-                            document.body.style.color = "black";
-                            var hiddenTextElements = document.getElementsByClassName("hidden-text");
-                            for (var i = 0; i < hiddenTextElements.length; i++) {
-                                hiddenTextElements[i].style.display = "block";
-                            }
-                        }
-                        video.pause();
-                        video.srcObject = null;
-                        stream.getTracks()[0].stop();
-                    }
-                })
-                .catch(function (err) {
-                    console.log(err);
-                });
-        }
-
-        function playVideo() {
-            var code = document.getElementById("code").value;
-            if (code == "6733") {
-                var video = document.createElement("video");
-                video.src = "worldwar.mp4";
-                video.controls = true;
-                video.autoplay = true;
-                document.getElementById("center").appendChild(video);
-            }
-        }
-    </script>
 </head>
 <body>
-<p class="riddle">Amidst the darkness of war's might,<br>
-The soldier needs to keep in sight,<br>
-To read the map and see the signs,<br>
-And find his way to safer confines.<br>
-But in the absence of daylight,<br>
-How can he escape the war's might?<br>
-He needs a tool to aid his plight,<br>
-To illuminate his path so bright.</p>
-<button class="middle" onclick="detectBrightness()">Guess and use the sensor</button>
-<div id="center">
-    <p class="hidden-text top-left" style="display: none;">6</p>
-    <p class="hidden-text top-right" style="display: none;">7</p>
-    <p class="hidden-text bottom-left" style="display: none;">3</p>
-    <p class="hidden-text bottom-right" style="display: none;">3</p>
+<div>
+    <p class="title">Interview with Jew about situation in Lodz before war</p>
 </div>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <input type="text" id="code-input" placeholder="Enter Code">
-    <button onclick="checkCode()">Submit</button>
-</div>
-<p id="result"></p>
-<video id="video" style="display: none;" width="100%" height="100%" controls>
+<video id="video" controls>
     <source src="worldwar.mp4" type="video/mp4">
-
 </video>
+<div class="row">
+  <div class="column">
+    <div>
+      <p class="question">Intro</p>
+      <div class="jumpButtonContainer">
+        <button class="jumpButton" data-time="1">Jump to 0:01</button>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div>
+      <p class="question">Relation between Jews and non-Jews</p>
+      <div class="jumpButtonContainer">
+        <button class="jumpButton" data-time="68">Jump to 1:08</button>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div>
+      <p class="question">The Jewish isolation</p>
+      <div class="jumpButtonContainer">
+        <button class="jumpButton" data-time="173">Jump to 2:53</button>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div>
+      <p class="question2">Pogroms</p>
+      <div class="jumpButtonContainer">
+        <button class="jumpButton" data-time="208">Jump to 3:28</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column">
+    <div>
+      <p class="question">Jewish resistance</p>
+      <div class="jumpButtonContainer">
+        <button class="jumpButton" data-time="289">Jump to 4:49</button>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div>
+      <p class="question">Situations in parks</p>
+      <div class="jumpButtonContainer">
+        <button class="jumpButton" data-time="354">Jump to 5:54</button>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div>
+      <p class="question">Calling out</p>
+      <div class="jumpButtonContainer">
+        <button class="jumpButton" data-time="392">Jump to 6:32</button>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div>
+      <p class="question2">Politician oppression</p>
+      <div class="jumpButtonContainer">
+        <button class="jumpButton" data-time="454">Jump to 7:34</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
-    function checkCode() {
-        var codeInput = document.getElementById("code-input").value;
-        if (codeInput === "6733") {
-            document.getElementById("result").innerHTML = "Code is correct! Playing movie...";
-            var video = document.getElementById("video");
-            video.style.display = "block";
-            video.play();
-        } else {
-            document.getElementById("result").innerHTML = "Code is incorrect! Please try again.";
-        }
-        document.getElementById("result").style.display = "block";
+    var video = document.getElementById("video");
+    var jumpButtons = document.getElementsByClassName("jumpButton");
+
+    for (var i = 0; i < jumpButtons.length; i++) {
+        jumpButtons[i].addEventListener("click", function() {
+            var time = parseInt(this.dataset.time);
+            video.currentTime = time; //
+        });
     }
 </script>
 </body>
