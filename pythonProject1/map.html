@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -38,32 +39,62 @@
 </head>
 <body>
     
-    
+
         <div class="top-bar">
-            <div class="toggle-theme-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i></div>
-            <div class="title">Explore Lodz</div>
-        </div>
+    <div class="toggle-theme-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i></div>
+    <div class="title">Explore Lodz</div>
+    <div class="menu">
+        <a href="menu.html">Menu</a>
+        <a href="history.html">History</a>
+        <a href="culture.html">Culture</a>
+        <a href="allvideos.html">All Videos</a>
+    </div>
+</div>
     <style>
-    .title{
-        font-size:3.5rem;
-        font-weight:bold;
+   .title {
+        font-size: 3.5rem;
+        font-weight: bold;
         text-align: center;
-        position: top;
         flex-grow: 1;
         color: white;
         font-family: Arial;
+        margin: 0;
+        padding: 10px;
+       margin-left: 20%;
     }
-    .top-bar{
+
+    .top-bar {
         display: flex;
         align-items: center;
         background-color: #333;
+        justify-content: space-between;
     }
-    .toggle-theme-button{
+
+    .toggle-theme-button {
         color: white;
         margin-left: 10px;
     }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .menu a {
+        color: white;
+        margin-right: 20px;
+        text-decoration: none;
+    }
+
+
+    .right-menu a {
+        color: white;
+        margin-right: 10px;
+        text-decoration: none;
+    }
     </style>
-    
+
     
             <div class="folium-map" id="map_7063c556186b053fffd66233df9c7bae" ></div>
         
@@ -650,4 +681,6 @@
             tile_layer_f32d302af966b60605d037bb3269a8e9.remove();
         
 </script>
+
+
 </html>

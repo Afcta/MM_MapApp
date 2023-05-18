@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bright Light Text</title>
+    <title>World war 2</title>
+  <link rel="stylesheet" type="text/css" href="nav.css">
     <style>
         body {
             color: black;
@@ -189,5 +190,29 @@
         });
     }
 </script>
+
+
+ <header class="header">
+    <nav>
+      <ul class="hidden"> <!-- Add initial hidden class -->
+       <li><a href="menu.html">Menu</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="culture.html">Culture</a></li>
+        <li><a href="allVideos.html">All videos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    const nav = document.querySelector(".header nav ul");
+    const header = document.querySelector(".header");
+    nav.classList.remove("hidden"); // Remove initial hidden class
+    header.addEventListener("mouseover", () => {
+      nav.classList.add("visible");
+    });
+    header.addEventListener("mouseleave", () => {
+      nav.classList.remove("visible");
+    });
+  </script>
 </body>
 </html>

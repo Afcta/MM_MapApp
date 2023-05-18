@@ -52,5 +52,28 @@
     </div>
   </div>
 </div>
+
+ <header class="header">
+    <nav>
+      <ul class="hidden"> <!-- Add initial hidden class -->
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="culture.html">Culture</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    const nav = document.querySelector(".header nav ul");
+    const header = document.querySelector(".header");
+    nav.classList.remove("hidden"); // Remove initial hidden class
+    header.addEventListener("mouseover", () => {
+      nav.classList.add("visible");
+    });
+    header.addEventListener("mouseleave", () => {
+      nav.classList.remove("visible");
+    });
+  </script>
 </body>
 </html>

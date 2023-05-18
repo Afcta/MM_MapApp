@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet">
+
     <title>History</title>
+    <link rel="stylesheet" type="text/css" href="nav.css">
 </head>
 <style>
     * {
@@ -224,76 +225,34 @@
         color: #a19c8c;
     }
 
-    .header {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100%;
-        width: 40px;
-        background-color: #333;
-        color: white;
-        font-family: Arial;
-        font-size: 1.2rem;
-        z-index: 2;
-        transition: width 0.2s ease-in-out;
 
-    }
-
-    .header:hover {
-        width: 200px;
-    }
-
-    .header nav {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        font-family: Arial;
-    }
-
-    .header nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-
-    .header nav ul li {
-        margin: 10px 0;
-        width: 100%;
-    }
-
-    .header nav ul li a {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        color: white;
-        text-decoration: none;
-        padding: 5px;
-        border-right: 3px solid transparent;
-        transition: border-right 0.2s ease-in-out;
-    }
-
-    .header nav ul li a:hover {
-        border-right: 3px solid white;
-    }
 
 
 </style>
 <body>
 
-<header class="header">
+ <header class="header">
     <nav>
-        <ul>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="map.html">Map</a></li>
-            <li><a href="history.html">History</a></li>
-            <li><a href="allVideos.html">All videos</a></li>
-        </ul>
+      <ul class="hidden"> <!-- Add initial hidden class -->
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="culture.html">Culture</a></li>
+        <li><a href="allVideos.html">All Videos</a></li>
+      </ul>
     </nav>
-</header>
+  </header>
+
+  <script>
+    const nav = document.querySelector(".header nav ul");
+    const header = document.querySelector(".header");
+    nav.classList.remove("hidden"); // Remove initial hidden class
+    header.addEventListener("mouseover", () => {
+      nav.classList.add("visible");
+    });
+    header.addEventListener("mouseleave", () => {
+      nav.classList.remove("visible");
+    });
+  </script>
 
 
 <h4>Explore Random Periods of Lodz's History with a Spin of the Wheel</h4>
