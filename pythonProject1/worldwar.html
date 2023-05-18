@@ -3,105 +3,125 @@
 <head>
     <title>World war 2</title>
   <link rel="stylesheet" type="text/css" href="nav.css">
-    <style>
-        body {
-            color: black;
-            background-image: url("photos/bricks2.jpg");
-            background-size: cover;
-            background-repeat: no-repeat;
-            z-index: -3;
-            overflow: auto; /* Allow page scrolling */
-        }
+<style>
+  body {
+    color: black;
+    background-image: url("photos/bricks2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -3;
+    overflow: auto; /* Allow page scrolling */
+  }
 
-        .hidden-text p:hover {
-            background-color: #fff;
-            color: #a19c8c;
-        }
+  .hidden-text p:hover {
+    background-color: #fff;
+    color: #a19c8c;
+  }
 
-        #result {
-            position: absolute;
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            cursor: pointer;
-            padding: 10px;
-            height: 45px;
-            border-radius: 5px;
-            background-color: #a19c8c;
-            transition: all 0.3s ease;
-            text-align: center;
-            margin-left: 620px;
-            display: none;
-        }
+  #result {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: #a19c8c;
+    transition: all 0.3s ease;
+    text-align: center;
+    margin-left: 620px;
+    display: none;
+  }
 
-        #video {
-            width: 100%;
-            height: auto;
-            margin-bottom: 20px;
-        }
+  #video {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
 
-        .question {
-            font-weight: bold;
-            color: #fff;
-            font-size: 18px;
-            margin-left: 20%;
-            margin-right: 20%;
-            border-radius: 5px;
-            background-color: #a19c8c;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: block;
-            margin-bottom: 10px;
-            text-align: center;
-        }
+  .question {
+    font-weight: bold;
+    color: #fff;
+    font-size: 18px;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 5px;
+    background-color: #a19c8c;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+  }
 
-         .question2 {
-            font-weight: bold;
-            color: #fff;
-            font-size: 18px;
-            margin-left: 40%;
-            margin-right: 40%;
-            border-radius: 5px;
-            background-color: #a19c8c;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: block;
-            margin-bottom: 10px;
-            text-align: center;
-        }
+  .question2 {
+    font-weight: bold;
+    color: #fff;
+    font-size: 18px;
+    margin-left: 40%;
+    margin-right: 40%;
+    border-radius: 5px;
+    background-color: #a19c8c;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+  }
 
-        .title {
-            font-weight: bold;
-            color: #fff;
-            font-size: 30px;
-            margin-left: 35%;
-            margin-right: 35%;
-            border-radius: 10px;
-            background-color: #a19c8c;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            display: block;
-            margin-bottom: 10px;
-            text-align: center;
-        }
+  .title {
+    font-weight: bold;
+    color: #fff;
+    font-size: 30px;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 10px;
+    background-color: #a19c8c;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+  }
 
-        .jumpButtonContainer {
-            text-align: center;
-        }
+  .jumpButtonContainer {
+    text-align: center;
+  }
 
-        .jumpButton {
-            margin-left: 10px;
-        }
+  .jumpButton {
+    font-weight: bold;
+    color: #fff;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #a19c8c;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    width: 80%;
+  }
 
-          .row {
+  .jumpButtonContainerhidden{
+    visibility: hidden;
+  }
+
+  .row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
+
   .column {
     flex: 25%;
     padding: 5px;
   }
-    </style>
+</style>
+
 </head>
 <body>
 <div>
@@ -110,75 +130,54 @@
 <video id="video" controls>
     <source src="worldwar.mp4" type="video/mp4">
 </video>
-<div class="row">
+  <div class="row">
   <div class="column">
-    <div>
-      <p class="question">Intro</p>
-      <div class="jumpButtonContainer">
-        <button class="jumpButton" data-time="1">Jump to 0:01</button>
-      </div>
+    <div class="jumpButtonContainer">
+      <button class="jumpButton" data-time="1">1. Intro</button>
     </div>
   </div>
   <div class="column">
-    <div>
-      <p class="question">Relation between Jews and non-Jews</p>
-      <div class="jumpButtonContainer">
-        <button class="jumpButton" data-time="68">Jump to 1:08</button>
-      </div>
+    <div class="jumpButtonContainer">
+      <button class="jumpButton" data-time="68">2. Relation between Jews and non-Jews</button>
     </div>
   </div>
   <div class="column">
-    <div>
-      <p class="question">The Jewish isolation</p>
-      <div class="jumpButtonContainer">
-        <button class="jumpButton" data-time="173">Jump to 2:53</button>
-      </div>
+    <div class="jumpButtonContainer">
+      <button class="jumpButton" data-time="173">3. The Jewish isolation</button>
     </div>
   </div>
   <div class="column">
-    <div>
-      <p class="question2">Pogroms</p>
-      <div class="jumpButtonContainer">
-        <button class="jumpButton" data-time="208">Jump to 3:28</button>
-      </div>
+    <div class="jumpButtonContainer">
+      <button class="jumpButton" data-time="208">4. Pogroms</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="jumpButtonContainer">
+      <button class="jumpButton" data-time="289">5. Jewish resistance</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="jumpButtonContainer">
+      <button class="jumpButton" data-time="354">6. Situations in parks</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="jumpButtonContainer">
+      <button class="jumpButton" data-time="392">7. Calling out</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="jumpButtonContainerhidden">
+      <button class="jumpButton" data-time="454">8. Politician oppression</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="jumpButtonContainer">
+      <button class="jumpButton" data-time="454">8. Politician oppression</button>
     </div>
   </div>
 </div>
 
-<div class="row">
-  <div class="column">
-    <div>
-      <p class="question">Jewish resistance</p>
-      <div class="jumpButtonContainer">
-        <button class="jumpButton" data-time="289">Jump to 4:49</button>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div>
-      <p class="question">Situations in parks</p>
-      <div class="jumpButtonContainer">
-        <button class="jumpButton" data-time="354">Jump to 5:54</button>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div>
-      <p class="question">Calling out</p>
-      <div class="jumpButtonContainer">
-        <button class="jumpButton" data-time="392">Jump to 6:32</button>
-      </div>
-    </div>
-  </div>
-  <div class="column">
-    <div>
-      <p class="question2">Politician oppression</p>
-      <div class="jumpButtonContainer">
-        <button class="jumpButton" data-time="454">Jump to 7:34</button>
-      </div>
-    </div>
-  </div>
-</div>
 <script>
     var video = document.getElementById("video");
     var jumpButtons = document.getElementsByClassName("jumpButton");
