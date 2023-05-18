@@ -3,16 +3,19 @@
 <head>
   <title>Video Page</title>
   <style>
+    body {
+      background-color:gold;
+    }
+
     .container {
       display: flex;
     }
-    
-    .video {
-      flex: 1;
-    }
 
-    video {
-      width: 100%; /* Set the initial width to 100% */
+    .container div span{
+      /* display: flex; */
+      position: relative;
+      top: 5px;
+      left: 5px;
     }
     
     .text {
@@ -28,34 +31,6 @@
 
     #smallParagraph{
       line-height: 1px;
-    }
-
-    .text2 {
-      justify-content: space-between;
-      flex: 1;
-    }
-
-    .text2 p {
-      line-height: 5px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .text p:first-child {
-      margin-right: 10px; /* Add spacing between the two texts */
-    }
-
-    .text p:second-child {
-      margin-left: 10px; /* Add spacing between the two texts */
-    }
-
-    .highlight p{
-      background-color: yellow;
-    }
-
-    mark { 
-      background-color: yellow;
-      color: black;
     }
 
     .links {
@@ -120,6 +95,7 @@
     .header nav ul li a:hover {
         border-right: 3px solid white;
     }
+
   </style>
 </head>
 <body>
@@ -144,8 +120,8 @@
     
     <div class="text">
       
-        <span id="highlight1">
-          <p><b>1. Pierogies</b></p>
+        <span id="highlight1" hidden="True">
+          <p><b>1. Pierogi</b></p>
           <p>-4 cups of wheat flour</p>
           <p>-1.5 cups hot water</p>
           <p>-2 tablespoons of butter</p>
@@ -156,7 +132,7 @@
           <p>-7 tablespoons of oil</p></span>
       
 
-        <span id="highlight3">
+        <span id="highlight3" hidden="True">
           <p><b>3. Beetrot soup</b></p>
           <p>-2 liters of vegetable or poultry broth</p>
           <p>-1 kg of red beets</p>
@@ -167,7 +143,7 @@
         
         </span>
 
-        <span id="highlight5">
+        <span id="highlight5" hidden="True">
         <p><b>5. Karpatka</b></p>
         <p>-6 medium eggs</p>
         <p>-3/4 cube of butter - 150 g</p>
@@ -184,7 +160,7 @@
       
     </div>
     <div class="text2">
-        <span id="highlight2">
+        <span id="highlight2" hidden="True">
           <p><b>2. White borscht</b></p>
           <p>-500 ml of sourdough for white borscht</p>
           <p>-400 g white raw or steamed sausage</p>
@@ -195,7 +171,7 @@
           <p>-spices: a tablespoon of marjoram, </p><p>1.5 flat teaspoons  of salt, half a flat teaspoon of pepper</p>
         </span>
 
-        <span id="highlight4">
+        <span id="highlight4" hidden="True">
           <p><b>4. Polish poatato pancakes</b></p>
           <p>-1 kg of peeled potatoes</p>
           <p>-2 medium or small eggs</p>
@@ -234,34 +210,24 @@
         const highlight5End = 60*3+56; // Example end time for the second highlight in seconds
 
         if (currentTime >= highlight1Start && currentTime <= highlight1End) {
-          highlight1Element.classList.add('highlight');
-        } else {
-          highlight1Element.classList.remove('highlight');
-        }
+          highlight1Element.hidden = false;
+        } 
 
         if (currentTime >= highlight2Start && currentTime <= highlight2End) {
-          highlight2Element.classList.add('highlight');
-        } else {
-          highlight2Element.classList.remove('highlight');
-        }
+          highlight1Element.innerHTML = highlight2Element.innerHTML;
+        } 
 
         if (currentTime >= highlight3Start && currentTime <= highlight3End) {
-          highlight3Element.classList.add('highlight');
-        } else {
-          highlight3Element.classList.remove('highlight');
+          highlight1Element.innerHTML = highlight3Element.innerHTML;
         }        
 
         if (currentTime >= highlight4Start && currentTime <= highlight4End) {
-          highlight4Element.classList.add('highlight');
-        } else {
-          highlight4Element.classList.remove('highlight');
-        }
+          highlight1Element.innerHTML = highlight4Element.innerHTML;
+        } 
         
         if (currentTime >= highlight5Start && currentTime <= highlight5End) {
-          highlight5Element.classList.add('highlight');
-        } else {
-          highlight5Element.classList.remove('highlight');
-        }        
+          highlight1Element.innerHTML = highlight5Element.innerHTML;
+        } 
       });
     });
   </script>
