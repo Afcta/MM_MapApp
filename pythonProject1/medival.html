@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medieval Peasant</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url("../photos/medival_bg.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        #character {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin-right: 50%;
+        }
+
+        #character img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #thought-cloud {
+            position: absolute;
+            top: -250px;
+            width: 240px;
+            height: 220px;
+            background-image: url("../photos/thought_cloud.png");
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px; /* Adjust the margin-top value as desired */
+        }
+
+        .button2 {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px; /* Adjust the margin-top value as desired */
+        }
+
+        .frame {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 600px;
+            border: 8px solid black;
+            margin-right: 15%;
+            margin-top: 4%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: background-image 0.5s ease-in-out, opacity 0.5s ease-in-out;
+               opacity: 0;
+        }
+
+
+
+        .frame img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame"></div>
+    <div id="character">
+        <img src="../photos/peasant.png" alt="Peasant">
+        <div id="thought-cloud">
+            <div class="button-container">
+                <button class="button" style="margin-top: -100px;">1</button>
+                <button class="button" style="margin-top: -100px;">2</button>
+            </div>
+            <div class="button-container">
+                <button class="button2" style="margin-top: -20px;">3</button>
+                <button class="button2" style="margin-top: -20px;">4</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get a reference to the button
+        var button1 = document.querySelector('.button');
+
+        // Function to play audio and show images when button 1 is clicked
+        button1.addEventListener('click', function() {
+            var audio = new Audio('medival1.mp3');
+            var frame = document.querySelector('.frame');
+            var images = [
+                { src: 'photos/lodz1.jpg', time: 1 },
+                { src: 'photos/lodz2.jpg', time: 11 },
+                { src: 'photos/lodz3.jpg', time: 34 },
+                { src: 'photos/lodz4.jpg', time: 52 }
+            ];
+
+            // Show images at specific times
+            function showImage(src) {
+                frame.style.opacity = 0; // Fade out the frame
+                setTimeout(function() {
+                    frame.style.backgroundImage = 'url(' + src + ')';
+                    frame.style.opacity = 1; // Fade in the new image
+                }, 100); // Adjust the transition delay as needed
+            }
+
+            // Hide images
+            function hideImages() {
+                frame.style.opacity = 0;
+                setTimeout(function() {
+                    frame.style.backgroundImage = '';
+                }, 500); // Adjust the transition delay as needed
+            }
+
+            // Play audio
+            audio.play();
+
+            // Show images at specified times
+            for (var i = 0; i < images.length; i++) {
+                var image = images[i];
+                setTimeout(showImage, image.time * 1000, image.src);
+            }
+
+            // Hide images after audio finishes playing
+            audio.addEventListener('ended', hideImages);
+        });
+    </script>
+</body>
+</html>
