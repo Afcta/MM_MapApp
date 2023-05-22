@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manufacturer Page</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="manufacturer1.html">Manufacturer 1</a></li>
+        <li><a href="manufacturer2.html">Manufacturer 2</a></li>
+        <li><a href="manufacturer3.html">Manufacturer 3</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="manufacturer-content">
+      <h1>Title</h1>
+      <div class="content-wrapper">
+        <div class="portrait">
+          <img src="photos/Karol_Scheibler.jpg" alt="Manufacturer Portrait">
+        </div>
+        <div class="video">
+          <video src="videos/Karol.mp4" controls></video>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="button1">Izrael Poznanski</button>
+        <button id="button2">Henryk Grohman</button>
+        <button id="button3">Go back to map</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Add an event listener to each button
+var button1 = document.getElementById('button1');
+var button2 = document.getElementById('button2');
+var button3 = document.getElementById('button3');
+
+button1.addEventListener('click', function() {
+  // Navigate to the desired HTML page when button 1 is clicked
+  window.location.href = 'manufacturer1.html';
+});
+
+button2.addEventListener('click', function() {
+  // Navigate to the desired HTML page when button 2 is clicked
+  window.location.href = 'manufacturer2.html';
+});
+
+button3.addEventListener('click', function() {
+  window.location.href = 'map.html';
+});
+  </script>
+</body>
+</html>
