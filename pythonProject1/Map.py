@@ -19,6 +19,7 @@ class Map:
 
     fg_restaurants = folium.FeatureGroup(name='Restaurants')
     fg_monuments = folium.FeatureGroup(name='Monuments')
+    fg_videos = folium.FeatureGroup(name='Videos')
 
     js_function = """
         function toggleTheme() {
@@ -74,13 +75,24 @@ class Map:
     )
     marker.add_to(fg_monuments)
 
+
     marker1 = folium.Marker(
         [51.766564986894885, 19.456798138876003],
         popup=popup,
         tooltip="Mis Uszatek",
         icon=folium.Icon(icon="heart", icon_color="pink")
     )
+
+    marker1_copy = folium.Marker(
+        [51.766564986894885, 19.456798138876003],
+        popup=folium.Popup(video_iframe, max_width=651),
+        tooltip="Mis Uszatek",
+        icon=folium.Icon(icon="heart", icon_color="pink")
+    )
+
+    # Add the markers to their respective layers
     marker1.add_to(fg_monuments)
+    marker1_copy.add_to(fg_videos)
 
     marker2 = folium.Marker(
         [51.77721719686519, 19.45463642538355],
@@ -100,26 +112,69 @@ class Map:
 
     marker4 = folium.Marker(
         [51.77287876573184, 19.455790267712022],
-        popup='<h1 style="font-size:30px;">Three manufactures</h1>'
-              "<img src='photos/manufactures.jpg' width = 400px/>"
-              "<h2> Izrael Poznański</h2>"
-              '<a style="font-size:20px;" href="famousPeople.html#Izrael">video</a>'
-              '<h2 style="font-size:30px;">Karol Scheibler</h2>'
-              '<a style="font-size:20px;" href="famousPeople.html#Karol">video</a>'
-              '<h2 style="font-size:30px;">Henryk Grohman</h2>'
-        ,
+        popup='''
+                    <h1><a href="videos.intro.mp4" title = "Explore the history of Industrial Lodz"> Three manufacturers</a><h1> 
+            <div style="display:flex; align-items:center;">
+
+            <div style="margin-right:10px; margin-left: 60px">
+                <h2 style="font-size: 20px;"><a href="KarolPage.html">Karol Scheibler</a></h2>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center;">
+            <div style="margin-right:10px;">
+                <img src="photos/manufactures.jpg" width="400px">
+            </div>
+            <div>
+                <h2 style="font-size: 20px;"><a href="famousPeople.html">Izrael Poznanski</a></h2>
+            </div>
+        </div>
+
+        <div style="display:flex; align-items:center; font-size: 20px;">
+            <div style="margin-right:10px;">
+                <h2 style="font-size: 20px;">Henryk Grohman</h2>
+            </div>
+        </div>
+        ''',
         tooltip="Three manufactures",
         icon=folium.Icon(icon="heart", icon_color="pink")
     )
+    marker4video = folium.Marker(
+        [51.77287876573184, 19.455790267712022],
+        popup='''
+                    <h1><a href="https://player.stornaway.io/watch/3e9a9f0e" title = "Explore the history of Industrial Lodz"> Three manufacturers </a><h1> 
+            <div style="display:flex; align-items:center;">
+
+            <div style="margin-right:10px; margin-left: 70px">
+                <h2 style="font-size: 20px;"><a href="KarolPage.html">Karol Scheibler</a></h2>
+            </div>
+        </div>
+        <div style="display:flex; align-items:center;">
+            <div style="margin-right:10px;">
+                <img src="photos/manufactures.jpg" width="400px">
+            </div>
+            <div>
+                <h2 style="font-size: 20px;"><a href="famousPlaces.html">Izrael Poznanski</a></h2>
+            </div>
+        </div>
+
+        <div style="display:flex; align-items:center; font-size: 20px;">
+            <div style="margin-right:10px;">
+                <h2 style="font-size: 20px;">Henryk Grohman</h2>
+            </div>
+        </div>
+        ''',
+        tooltip="Three manufacturers",
+        icon=folium.Icon(icon="heart", icon_color="pink")
+    )
     marker4.add_to(fg_monuments)
+    marker4video.add_to(fg_videos)
 
     marker5 = folium.Marker([51.778906051771884, 19.451293974304274],
                             popup='<h1>Poznanski Palace</h1>'
-                                  "<img src='photos/PoznanskiPalace.jpg' width = 400px/>"
-                                  '<a style="font-size:20px;" href="famousPlaces.html#PoznanskiPalace" onclick="highlightVideoContainer(\'famousPlaces.html\', \'PoznanskiPalace\')">video</a>',
+                                  "<img src='photos/PoznanskiPalace.jpg' width = 400px/>",
                             tooltip="Poznanski Palace",
-                            icon=folium.Icon(icon="heart", icon_color="pink")
-                            )
+                            icon=folium.Icon(icon="heart", icon_color="pink"))
+
     marker5.add_to(fg_monuments)
 
     marker6 = folium.Marker([51.77933314100332, 19.444952116435194],
@@ -131,7 +186,7 @@ class Map:
                             tooltip="Manufacture",
                             icon=folium.Icon(icon="heart", icon_color="pink")
                             )
-    marker6.add_to(fg_monuments)
+    marker6.add_to(fg_videos)
 
     marker7 = folium.Marker([51.75942655450387, 19.457584362659563],
                             popup="<h1>Unicorn Stable</h1>"
@@ -151,8 +206,14 @@ class Map:
         tooltip="Rose Passage",
         icon=folium.Icon(icon="heart", icon_color="pink")
     )
+    marker8video = folium.Marker(
+        [51.775960970248164, 19.454576994698662],
+        popup=folium.Popup(videorose_iframe, max_width=851),
+        tooltip="Rose Passage",
+        icon=folium.Icon(icon="heart", icon_color="pink")
+    )
     marker8.add_to(fg_monuments)
-
+    marker8video.add_to(fg_videos)
 
     # Restaurants
     rest_rating = 4.6
@@ -183,10 +244,25 @@ class Map:
             popup_html += f'<i class="far {rating_icon}"></i>'
     popup_html += f' {rest_rating}</p>'
     popup_html += f'<p><a href="https://www.instagram.com/chlopska_izba/" target="_blank"><i class="fab fa-instagram"></i> Chlopska Izba</a></p>'
+    popup_html += f'<p><a href="foodRecipe1.html"> Check the most popular dishes that you have to try! </a></p>'
     popup = folium.Popup(html=popup_html, max_width=500)
     marker2 = folium.Marker(location=[51.76876938105906, 19.456353925382906], popup=popup,
                             icon=folium.Icon(icon="cutlery", color='green'))
     marker2.add_to(fg_restaurants)
+
+    popup_html = f'<h4>Chlopska Izba</h4><p>Type of cuisine: {cuisine_type}<br>Google price level: {google_price_level}<br>Rating: '
+    for i in range(5):
+        if rest_rating >= i + 0.5:
+            popup_html += f'<i class="fas {rating_icon}"></i>'
+        else:
+            popup_html += f'<i class="far {rating_icon}"></i>'
+    popup_html += f' {rest_rating}</p>'
+    popup_html += f'<p><a href="https://www.instagram.com/chlopska_izba/" target="_blank"><i class="fab fa-instagram"></i> Chlopska Izba </a></p>'
+    popup_html += f'<p><a href="foodRecipe1.html"> Check the most popular dishes that you have to try! </a></p>'
+    popup = folium.Popup(html=popup_html, max_width=500)
+    marker2video = folium.Marker(location=[51.76876938105906, 19.456353925382906], popup=popup,
+                            icon=folium.Icon(icon="cutlery", color='green'))
+    marker2video.add_to(fg_videos)
 
     cuisine_type = 'Polish'
     google_price_level = '$$'
@@ -199,10 +275,25 @@ class Map:
             popup_html += f'<i class="far {rating_icon}"></i>'
     popup_html += f' {rest_rating}</p>'
     popup_html += f'<p><a href="https://www.instagram.com/galicjaldz/" target="_blank"><i class="fab fa-instagram"></i> Galicja</a></p>'
+    popup_html += f'<p><a href="foodRecipe1.html"> Check the most popular dishes that you have to try! </a></p>'
     popup = folium.Popup(html=popup_html, max_width=500)
     marker3 = folium.Marker(location=[51.77928756113294, 19.449665533826533], popup=popup,
                             icon=folium.Icon(icon="cutlery", color='green'))
     marker3.add_to(fg_restaurants)
+
+    popup_html = f'<h4>Galicja</h4><p>Type of cuisine: {cuisine_type}<br>Google price level: {google_price_level}<br> Rating: '
+    for i in range(5):
+        if rest_rating >= i + 0.5:
+            popup_html += f'<i class="fas {rating_icon}"></i>'
+        else:
+            popup_html += f'<i class="far {rating_icon}"></i>'
+    popup_html += f' {rest_rating}</p>'
+    popup_html += f'<p><a href="https://www.instagram.com/galicjaldz/" target="_blank"><i class="fab fa-instagram"></i> Galicja </a></p>'
+    popup_html += f'<p><a href="foodRecipe1.html"> Check the most popular dishes that you have to try! </a></p>'
+    popup = folium.Popup(html=popup_html, max_width=500)
+    marker3video = folium.Marker(location=[51.77928756113294, 19.449665533826533], popup=popup,
+                            icon=folium.Icon(icon="cutlery", color='green'))
+    marker3video.add_to(fg_videos)
 
     cuisine_type = 'Mediterranean'
     google_price_level = '$$'
@@ -269,6 +360,7 @@ class Map:
 
     fg_restaurants.add_to(m)
     fg_monuments.add_to(m)
+    fg_videos.add_to(m)
     folium.LayerControl().add_to(m)
 
     # Add the top bar to the map
