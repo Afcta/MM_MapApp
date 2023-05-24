@@ -9,7 +9,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url("../photos/medival_bg.jpg");
+            background-image: url("photos/medival_bg.jpg");
             background-size: cover;
             background-position: center;
         }
@@ -34,7 +34,7 @@
             top: -250px;
             width: 240px;
             height: 220px;
-            background-image: url("../photos/thought_cloud.png");
+            background-image: url("photos/thought_cloud.png");
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -50,6 +50,14 @@
             align-items: center;
         }
 
+         .button-container2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+
         .button {
             margin: 10px;
             padding: 10px 20px;
@@ -64,7 +72,35 @@
             margin-top: 20px; /* Adjust the margin-top value as desired */
         }
 
+        .button3 {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px; /* Adjust the margin-top value as desired */
+        }
+
         .button2 {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px; /* Adjust the margin-top value as desired */
+        }
+
+        .button4 {
             margin: 10px;
             padding: 10px 20px;
             background-color: #4CAF50;
@@ -107,76 +143,113 @@
 </head>
 <body>
 
- <header class="header">
-    <nav>
-      <ul class="hidden"> <!-- Add initial hidden class -->
-       <li><a href="menu.html">Menu</a></li>
-        <li><a href="map.html">Map</a></li>
-        <li><a href="culture.html">Culture</a></li>
-      </ul>
-    </nav>
-  </header>
 
 
-    <div class="frame"></div>
-    <div id="character">
-        <img src="../photos/peasant.png" alt="Peasant">
-        <div id="thought-cloud">
-            <div class="button-container">
-                <button class="button" style="margin-top: -100px;">1</button>
-                <button class="button" style="margin-top: -100px;">2</button>
-            </div>
-            <div class="button-container">
-                <button class="button2" style="margin-top: -20px;">3</button>
-                <button class="button2" style="margin-top: -20px;">4</button>
-            </div>
+<div class="frame"></div>
+<div id="character">
+    <img src="photos/peasant.png" alt="Peasant">
+    <div id="thought-cloud">
+        <div class="button-container">
+            <button class="button" style="margin-top: -100px;">1</button>
+            <button class="button3" style="margin-top: -100px;">2</button>
+        </div>
+        <div class="button-container">
+            <button class="button2" style="margin-top: -20px;">3</button>
+            <button class="button4" style="margin-top: -20px;">4</button>
         </div>
     </div>
+</div>
+<div class="button-container" style="position: absolute; bottom: -20px; left: 64.6%; transform: translateX(-50%);">
+    <a href="interactiveVideo.html" class="button">Go to Industrial Age</a>
+</div>
+<script>
+    // Get references to the buttons
+    var button1 = document.querySelector('.button');
+    var button2 = document.querySelector('.button3');
+    var button3 = document.querySelector('.button2');
+    var button4 = document.querySelector('.button4');
 
-    <script>
-        // Get a reference to the button
-        var button1 = document.querySelector('.button');
+    // Function to play audio and show images when a button is clicked
+    function buttonClick(audioSrc, images) {
+        var audio = new Audio(audioSrc);
+        var frame = document.querySelector('.frame');
 
-        // Function to play audio and show images when button 1 is clicked
-        button1.addEventListener('click', function() {
-            var audio = new Audio('videos/medival1.mp3');
-            var frame = document.querySelector('.frame');
-            var images = [
-                { src: 'photos/lodz1.jpg', time: 1 },
-                { src: 'photos/lodz2.jpg', time: 11 },
-                { src: 'photos/lodz3.jpg', time: 34 },
-                { src: 'photos/lodz4.jpg', time: 52 }
-            ];
+        // Show images at specific times
+        function showImage(src) {
+            frame.style.opacity = 0; // Fade out the frame
+            setTimeout(function() {
+                frame.style.backgroundImage = 'url(' + src + ')';
+                frame.style.opacity = 1; // Fade in the new image
+            }, 100); // Adjust the transition delay as needed
+        }
 
-            // Show images at specific times
-            function showImage(src) {
-                frame.style.opacity = 0; // Fade out the frame
-                setTimeout(function() {
-                    frame.style.backgroundImage = 'url(' + src + ')';
-                    frame.style.opacity = 1; // Fade in the new image
-                }, 100); // Adjust the transition delay as needed
-            }
+        // Hide images
+        function hideImages() {
+            frame.style.opacity = 0;
+            setTimeout(function() {
+                frame.style.backgroundImage = '';
+            }, 500); // Adjust the transition delay as needed
+        }
 
-            // Hide images
-            function hideImages() {
-                frame.style.opacity = 0;
-                setTimeout(function() {
-                    frame.style.backgroundImage = '';
-                }, 500); // Adjust the transition delay as needed
-            }
+        // Play audio
+        audio.play();
 
-            // Play audio
-            audio.play();
+        // Show images at specified times
+        for (var i = 0; i < images.length; i++) {
+            var image = images[i];
+            setTimeout(showImage, image.time * 1000, image.src);
+        }
 
-            // Show images at specified times
-            for (var i = 0; i < images.length; i++) {
-                var image = images[i];
-                setTimeout(showImage, image.time * 1000, image.src);
-            }
+        // Hide images after audio finishes playing
+        audio.addEventListener('ended', hideImages);
+    }
 
-            // Hide images after audio finishes playing
-            audio.addEventListener('ended', hideImages);
-        });
-    </script>
+    // Define the audio sources and images for each button
+    var button1AudioSrc = 'videos/medival1.mp3';
+    var button1Images = [
+        { src: 'photos/lodz1.jpg', time: 1 },
+        { src: 'photos/lodz2.jpg', time: 11 },
+        { src: 'photos/lodz3.jpg', time: 34 },
+        { src: 'photos/lodz4.jpg', time: 52 }
+    ];
+    var button2AudioSrc = 'videos/medival2.mp3';
+    var button2Images = [
+        { src: 'photos/cottage1.jpg', time: 2 },
+        { src: 'photos/cottage2.jpg', time: 19 },
+        { src: 'photos/cottage5.jpg', time: 30 },
+        { src: 'photos/cottage4.jpg', time: 47 }
+    ];
+    var button3AudioSrc = 'videos/medival3.mp3';
+    var button3Images = [
+        { src: 'photos/lodz1.jpg', time: 1 },
+        { src: 'photos/lodz2.jpg', time: 11 },
+        { src: 'photos/lodz3.jpg', time: 34 },
+        { src: 'photos/lodz4.jpg', time: 52 }
+    ];
+    var button4AudioSrc = 'videos/medival4.mp3';
+    var button4Images = [
+        { src: 'photos/lodz1.jpg', time: 1 },
+        { src: 'photos/lodz2.jpg', time: 11 },
+        { src: 'photos/lodz3.jpg', time: 34 },
+        { src: 'photos/lodz4.jpg', time: 52 }
+    ];
+
+    // Add click event listeners to the buttons
+    button1.addEventListener('click', function() {
+        buttonClick(button1AudioSrc, button1Images);
+    });
+
+    button2.addEventListener('click', function() {
+        buttonClick(button2AudioSrc, button2Images);
+    });
+
+    button3.addEventListener('click', function() {
+        buttonClick(button3AudioSrc, button3Images);
+    });
+
+    button4.addEventListener('click', function() {
+        buttonClick(button4AudioSrc, button4Images);
+    });
+</script>
 </body>
 </html>
