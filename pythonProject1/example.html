@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<style>
+.spinner {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform: rotate(0deg);
+  animation: spin 3s infinite;
+}
+
+.slice {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 100%;
+  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+}
+
+.slice:nth-child(1) {
+  background-color: #FF4136;
+  transform: rotate(0deg);
+}
+
+.slice:nth-child(2) {
+  background-color: #2ECC40;
+  transform: rotate(90deg);
+}
+
+.slice:nth-child(3) {
+  background-color: #0074D9;
+  transform: rotate(180deg);
+}
+
+.slice:nth-child(4) {
+  background-color: #FFDC00;
+  transform: rotate(270deg);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Adjust the size and style of the links within the slices as needed */
+.slice a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #FFF;
+  text-align: center;
+  line-height: 200px;
+  font-weight: bold;
+  font-size: 20px;
+}
+</style>
+<body>
+  <div class="spinner">
+    <div class="slice">
+      <a href="medieval.html"></a>
+    </div>
+    <div class="slice">
+      <a href="interactiveVideo.html"></a>
+    </div>
+    <div class="slice">
+      <a href="communism.html"></a>
+    </div>
+    <div class="slice">
+      <a href="worldwar.html"></a>
+    </div>
+  </div>
+
+
+
+  <script>const slices = document.querySelectorAll('.slice');
+const spinner = document.querySelector('.spinner');
+
+let currentSlice = 1;
+
+function spinWheel() {
+  const spinAngle = 1440; // Rotate 4 full rounds (4 * 360)
+  const randomAngle = Math.floor(Math.random() * 360); // Get a random angle within 360 degrees
+
+  // Calculate the target angle based on the current slice
+  const targetAngle = spinAngle * 5 + randomAngle + (currentSlice - 1) * 90;
+
+  spinner.style.transform = `rotate(${targetAngle}deg)`;
+
+  // Wait for the animation to finish (3 seconds) before redirecting
+  setTimeout(redirectToPage, 3000);
+}
+
+function redirectToPage() {
+  let page;
+  switch (currentSlice) {
+    case 1:
+      page = 'medival.html';
+      break;
+    case 2:
+      page = 'interactiveVideo.html';
+      break;
+    case 3:
+      page = 'communism.html';
+      break;
+    case 4:
+      page = 'worldwar.html';
+      break;
+    default:
+      break;
+  }
+
+  // Redirect to the chosen page
+  window.location.href = page;
+}
+
+spinner.addEventListener('click', () => {
+  // Disable click events while spinning
+  spinner.style.pointerEvents = 'none';
+
+  // Spin the wheel
+  spinWheel();
+
+  // Update the current slice for the next spin
+  currentSlice = currentSlice === 4 ? 1 : currentSlice + 1;
+});</script>
+</body>
+</html>
+
+

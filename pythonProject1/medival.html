@@ -9,7 +9,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url("../photos/medival_bg.jpg");
+            background-image: url("photos/medival_bg.jpg");
             background-size: cover;
             background-position: center;
         }
@@ -34,7 +34,7 @@
             top: -250px;
             width: 240px;
             height: 220px;
-            background-image: url("../photos/thought_cloud.png");
+            background-image: url("photos/thought_cloud.png");
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -49,6 +49,14 @@
             justify-content: center;
             align-items: center;
         }
+
+         .button-container2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
 
         .button {
             margin: 10px;
@@ -107,76 +115,69 @@
 </head>
 <body>
 
- <header class="header">
-    <nav>
-      <ul class="hidden"> <!-- Add initial hidden class -->
-       <li><a href="menu.html">Menu</a></li>
-        <li><a href="map.html">Map</a></li>
-        <li><a href="culture.html">Culture</a></li>
-      </ul>
-    </nav>
-  </header>
 
 
-    <div class="frame"></div>
-    <div id="character">
-        <img src="../photos/peasant.png" alt="Peasant">
-        <div id="thought-cloud">
-            <div class="button-container">
-                <button class="button" style="margin-top: -100px;">1</button>
-                <button class="button" style="margin-top: -100px;">2</button>
-            </div>
-            <div class="button-container">
-                <button class="button2" style="margin-top: -20px;">3</button>
-                <button class="button2" style="margin-top: -20px;">4</button>
-            </div>
+<div class="frame"></div>
+<div id="character">
+    <img src="photos/peasant.png" alt="Peasant">
+    <div id="thought-cloud">
+        <div class="button-container">
+            <button class="button" style="margin-top: -100px;">1</button>
+            <button class="button" style="margin-top: -100px;">2</button>
+        </div>
+        <div class="button-container">
+            <button class="button2" style="margin-top: -20px;">3</button>
+            <button class="button2" style="margin-top: -20px;">4</button>
         </div>
     </div>
+</div>
+<div class="button-container" style="position: absolute; bottom: -20px; left: 64.6%; transform: translateX(-50%);">
+    <a href="interactiveVideo.html" class="button">Go to Industrial Age</a>
+</div>
+<script>
+    // Get a reference to the button
+    var button1 = document.querySelector('.button');
 
-    <script>
-        // Get a reference to the button
-        var button1 = document.querySelector('.button');
+    // Function to play audio and show images when button 1 is clicked
+    button1.addEventListener('click', function() {
+        var audio = new Audio('videos/medival1.mp3');
+        var frame = document.querySelector('.frame');
+        var images = [
+            { src: 'photos/lodz1.jpg', time: 1 },
+            { src: 'photos/lodz2.jpg', time: 11 },
+            { src: 'photos/lodz3.jpg', time: 34 },
+            { src: 'photos/lodz4.jpg', time: 52 }
+        ];
 
-        // Function to play audio and show images when button 1 is clicked
-        button1.addEventListener('click', function() {
-            var audio = new Audio('videos/medival1.mp3');
-            var frame = document.querySelector('.frame');
-            var images = [
-                { src: 'photos/lodz1.jpg', time: 1 },
-                { src: 'photos/lodz2.jpg', time: 11 },
-                { src: 'photos/lodz3.jpg', time: 34 },
-                { src: 'photos/lodz4.jpg', time: 52 }
-            ];
+        // Show images at specific times
+        function showImage(src) {
+            frame.style.opacity = 0; // Fade out the frame
+            setTimeout(function() {
+                frame.style.backgroundImage = 'url(' + src + ')';
+                frame.style.opacity = 1; // Fade in the new image
+            }, 100); // Adjust the transition delay as needed
+        }
 
-            // Show images at specific times
-            function showImage(src) {
-                frame.style.opacity = 0; // Fade out the frame
-                setTimeout(function() {
-                    frame.style.backgroundImage = 'url(' + src + ')';
-                    frame.style.opacity = 1; // Fade in the new image
-                }, 100); // Adjust the transition delay as needed
-            }
+        // Hide images
+        function hideImages() {
+            frame.style.opacity = 0;
+            setTimeout(function() {
+                frame.style.backgroundImage = '';
+            }, 500); // Adjust the transition delay as needed
+        }
 
-            // Hide images
-            function hideImages() {
-                frame.style.opacity = 0;
-                setTimeout(function() {
-                    frame.style.backgroundImage = '';
-                }, 500); // Adjust the transition delay as needed
-            }
+        // Play audio
+        audio.play();
 
-            // Play audio
-            audio.play();
+        // Show images at specified times
+        for (var i = 0; i < images.length; i++) {
+            var image = images[i];
+            setTimeout(showImage, image.time * 1000, image.src);
+        }
 
-            // Show images at specified times
-            for (var i = 0; i < images.length; i++) {
-                var image = images[i];
-                setTimeout(showImage, image.time * 1000, image.src);
-            }
-
-            // Hide images after audio finishes playing
-            audio.addEventListener('ended', hideImages);
-        });
-    </script>
+        // Hide images after audio finishes playing
+        audio.addEventListener('ended', hideImages);
+    });
+</script>
 </body>
 </html>
