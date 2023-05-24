@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Łódź during the Communist Era</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url("photos/communism3.jpg");
+        background-position: center;
+        background-size: 140%;
+        background-repeat: no-repeat;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    audio {
+      display: none;
+    }
+
+    #score {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-weight: bold;
+    }
+
+    .question {
+      display: none;
+      margin-bottom: 20px;
+    }
+
+    .choices {
+      margin-top: 10px;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .choices li {
+      margin-bottom: 10px;
+    }
+
+    .choices input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    .correct {
+      color: green;
+    }
+
+    .incorrect {
+      color: red;
+    }
+
+    h2{
+      text-align: center;
+    }
+
+    h3{
+      text-align: center;
+    }
+
+    ul{
+      text-align: center;
+    }
+
+  #submit {
+    display: block;
+    margin: 0 auto; /* Add this line to center the button horizontally */
+    margin-top: 20px; /* Add margin to separate from previous element */
+  }
+
+  </style>
+  <script>
+    var currentAudio = null;
+    var score = 0;
+
+    function playAudio(audio) {
+      if (currentAudio) {
+        currentAudio.pause();
+      }
+      audio.play();
+      currentAudio = audio;
+      audio.onended = function() {
+        showQuestion(audio);
+      };
+    }
+
+    function showQuestion(audio) {
+      var questionContainer = document.getElementById("question-container");
+      questionContainer.style.display = "block";
+
+      var questionElement = document.getElementById("question");
+      var choicesList = document.getElementById("choices");
+
+      // Determine question and choices based on the audio being played
+      if (audio.src.endsWith("communism1.mp3")) {
+        questionElement.textContent = "What type of industry was prominent in Łódź prior to World War II?";
+        choicesList.innerHTML = `
+          <li><label><input type="radio" name="answer" value="a) Steel production">a) Steel production</label></li>
+          <li><label><input type="radio" name="answer" value="b) Textile production">b) Textile production</label></li>
+          <li><label><input type="radio" name="answer" value="c) Automotive manufacturing">c) Automotive manufacturing</label></li>
+          <li><label><input type="radio" name="answer" value="d) Electronics manufacturing">d) Electronics manufacturing</label></li>
+        `;
+      }
+       if (audio.src.endsWith("communism2.mp3")) {
+        questionElement.textContent = "What were the housing projects called that aimed to provide affordable accommodation for workers in Łódź?";
+        choicesList.innerHTML = `
+          <li><label><input type="radio" name="answer" value="a) Residencia">a) Residencia</label></li>
+          <li><label><input type="radio" name="answer" value="b) Condominiums">b) Condominiums</label></li>
+          <li><label><input type="radio" name="answer" value="c) Estates">c) Estates</label></li>
+          <li><label><input type="radio" name="answer" value="d) Osiedla">d) Osiedla</label></li>
+        `;
+      }
+        if (audio.src.endsWith("communism3.mp3")) {
+        questionElement.textContent = "What architectural style was promoted in Łódź under the communist regime?";
+        choicesList.innerHTML = `
+          <li><label><input type="radio" name="answer" value="a) Renaissance">a) Renaissance</label></li>
+          <li><label><input type="radio" name="answer" value="b) Gothic">b) Gothic</label></li>
+          <li><label><input type="radio" name="answer" value="c) Socialist realism">c) Socialist realism</label></li>
+          <li><label><input type="radio" name="answer" value="d) Art Nouveau">d) Art Nouveau</label></li>
+        `;
+      }
+         if (audio.src.endsWith("communism4.mp3")) {
+        questionElement.textContent = "Which film school in Łódź gained international recognition?";
+        choicesList.innerHTML = `
+          <li><label><input type="radio" name="answer" value="a) National Film School">a) National Film School</label></li>
+          <li><label><input type="radio" name="answer" value="b) State Theater Academy">b) State Theater Academy</label></li>
+          <li><label><input type="radio" name="answer" value="c) Film Academy of Łódź">c) Film Academy of Łódź</label></li>
+          <li><label><input type="radio" name="answer" value="d) Lodz Film School">d) Lodz Film School</label></li>
+        `;
+      }
+          if (audio.src.endsWith("communism5.mp3")) {
+        questionElement.textContent = "What significant event occurred in Łódź and other cities in June 1976?";
+        choicesList.innerHTML = `
+          <li><label><input type="radio" name="answer" value="a) Student protests">a) Student protests</label></li>
+          <li><label><input type="radio" name="answer" value="b) Labor strikes">b) Labor strikes</label></li>
+          <li><label><input type="radio" name="answer" value="c) Cultural boycott">c) Cultural boycott</label></li>
+          <li><label><input type="radio" name="answer" value="d) Election riots">d) Election riots</label></li>
+        `;
+      }
+           if (audio.src.endsWith("communism6.mp3")) {
+        questionElement.textContent = "What was the name of the secret police in communist Poland?";
+        choicesList.innerHTML = `
+          <li><label><input type="radio" name="answer" value="a) Stasi">a) Stasi</label></li>
+          <li><label><input type="radio" name="answer" value="b) KGB">b) KGB</label></li>
+          <li><label><input type="radio" name="answer" value="c) SB">c) SB</label></li>
+          <li><label><input type="radio" name="answer" value="d) CIA">d) CIA</label></li>
+        `;
+      }
+            if (audio.src.endsWith("communism7.mp3")) {
+        questionElement.textContent = "What factors contributed to the economic challenges and decline of Łódź?";
+        choicesList.innerHTML = `
+          <li><label><input type="radio" name="answer" value="a) Overreliance on agriculture">a) Overreliance on agriculture</label></li>
+          <li><label><input type="radio" name="answer" value="b) Lack of natural resources">b) Lack of natural resources</label></li>
+          <li><label><input type="radio" name="answer" value="c) Inefficient management and outdated technology">c) Inefficient management and outdated technology</label></li>
+          <li><label><input type="radio" name="answer" value="d) Economic sanctions from neighboring countries">d) Economic sanctions from neighboring countries</label></li>
+        `;
+      }
+    }
+
+    function checkAnswer() {
+      var selectedAnswer = document.querySelector('input[name="answer"]:checked');
+      if (selectedAnswer) {
+        var answerText = selectedAnswer.value;
+        var isCorrect = false;
+
+        if (currentAudio.src.endsWith("communism1.mp3")) {
+          isCorrect = answerText === "b) Textile production";
+        }
+
+         if (currentAudio.src.endsWith("communism2.mp3")) {
+          isCorrect = answerText === "d) Osiedla";
+        }
+
+          if (currentAudio.src.endsWith("communism3.mp3")) {
+          isCorrect = answerText === "c) Socialist realism";
+        }
+
+           if (currentAudio.src.endsWith("communism4.mp3")) {
+          isCorrect = answerText === "d) Lodz Film School";
+        }
+
+            if (currentAudio.src.endsWith("communism5.mp3")) {
+          isCorrect = answerText === "b) Labor strikes";
+        }
+
+             if (currentAudio.src.endsWith("communism6.mp3")) {
+          isCorrect = answerText === "c) SB";
+        }
+
+              if (currentAudio.src.endsWith("communism7.mp3")) {
+          isCorrect = answerText === "c) Inefficient management and outdated technology";
+        }
+
+        if (isCorrect) {
+          score++;
+          selectedAnswer.parentElement.classList.add("correct");
+        } else {
+          selectedAnswer.parentElement.classList.add("incorrect");
+        }
+
+        // Disable answer choices
+        var answerChoices = document.querySelectorAll('input[name="answer"]');
+        answerChoices.forEach(function(choice) {
+          choice.disabled = true;
+        });
+
+        // Update the score display
+        var scoreDisplay = document.getElementById("score");
+        scoreDisplay.textContent = "Score: " + score;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const headings = document.querySelectorAll('h2');
+      const audios = document.querySelectorAll('audio');
+
+      headings.forEach(function(heading, index) {
+        heading.addEventListener('click', function() {
+          const audio = audios[index];
+          playAudio(audio);
+        });
+      });
+
+      var submitButton = document.getElementById("submit");
+      submitButton.addEventListener('click', function() {
+        checkAnswer();
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Łódź during the Communist Era</h1>
+  </header>
+
+  <main>
+    <h2>1. Industrialization and Urban Development</h2>
+    <audio src="videos/communism1.mp3"></audio>
+
+    <h2>2. Housing and Living Conditions</h2>
+    <audio src="videos/communism2.mp3"></audio>
+
+    <h2>3. Socialist Realism and Architecture</h2>
+    <audio src="videos/communism3.mp3"></audio>
+
+    <h2>4. Cultural and Artistic Scene</h2>
+    <audio src="videos/communism4.mp3"></audio>
+
+    <h2>5. Labor Movements and Protests</h2>
+    <audio src="videos/communism5.mp3"></audio>
+
+    <h2>6. Political Control and Surveillance</h2>
+    <audio src="videos/communism6.mp3"></audio>
+
+    <h2>7. Economic Challenges and Decline</h2>
+    <audio src="videos/communism7.mp3"></audio>
+
+    <div id="question-container" class="question">
+      <h3 id="question"></h3>
+      <ul id="choices" class="choices"></ul>
+    </div>
+    <button id="submit">Submit</button>
+    <div id="score">Score: 0</div>
+  </main>
+</body>
+</html>
