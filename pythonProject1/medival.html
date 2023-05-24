@@ -72,7 +72,35 @@
             margin-top: 20px; /* Adjust the margin-top value as desired */
         }
 
+        .button3 {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px; /* Adjust the margin-top value as desired */
+        }
+
         .button2 {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px; /* Adjust the margin-top value as desired */
+        }
+
+        .button4 {
             margin: 10px;
             padding: 10px 20px;
             background-color: #4CAF50;
@@ -123,11 +151,11 @@
     <div id="thought-cloud">
         <div class="button-container">
             <button class="button" style="margin-top: -100px;">1</button>
-            <button class="button" style="margin-top: -100px;">2</button>
+            <button class="button3" style="margin-top: -100px;">2</button>
         </div>
         <div class="button-container">
             <button class="button2" style="margin-top: -20px;">3</button>
-            <button class="button2" style="margin-top: -20px;">4</button>
+            <button class="button4" style="margin-top: -20px;">4</button>
         </div>
     </div>
 </div>
@@ -135,19 +163,16 @@
     <a href="interactiveVideo.html" class="button">Go to Industrial Age</a>
 </div>
 <script>
-    // Get a reference to the button
+    // Get references to the buttons
     var button1 = document.querySelector('.button');
+    var button2 = document.querySelector('.button3');
+    var button3 = document.querySelector('.button2');
+    var button4 = document.querySelector('.button4');
 
-    // Function to play audio and show images when button 1 is clicked
-    button1.addEventListener('click', function() {
-        var audio = new Audio('videos/medival1.mp3');
+    // Function to play audio and show images when a button is clicked
+    function buttonClick(audioSrc, images) {
+        var audio = new Audio(audioSrc);
         var frame = document.querySelector('.frame');
-        var images = [
-            { src: 'photos/lodz1.jpg', time: 1 },
-            { src: 'photos/lodz2.jpg', time: 11 },
-            { src: 'photos/lodz3.jpg', time: 34 },
-            { src: 'photos/lodz4.jpg', time: 52 }
-        ];
 
         // Show images at specific times
         function showImage(src) {
@@ -177,6 +202,53 @@
 
         // Hide images after audio finishes playing
         audio.addEventListener('ended', hideImages);
+    }
+
+    // Define the audio sources and images for each button
+    var button1AudioSrc = 'videos/medival1.mp3';
+    var button1Images = [
+        { src: 'photos/lodz1.jpg', time: 1 },
+        { src: 'photos/lodz2.jpg', time: 11 },
+        { src: 'photos/lodz3.jpg', time: 34 },
+        { src: 'photos/lodz4.jpg', time: 52 }
+    ];
+    var button2AudioSrc = 'videos/medival2.mp3';
+    var button2Images = [
+        { src: 'photos/cottage1.jpg', time: 2 },
+        { src: 'photos/cottage2.jpg', time: 19 },
+        { src: 'photos/cottage5.jpg', time: 30 },
+        { src: 'photos/cottage4.jpg', time: 47 }
+    ];
+    var button3AudioSrc = 'videos/medival3.mp3';
+    var button3Images = [
+        { src: 'photos/lodz1.jpg', time: 1 },
+        { src: 'photos/lodz2.jpg', time: 11 },
+        { src: 'photos/lodz3.jpg', time: 34 },
+        { src: 'photos/lodz4.jpg', time: 52 }
+    ];
+    var button4AudioSrc = 'videos/medival4.mp3';
+    var button4Images = [
+        { src: 'photos/lodz1.jpg', time: 1 },
+        { src: 'photos/lodz2.jpg', time: 11 },
+        { src: 'photos/lodz3.jpg', time: 34 },
+        { src: 'photos/lodz4.jpg', time: 52 }
+    ];
+
+    // Add click event listeners to the buttons
+    button1.addEventListener('click', function() {
+        buttonClick(button1AudioSrc, button1Images);
+    });
+
+    button2.addEventListener('click', function() {
+        buttonClick(button2AudioSrc, button2Images);
+    });
+
+    button3.addEventListener('click', function() {
+        buttonClick(button3AudioSrc, button3Images);
+    });
+
+    button4.addEventListener('click', function() {
+        buttonClick(button4AudioSrc, button4Images);
     });
 </script>
 </body>
