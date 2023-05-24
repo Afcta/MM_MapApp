@@ -69,12 +69,12 @@ class Map:
                           )
 
     marker = folium.Marker(
-        [51.76469177181548, 19.45746972538261], popup=popup1,
-        tooltip="Twoja stara",
+        [51.76469177181548, 19.45746972538261],
+        popup="<h1>Ławeczka Tuwima</h1><img src='photos/Tuwim.jpg' width = 400px/>",
+        tooltip="Ławeczka Tuwima",
         icon=folium.Icon(icon="heart", icon_color="pink")
     )
     marker.add_to(fg_monuments)
-
 
     marker1 = folium.Marker(
         [51.766564986894885, 19.456798138876003],
@@ -125,13 +125,13 @@ class Map:
                 <img src="photos/manufactures.jpg" width="400px">
             </div>
             <div>
-                <h2 style="font-size: 20px;"><a href="famousPeople.html">Izrael Poznanski</a></h2>
+                <h2 style="font-size: 20px;"><a href="IzraelPage.html">Izrael Poznanski</a></h2>
             </div>
         </div>
 
         <div style="display:flex; align-items:center; font-size: 20px;">
             <div style="margin-right:10px;">
-                <h2 style="font-size: 20px;">Henryk Grohman</h2>
+                <h2 style="font-size: 20px;"><a href="LudwikPage.html">Ludwik Geyer</a></h2>
             </div>
         </div>
         ''',
@@ -159,7 +159,7 @@ class Map:
 
         <div style="display:flex; align-items:center; font-size: 20px;">
             <div style="margin-right:10px;">
-                <h2 style="font-size: 20px;">Henryk Grohman</h2>
+                <h2 style="font-size: 20px;"><a href="LudwikPage.html">Ludwik Geyer</a></h2>
             </div>
         </div>
         ''',
@@ -171,7 +171,8 @@ class Map:
 
     marker5 = folium.Marker([51.778906051771884, 19.451293974304274],
                             popup='<h1>Poznanski Palace</h1>'
-                                  "<img src='photos/PoznanskiPalace.jpg' width = 400px/>",
+                                  '<video width="420" height="280" controls>'
+                                  '<source src="videos/PoznanskiPalace.mp4" type="video/mp4">',
                             tooltip="Poznanski Palace",
                             icon=folium.Icon(icon="heart", icon_color="pink"))
 
@@ -179,14 +180,21 @@ class Map:
 
     marker6 = folium.Marker([51.77933314100332, 19.444952116435194],
                             popup="<h1>Manufacture</h1>"
-                                  "<img src='photos/manufaktura.jpg' width = 400px/>"
-                                  '<a style="font-size:20px;" href="famousPlaces.html#PoznanskiFactory" '
-                                  'onclick="highlightVideoContainer()">video</a>',
-
+                                  '<video width="420" height="280" controls>'
+                                  '<source src="videos/PoznanskiFactory.mp4" type="video/mp4">',
                             tooltip="Manufacture",
                             icon=folium.Icon(icon="heart", icon_color="pink")
                             )
-    marker6.add_to(fg_videos)
+
+    marker6video = folium.Marker([51.77933314100332, 19.444952116435194],
+                            popup="<h1>Manufacture</h1>"
+                                  '<video width="420" height="281" controls>'
+                                  '<source src="videos/PoznanskiFactory.mp4" type="video/mp4">',
+                            tooltip="Manufacture",
+                            icon=folium.Icon(icon="heart", icon_color="pink")
+                            )
+    marker6.add_to(fg_monuments)
+    marker6video.add_to(fg_videos)
 
     marker7 = folium.Marker([51.75942655450387, 19.457584362659563],
                             popup="<h1>Unicorn Stable</h1>"
@@ -215,6 +223,28 @@ class Map:
     marker8.add_to(fg_monuments)
     marker8video.add_to(fg_videos)
 
+    marker9 = folium.Marker(
+        [51.77990550889085, 19.456079233645436],
+        popup=folium.Popup('''<h1> Park staromiejski<h1>
+        <img src='photos/ParkStaromiejski.jpg' width = 400px/>
+        <h2 style="font-size: 15px;"> Beautiful park opposite the main shopping center. During World War II, the Lodz Ghetto stood on its site, which was completely demolished at the end of the war</h2>
+         <h3 style="font-size: 15px;"><a href="worldwar.html"> Click to see a video about World War II in Lodz</a></h3>
+            <div style="display:flex; align-items:center;">''', max_height=450),
+        tooltip="Park Staromiejski",
+        icon=folium.Icon(icon="heart", icon_color="pink")
+    )
+    marker9video = folium.Marker(
+        [51.77990550889085, 19.456079233645436],
+        popup=folium.Popup('''<h1> Park staromiejski <h1>
+        <img src='photos/ParkStaromiejski.jpg' width = 400px/>
+        <h2 style="font-size: 15px;"> Beautiful park opposite the main shopping center. During World War II, the Lodz Ghetto stood on its site, which was completely demolished at the end of the war</h2>
+         <h3 style="font-size: 15px"><a href="worldwar.html"> Click to see a video about World War II in Lodz</a></h3>
+            <div style="display:flex; align-items:center;">''', max_width=450),
+        tooltip="Park Staromiejski",
+        icon=folium.Icon(icon="heart", icon_color="pink")
+    )
+    marker9.add_to(fg_monuments)
+    marker9video.add_to(fg_videos)
     # Restaurants
     rest_rating = 4.6
     rating_icon = 'fa-star'
@@ -261,7 +291,7 @@ class Map:
     popup_html += f'<p><a href="foodRecipe1.html"> Check the most popular dishes that you have to try! </a></p>'
     popup = folium.Popup(html=popup_html, max_width=500)
     marker2video = folium.Marker(location=[51.76876938105906, 19.456353925382906], popup=popup,
-                            icon=folium.Icon(icon="cutlery", color='green'))
+                                 icon=folium.Icon(icon="cutlery", color='green'))
     marker2video.add_to(fg_videos)
 
     cuisine_type = 'Polish'
@@ -292,7 +322,7 @@ class Map:
     popup_html += f'<p><a href="foodRecipe1.html"> Check the most popular dishes that you have to try! </a></p>'
     popup = folium.Popup(html=popup_html, max_width=500)
     marker3video = folium.Marker(location=[51.77928756113294, 19.449665533826533], popup=popup,
-                            icon=folium.Icon(icon="cutlery", color='green'))
+                                 icon=folium.Icon(icon="cutlery", color='green'))
     marker3video.add_to(fg_videos)
 
     cuisine_type = 'Mediterranean'

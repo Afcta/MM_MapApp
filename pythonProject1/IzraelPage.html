@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manufacturer Page</title>
+  <style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-image: url('photos/manufaktura.jpg');
+  }
+
+
+
+  .manufacturer-content {
+    text-align: center;
+    padding: 20px;
+    height: 600px;
+    width: 1500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    flex-grow: 1; /* Added to fill the remaining vertical space */
+  }
+
+  .portrait {
+    flex: 0 0 200px;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .portrait img {
+    width: 400px;
+    height: 500px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .video {
+    flex: 1;
+    padding: 10px;
+    max-width: 1200px;
+    max-height: 100%;
+    margin-left: 20px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+
+  }
+
+  .buttons button {
+    margin: 5px;
+    border-radius: 12px;
+    font-size: 16px;
+    padding: 15px 32px;
+    text-align: center;
+    background-color: white;
+  }
+
+  h1{
+    text-align: center;
+    margin-top: 10px;
+    border-radius: 12px;
+    background-color: white;
+    color: black;
+      }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="manufacturer-content">
+
+      <div class="content-wrapper">
+        <div class="portrait">
+          <img src="photos/PoznanskiPortrait.jpg" alt="Manufacturer Portrait">
+          <h1>Izrael Poznanski</h1>
+        </div>
+        <div class="video">
+          <video id="videoPlayer" src="videos/Poznanski.mp4" controls></video>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="button1"><a href="KarolPage.html" style="text-decoration: none; color: black; font-family: Arial">Karol Scheibler</a></button>
+        <button id="button2"><a href="LudwikPage.html" style="text-decoration: none; color: black; font-family: Arial">Ludwik Geyer</a></button>
+        <button id="button3"><a href="map.html" style="text-decoration: none; color: black; font-family: Arial">Go back to map</a></button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    var videoPlayer = document.getElementById('videoPlayer');
+    var videoWrapper = document.querySelector('.video');
+
+    // Function to resize the video element to fit its container
+    function resizeVideo() {
+      var videoWidth = videoWrapper.offsetWidth;
+      var videoHeight = videoWidth * (9 / 16); // Assuming 16:9 aspect ratio
+
+      videoPlayer.style.width = videoWidth + 'px';
+      videoPlayer.style.height = videoHeight + 'px';
+    }
+
+    // Resize the video initially and on window resize
+    resizeVideo();
+    window.addEventListener('resize', resizeVideo);
+  </script>
+</body>
+</html>
