@@ -65,7 +65,7 @@ class Map:
     video_iframe = IFrame(video_html, width=590, height=345)
     popup = folium.Popup(video_iframe, max_width=650)
 
-    popup1 = folium.Popup('<a href="famousPlaces.html">Click here to view the video</a>'
+    popup1 = folium.Popup('<a href="KarolPage.html">Click here to view the video</a>'
                           )
 
     marker = folium.Marker(
@@ -153,7 +153,7 @@ class Map:
                 <img src="photos/manufactures.jpg" width="400px">
             </div>
             <div>
-                <h2 style="font-size: 20px;"><a href="famousPlaces.html">Izrael Poznanski</a></h2>
+                <h2 style="font-size: 20px;"><a href="IzraelPage.html">Izrael Poznanski</a></h2>
             </div>
         </div>
 
