@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Interactive Video</title>
+      <link rel="stylesheet" type="text/css" href="nav.css">
     <style>
         /* Style the container for video and options */
         .video-container {
@@ -39,6 +40,17 @@
     </style>
 </head>
 <body>
+
+ <header class="header">
+    <nav>
+      <ul class="hidden"> <!-- Add initial hidden class -->
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="map.html">Map</a></li>
+        <li><a href="culture.html">Culture</a></li>
+      </ul>
+    </nav>
+  </header>
+
     <div class="video-container">
         <video id="mainVideo" controls>
             <source src="videos/intro.mp4" type="video/mp4">
@@ -67,5 +79,17 @@
             optionsContainer.style.display = 'block';
         });
     </script>
+
+<script>
+    const nav = document.querySelector(".header nav ul");
+    const header = document.querySelector(".header");
+    nav.classList.remove("hidden"); // Remove initial hidden class
+    header.addEventListener("mouseover", () => {
+      nav.classList.add("visible");
+    });
+    header.addEventListener("mouseleave", () => {
+      nav.classList.remove("visible");
+    });
+  </script>
 </body>
 </html>
