@@ -4,7 +4,7 @@
   <title>Video Page</title>
   <style>
     body {
-      background-color:gold;
+          background-image: url('photos/food4.jpg');
     }
 
     .container {
@@ -16,18 +16,45 @@
       position: relative;
       top: 5px;
       left: 5px;
+      width: 1000px;
+      margin-left: 30px;
+      word-wrap: break-word;
+      background: white;
+      border-radius: 12px;
     }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* .container div span p{
+      word-wrap: break-word;
+    } */
     
     .text {
       justify-content: space-between;
-      flex: 1;
+      display: flex;
+      flex-direction: column;
+      flex: 2;
     }
 
     .text p {
       line-height: 5px;
-      display: grid;
+      display: flex;
       flex-direction: column;
     }
+    
+    span.longText p{
+      line-height: 20px;
+      text-indent: 30px;
+      margin-left: 30px;
+      margin-right: 30px;
+      font-size: 17px;
+      max-width: 1000px;
+    }
+
+
 
     #smallParagraph{
       line-height: 1px;
@@ -48,7 +75,7 @@
       width: 20px;
       background-color: #333;
       color: white;
-      font-family: Garamond;
+      font-family: Arial;
       font-size: 1.2rem;
       z-index: 2;
       transition: width 0.2s ease-in-out;
@@ -102,6 +129,24 @@
       visibility: visible;
     }
 
+    .header {
+      flex: 0 0 auto;
+    }
+
+    #highlight {
+      max-width: calc(100% - 220px);
+    }
+
+    #ingredients {
+      text-align: center;
+      font-size: 17px
+    }
+
+    video{
+    margin-top: 30%;
+    margin-left: 10px;
+    }
+
   </style>
 </head>
 <body>
@@ -114,77 +159,174 @@
       </video>
     </div>
     
-    <div class="text">
+    <div class="text content">
       
-        <span id="highlight1" hidden="True">
-          <p><b>1. Pierogi</b></p>
-          <p>-4 cups of wheat flour</p>
-          <p>-1.5 cups hot water</p>
-          <p>-2 tablespoons of butter</p>
-          <p>-teaspoon of salt</p>
-          <p>-800 g sauerkraut</p>
-          <p>-60 g dried mushrooms</p>
-          <p>-2 medium onions - 300 g</p>
-          <p>-7 tablespoons of oil</p></span>
+      <span id="highlight"></span>
+    
+      <span id="highlight1" hidden="True"> 
+        <span id="ingredients">
+        <p><b>1. Pierogi</b></p>
+        <p>-4 cups of wheat flour</p>
+        <p>-1.5 cups hot water</p>
+        <p>-2 tablespoons of butter</p>
+        <p>-teaspoon of salt</p>
+        <p>-800 g sauerkraut</p>
+        <p>-60 g dried mushrooms</p>
+        <p>-2 medium onions - 300 g</p>
+        <p>-7 tablespoons of oil</p>
+        <p></p>
+        </span>
+        <span class="longText">
+          <p>1. Place the dried mushrooms in a larger bowl and pour two cups of cold water over them. Cover the bowl with a plate, for example, and set aside in a dry and cool place for 12 hours.</p>
+          <p>2. The water after soaking the mushrooms is perfect for the cabbage you are about to start cooking. Cut the drained mushrooms into thin strips and then chop them.</p>
+          <p>3. Fry the previously shredded onion on a medium burner power for about 10 minutes, add the mushrooms and fry for 2 minutes.</p>
+          <p>4. Chop the sauerkraut with a knife and place in a large pot. Add bay leaves, allspice, peppercorns and sugar. Pour the water after the mushrooms into the pot with the cabbage. Also pour in half a cup of cold water. Finally, add the onions with the mushrooms. Cook the cabbage for about an hour. </p>
+          <p>5. To make the dough for cabbage and mushroom dumplings, put four cups of whole wheat flour into a large bowl. Add a teaspoon of salt. You also need about 1.5 cups of very hot water. Mix the whole thing with a spoon, then knead the dough with your hands. Form balls of dough.</p>
+          <p>6. Roll out the dough thinly on a pastry board. Cut out circles. You can additionally stretch each piece slightly more in your hands. Put cabbage and mushroom stuffing in the center. Fold the ravioli in half and stick the sides together.</p>
+          <p>7. About 12-15 pieces at a time, place in a large pot of salted, boiling water. After about 2 minutes, the cabbage and mushroom dumplings will float to the surface. Fish the dumplings out after about 4 minutes after they float to the surface and you're done :)</p>
+        </span>
+
+        </span>
+      <div class="header">
+        <header class="header">
+          <nav>
+            <ul class="hidden"> <!-- Add initial hidden class -->
+             <li><a href="menu.html">Menu</a></li>
+              <li><a href="map.html">Map</a></li>
+              <li><a href="history.html">History</a></li>
+            </ul>
+          </nav>
+        </header>
+      
+        <script>
+          const nav = document.querySelector(".header nav ul");
+          const header = document.querySelector(".header");
+          nav.classList.remove("hidden"); // Remove initial hidden class
+          header.addEventListener("mouseover", () => {
+            nav.classList.add("visible");
+          });
+          header.addEventListener("mouseleave", () => {
+            nav.classList.remove("visible");
+          });
+        </script>
+      </div>      
+
       
 
         <span id="highlight3" hidden="True">
-          <p><b>3. Beetrot soup</b></p>
-          <p>-2 liters of vegetable or poultry broth</p>
-          <p>-1 kg of red beets</p>
-          <p>-2 cloves of garlic</p>
-          <p>-2 dried mushrooms</p>
-          <p id="smallParagraph">-seasonings: a teaspoon each of marjoram and sugar, </p><p id="small
-            ">a tablespoon of vinegar, salt and pepper</p>
-        
+          <span id="ingredients">
+            <p><b>3. Beetrot soup</b></p>
+            <p>-2 liters of vegetable or poultry broth</p>
+            <p>-1 kg of red beets</p>
+            <p>-2 cloves of garlic</p>
+            <p>-2 dried mushrooms</p>
+            <p id="smallParagraph">-seasonings: a teaspoon each of marjoram and sugar, </p><p id="small
+              ">a tablespoon of vinegar, salt and pepper</p>
+          </span>
+
+            <span class="longText">
+              <p>1  To make borscht you need two liters of vegetable broth, beef or also poultry broth.</p>
+              <p>2. I put half a hen in a pot together with the vegetables and herbs. Peel two medium carrots, a parsley root and a piece of celery and place them in the pot. Also place parsley, washed and cut into smaller pieces celery stalks, unpeeled garlic cloves in the pot. Cut the onion in half and toast it for a while in a dry pan or over the burner of a gas stove. Add 2 bay leaves, 4 grains of allspice, a teaspoon of peppercorns and a tablespoon of salt. Pour three liters of water into the pot and boil for 2h.</p>
+              <p>3. After this time, strain the broth itself. To two liters of strained broth add one kilogram of peeled and sliced beets. Each beet, before adding to the broth, cut in half. In turn, cut the halves into thicker slices. Also place two cloves of garlic and two larger pieces of dried mushrooms in the pot. Bring the soup to a boil. Once boiling, reduce the power of the burner to such that the borscht is only gently gurgling, and cook it for an hour.</p>
+              <p>4. 10 minutes before turning off the borscht, also add a teaspoon of marjoram. Drain the borscht itself and you're done :)</p>
+            </span>
+
         </span>
 
         <span id="highlight5" hidden="True">
-        <p><b>5. Karpatka</b></p>
-        <p>-6 medium eggs</p>
-        <p>-3/4 cube of butter - 150 g</p>
-        <p>-1 cup of whole-wheat flour - 200 g</p>
-        <p>-1 glass of water</p>
-        <p>-flat teaspoon of baking powder</p>
-        <p>-pinch of salt</p>
-        <p>-butter cube - 200 g</p>
-        <p>-2 cups of milk - 500 - 600 ml</p>
-        <p>-2 sugar-free puddings</p>
-        <p>-3 tablespoons of sugar or more if you like sweet custard</p>
-        
+          <span id="ingredients">
+            <p><b>5. Karpatka</b></p>
+            <p>-6 medium eggs</p>
+            <p>-3/4 cube of butter - 150 g</p>
+            <p>-1 cup of whole-wheat flour - 200 g</p>
+            <p>-1 glass of water</p>
+            <p>-flat teaspoon of baking powder</p>
+            <p>-pinch of salt</p>
+            <p>-butter cube - 200 g</p>
+            <p>-2 cups of milk - 500 - 600 ml</p>
+            <p>-2 sugar-free puddings</p>
+            <p>-3 tablespoons of sugar or more if you like sweet custard</p>
+            <p></p>
+            <p>Ingredients for pudding cream</p>
+            <p>butter cube - 200 g</p>
+            <p>2 cups of milk - 500 - 600 ml</p>
+            <p>2 sugar-free puddings - powder to 2 x 40 g</p>
+            <p>3 tablespoons sugar or more if you like sweet custard</p>
+          </span>
+
+
+        <span class="longText">
+          <span id="ingredients">
+            <p>1. Always start by boiling the pudding for the pudding cream. The pudding should cool completely. Of the ingredients for the pudding cream: pour 1.5 cups of milk and three tablespoons of sugar into a saucepan. Bring the milk and sugar to a boil. Mix half a cup of milk with the pudding powder. Stir all the time. Pour the finished pudding into a glass dish.</p>
+            <p>2. of the ingredients for the steamed cake: Pour a cup of water into a pot. Add 150 grams of butter. Heat the whole thing until the butter melts and the butter water begins to boil. Remove the pot from the burner for a while.</p>
+            <p>3. Add a pinch of salt to the water with butter and pour in 200 grams of wheat flour. Stir the whole thing with a wooden spoon. Put the dish again on the burner set on low power and stir the whole thing for about one minute.</p>
+            <p>4. Add eggs to the mixture, while mixing the dough. Then add the baking powder.</p>
+            <p>5. Divide the dough into two parts. Pour the first portion of the dough onto a baking tray. Bake for 20 minutes at 200 degrees. Separate the dough from the tin with a knife and take it out to cool. As before, level the surface and bake the second top.</p>
+            <p>6. The only thing left is to finish the pudding cream and put it on the bottom of the cake. Place the soft butter - 200 grams - in a bowl. Beat it with a mixer on the highest speed until it becomes fluffy and light. Gradually, spoon by spoon, add the completely cooled pudding.</p>
+            <p>7. Pour the pudding cream on the bottom of the cake and level the surface. Carefully lay the second top of the steamed cake as well<p>
+            <p>8. Place the finished karpatka in the refrigerator until the pudding mixture is completely cooled and set, and you're done :)</p>
+          </span>
+
+          </span>
+
         </span>
       
     </div>
     <div class="text2">
         <span id="highlight2" hidden="True">
-          <p><b>2. White borscht</b></p>
-          <p>-500 ml of sourdough for white borscht</p>
-          <p>-400 g white raw or steamed sausage</p>
-          <p>-500 g potatoes </p>
-          <p>-1 medium-sized carrot - about 100 g</p>
-          <p>-50 ml of cream</p>
-          <p>-1 liter of water - four cups</p>
-          <p>-spices: a tablespoon of marjoram, </p><p>1.5 flat teaspoons  of salt, half a flat teaspoon of pepper</p>
+          <span id="ingredients">
+            <p><b>2. White borscht</b></p>
+            <p>-500 ml of sourdough for white borscht</p>
+            <p>-400 g white raw or steamed sausage</p>
+            <p>-500 g potatoes </p>
+            <p>-1 medium-sized carrot - about 100 g</p>
+            <p>-50 ml of cream</p>
+            <p>-1 liter of water - four cups</p>
+            <p>-spices: a tablespoon of marjoram, </p><p>1.5 flat teaspoons  of salt, half a flat teaspoon of pepper</p>
+          </span>
+
+          <span class="longText">
+            <p>1. About 500 grams of potatoes peel and then cut into small pieces. Cook until they are soft</p>
+            <p>2. Place about 400 grams of raw white sausage in a large pot with water. After a maximum of 5 minutes after the water boils, remove the pot from the burner for a while. Cut into thick slices and then cook for 10 minutes.</p>
+            <p>3. After this time, pour 500 ml of wheat sourdough for white borscht into the pot.</p>
+            <p>4. To the pot also add the almost soft potatoes together with the water in which they cooked and add the spices: a tablespoon of marjoram and half a flat teaspoon each of salt and pepper. Stir the soup and bring it to a boil again, then reduce the power of the burner to simmer, but not too vigorously (already without a lid). Keep stirring the white borscht no longer than 5 minutes. After this time it should have already thickened slightly.</p>
+            <p>5. At the end add cream to the soup and stir everything and you are done :)</p>
+          </span>
         </span>
 
         <span id="highlight4" hidden="True">
-          <p><b>4. Polish poatato pancakes</b></p>
-          <p>-1 kg of peeled potatoes</p>
-          <p>-2 medium or small eggs</p>
-          <p>-small onion - about 120 g</p>
-          <p>-2 flat spoons of wheat flour - 20 g</p>
-          <p>-a small bunch of chives</p>
-          <p>-seasonings: a flat teaspoon each of sugar, salt and pepper</p>
-          <p>-oil for frying or lard</p>
-        
+          <span id="ingredients">
+            <p><b>4. Polish poatato pancakes</b></p>
+            <p>-1 kg of peeled potatoes</p>
+            <p>-2 medium or small eggs</p>
+            <p>-small onion - about 120 g</p>
+            <p>-2 flat spoons of wheat flour - 20 g</p>
+            <p>-a small bunch of chives</p>
+            <p>-seasonings: a flat teaspoon each of sugar, salt and pepper</p>
+            <p>-oil for frying or lard</p>
+          </span>
+
+          <span class="longText">
+            <p>1. Grate the peeled potatoes on a fine mesh or use a food processor/grinder with a suitable attachment.</p>
+            <p>2. Squeeze the potato mixture from excess water. I use a cotton cloth for this</p>
+            <p>3. Finely shred the chives and onions. These are not essential ingredients and can be safely omitted when preparing potato pancakes, but I highly recommend adding at least a little chives.</p>
+            <p>4  Crack two eggs into the potatoes. Pour in two flat tablespoons of whole wheat flour and a flat teaspoon each of sugar, salt and pepper. Don't forget the chopped chives and onions.</p>
+            <p>5. Mix the whole mixture very thoroughly.</p>
+            <p>6. With a large spoon put portions of the potato mixture an pan with hot oil. Flip the potato pancakes to the other side when they become brown from the bottom. Fry all potato pancakes in this way and you are done :).</p>
+            <p>Tip: Potato pancakes taste great sprinkled with sugar and dipped in sour cream or thick natural yogurt.</p>
+
+          </span>
         </span>
-      
+
     </div>
+
+
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const videoElement = document.getElementById('videoPlayer');
+      const highlightElement = document.getElementById('highlight');
       const highlight1Element = document.getElementById('highlight1');
       const highlight2Element = document.getElementById('highlight2');
       const highlight3Element = document.getElementById('highlight3');
@@ -206,47 +348,25 @@
         const highlight5End = 60*3+56; // Example end time for the second highlight in seconds
 
         if (currentTime >= highlight1Start && currentTime <= highlight1End) {
-          highlight1Element.hidden = false;
+          highlightElement.innerHTML = highlight1Element.innerHTML;
         } 
 
         if (currentTime >= highlight2Start && currentTime <= highlight2End) {
-          highlight1Element.innerHTML = highlight2Element.innerHTML;
+          highlightElement.innerHTML = highlight2Element.innerHTML;
         } 
 
         if (currentTime >= highlight3Start && currentTime <= highlight3End) {
-          highlight1Element.innerHTML = highlight3Element.innerHTML;
+          highlightElement.innerHTML = highlight3Element.innerHTML;
         }        
 
         if (currentTime >= highlight4Start && currentTime <= highlight4End) {
-          highlight1Element.innerHTML = highlight4Element.innerHTML;
+          highlightElement.innerHTML = highlight4Element.innerHTML;
         } 
         
         if (currentTime >= highlight5Start && currentTime <= highlight5End) {
-          highlight1Element.innerHTML = highlight5Element.innerHTML;
+          highlightElement.innerHTML = highlight5Element.innerHTML;
         } 
       });
-    });
-  </script>
-
- <header class="header">
-    <nav>
-      <ul class="hidden"> <!-- Add initial hidden class -->
-       <li><a href="menu.html">Menu</a></li>
-        <li><a href="map.html">Map</a></li>
-        <li><a href="history.html">History</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <script>
-    const nav = document.querySelector(".header nav ul");
-    const header = document.querySelector(".header");
-    nav.classList.remove("hidden"); // Remove initial hidden class
-    header.addEventListener("mouseover", () => {
-      nav.classList.add("visible");
-    });
-    header.addEventListener("mouseleave", () => {
-      nav.classList.remove("visible");
     });
   </script>
 
