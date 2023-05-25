@@ -21,7 +21,7 @@ let spinChart = new Chart(spinWheel, {
   plugins: [ChartDataLabels],
   type: "pie",
   data: {
-    labels: ['Communism', 'Medival Ages', 'Industrial Lodz', 'II World War'],
+    labels: ['Communism', 'Medival Ages', ' Industrial Lodz', 'II World War'],
     datasets: [
       {
         backgroundColor: spinColors,
