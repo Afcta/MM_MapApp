@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
     <title>Medieval Peasant</title>
@@ -142,9 +142,6 @@
     </style>
 </head>
 <body>
-
-
-
 <div class="frame"></div>
 <div id="character">
     <img src="photos/peasant.png" alt="Peasant">
@@ -160,7 +157,7 @@
     </div>
 </div>
 <div class="button-container" style="position: absolute; bottom: -20px; left: 64.6%; transform: translateX(-50%);">
-    <a href="interactiveVideo.html" class="button">Go to Industrial Age</a>
+    <a href="industrial.html" class="button">Go to Industrial Age</a>
 </div>
 <script>
     // Get references to the buttons
@@ -169,10 +166,18 @@
     var button3 = document.querySelector('.button2');
     var button4 = document.querySelector('.button4');
 
+    var audioElement = null;
+
     // Function to play audio and show images when a button is clicked
     function buttonClick(audioSrc, images) {
-        var audio = new Audio(audioSrc);
+         if (audioElement && !audioElement.paused) {
+            // If audio is already playing, return without doing anything
+            return;
+        }
+
+          audioElement = new Audio(audioSrc);
         var frame = document.querySelector('.frame');
+
 
         // Show images at specific times
         function showImage(src) {
@@ -192,7 +197,7 @@
         }
 
         // Play audio
-        audio.play();
+        audioElement.play();
 
         // Show images at specified times
         for (var i = 0; i < images.length; i++) {
@@ -201,7 +206,7 @@
         }
 
         // Hide images after audio finishes playing
-        audio.addEventListener('ended', hideImages);
+        audioElement.addEventListener('ended', hideImages);
     }
 
     // Define the audio sources and images for each button

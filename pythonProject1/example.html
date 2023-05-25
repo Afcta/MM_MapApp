@@ -1,139 +1,204 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Source Code Of Spin Wheel</title>
+    <!---------------  CSS  --------------------->
+    <link rel="stylesheet" href="style.css">
+    <!---------------  Font Aewsome  --------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!---------------  Chart JS  --------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!---------------  Chart JS Plugin  --------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
 </head>
 <style>
-.spinner {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  transform: rotate(0deg);
-  animation: spin 3s infinite;
+    /*-----------------  VARIABLES  -----------------*/
+:root {
+    /* Colors */
+    --white_color : rgb(255, 255, 255);
+    --gold_color: rgb(255, 215, 0);
+    --green_color: rgb(45, 252, 26);
+    --body_background: linear-gradient(to right, #141e30, #243b55);
+    --spin_background: linear-gradient(to right, #fc4a1a, #f7b733);
+}
+/*-----------------  Base  -----------------*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'PT Serif', serif;
+}
+body {
+  height: 100vh;
+  background: var(--body_background);
 }
 
-.slice {
+
+.container {
+  width: 90%;
+  max-width: 34.37rem;
+  margin-top: 3rem;
+  max-height: 90vh;
   position: absolute;
-  top: 0;
-  left: 0;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+.wheel_box {
+  position: relative;
   width: 100%;
   height: 100%;
-  transform-origin: 50% 100%;
-  clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
 }
-
-.slice:nth-child(1) {
-  background-color: #FF4136;
-  transform: rotate(0deg);
-}
-
-.slice:nth-child(2) {
-  background-color: #2ECC40;
-  transform: rotate(90deg);
-}
-
-.slice:nth-child(3) {
-  background-color: #0074D9;
-  transform: rotate(180deg);
-}
-
-.slice:nth-child(4) {
-  background-color: #FFDC00;
+#spinWheel {
+  max-height: inherit;
+  width: inherit;
   transform: rotate(270deg);
 }
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+#spin_btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: 26%;
+  width: 26%;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 0;
+  background: var(--spin_background);
+  color: var(--white_color);
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
 }
-
-/* Adjust the size and style of the links within the slices as needed */
-.slice a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: #FFF;
+.fa-solid {
+  position: absolute;
+  top: -8%;
+  left: 43.7%;
+  font-size: 4rem;
+  color: var(--green_color);
+  transform: rotate(-225deg);
+}
+#text {
+  font-size: 1.5rem;
   text-align: center;
-  line-height: 200px;
-  font-weight: bold;
-  font-size: 20px;
+  margin-top: 1.5rem;
+  color: var(--gold_color);
+  font-weight: 500;
 }
 </style>
 <body>
-  <div class="spinner">
-    <div class="slice">
-      <a href="medieval.html"></a>
-    </div>
-    <div class="slice">
-      <a href="interactiveVideo.html"></a>
-    </div>
-    <div class="slice">
-      <a href="communism.html"></a>
-    </div>
-    <div class="slice">
-      <a href="worldwar.html"></a>
-    </div>
+  <div class="container">
+     <div class="wheel_box">
+      <canvas id="spinWheel"></canvas>
+      <button id="spin_btn">Spin</button>
+      <i class="fa-solid fa-location-arrow"></i>
+     </div>
   </div>
+  <!---------------  SCRIPT  --------------------->
+  <script>/* --------------- Spin Wheel  --------------------- */
+const spinWheel = document.getElementById("spinWheel");
+const spinBtn = document.getElementById("spin_btn");
+/* --------------- Minimum And Maximum Angle For A value  --------------------- */
+const spinValues = [
+  { minDegree: 0, maxDegree: 90, value: 100 }, //1
+  { minDegree: 271, maxDegree: 360, value: 400 }, //2
+  { minDegree: 181, maxDegree: 270, value: 700 }, //4
+  { minDegree: 91, maxDegree: 180, value: 1000 },  //3
+];
+/* --------------- Size Of Each Piece  --------------------- */
+const size = [30, 30, 30, 30];
+/* --------------- Background Colors  --------------------- */
+var spinColors = [
+  "#E74C3C",
+  "#7D3C98",
+  "#2E86C1",
+  "#138D75",
+];
 
-
-
-  <script>const slices = document.querySelectorAll('.slice');
-const spinner = document.querySelector('.spinner');
-
-let currentSlice = 1;
-
-function spinWheel() {
-  const spinAngle = 1440; // Rotate 4 full rounds (4 * 360)
-  const randomAngle = Math.floor(Math.random() * 360); // Get a random angle within 360 degrees
-
-  // Calculate the target angle based on the current slice
-  const targetAngle = spinAngle * 5 + randomAngle + (currentSlice - 1) * 90;
-
-  spinner.style.transform = `rotate(${targetAngle}deg)`;
-
-  // Wait for the animation to finish (3 seconds) before redirecting
-  setTimeout(redirectToPage, 3000);
-}
-
-function redirectToPage() {
-  let page;
-  switch (currentSlice) {
-    case 1:
-      page = 'medival.html';
+let spinChart = new Chart(spinWheel, {
+  plugins: [ChartDataLabels],
+  type: "pie",
+  data: {
+    labels: ['Communism', 'Medival Ages', 'Industrial Lodz', 'II World War'],
+    datasets: [
+      {
+        backgroundColor: spinColors,
+        data: size,
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    animation: { duration: 0 },
+    plugins: {
+      tooltip: false,
+      legend: {
+        display: false,
+      },
+      datalabels: {
+        rotation: 90,
+        color: "#ffffff",
+        formatter: (_, context) => context.chart.data.labels[context.dataIndex],
+        font: { size: 24 },
+      },
+    },
+  },
+});
+/* --------------- Display Value Based On The Angle --------------------- */
+const generateValue = (angleValue) => {
+  for (let i of spinValues) {
+    if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
+      spinBtn.disabled = false;
       break;
-    case 2:
-      page = 'interactiveVideo.html';
-      break;
-    case 3:
-      page = 'communism.html';
-      break;
-    case 4:
-      page = 'worldwar.html';
-      break;
-    default:
-      break;
+    }
   }
+};
 
-  // Redirect to the chosen page
-  window.location.href = page;
-}
 
-spinner.addEventListener('click', () => {
-  // Disable click events while spinning
-  spinner.style.pointerEvents = 'none';
 
-  // Spin the wheel
-  spinWheel();
 
-  // Update the current slice for the next spin
-  currentSlice = currentSlice === 4 ? 1 : currentSlice + 1;
-});</script>
+/* --------------- Spinning Code --------------------- */
+let count = 0;
+let resultValue = 101;
+spinBtn.addEventListener("click", () => {
+  spinBtn.disabled = true;
+  let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
+  let rotationInterval = window.setInterval(() => {
+    spinChart.options.rotation = spinChart.options.rotation + resultValue;
+    spinChart.update();
+    if (spinChart.options.rotation >= 360) {
+      count += 1;
+      resultValue -= 5;
+      spinChart.options.rotation = 0;
+    } else if (count > 15 && spinChart.options.rotation == randomDegree) {
+      generateValue(randomDegree);
+      clearInterval(rotationInterval);
+      count = 0;
+      resultValue = 101;
+
+      // Redirect to specific page based on the drawn labels
+      const labels = ['Medival Ages', 'Industrial Lodz', 'II World War', 'Communism'];
+      const redirectUrls = ['medival.html', 'industrial.html', 'worldwar.html', 'communism.html'];
+      const degreesPerSection = 90;
+      const drawnDegree = 360 - spinChart.options.rotation;
+
+      const index = Math.floor(drawnDegree / degreesPerSection);
+      if (index >= 0 && index < labels.length) {
+        setTimeout(() => {
+          window.location.href = redirectUrls[index];
+        }, 3000);
+      }
+    }
+  }, 10);
+});
+</script>
 </body>
 </html>
-
-

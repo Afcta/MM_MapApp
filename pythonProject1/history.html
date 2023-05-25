@@ -6,12 +6,31 @@
 
     <title>History</title>
     <link rel="stylesheet" type="text/css" href="nav.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!---------------  Chart JS  --------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <!---------------  Chart JS Plugin  --------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
 </head>
 <style>
+
+    :root {
+    /* Colors */
+    --white_color : rgb(255, 255, 255);
+    --gold_color: rgb(255, 215, 0);
+    --green_color: rgb(45, 252, 26);
+    --body_background: linear-gradient(to right, #141e30, #243b55);
+    --spin_background:  black;
+}
+
+
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
+         font-family: 'PT Serif', serif;
     }
 
     body {
@@ -45,126 +64,53 @@
     }
 
     .container {
-        height: 350px;
-        width: 350px;
-        background: #a19c8c;
-        position: relative;
-        margin-right: 750px;
-        border-radius: 50%;
-        overflow: hidden;
-        box-shadow: 0 0 10px gray;
-        transition: 3s all;
-        border: 3px solid #FFFFFF;
-        font-family: Arial;
+  width: 90%;
+  max-width: 34.37rem;
+  margin-top: 3rem;
+  max-height: 90vh;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 26%;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+.wheel_box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#spinWheel {
+  max-height: inherit;
+  width: inherit;
+  transform: rotate(270deg);
+}
+#spin_btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: 26%;
+  width: 26%;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 0;
+  background: var(--spin_background);
+  color: var(--white_color);
+  text-transform: uppercase;
+  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+}
+.fa-solid {
+  position: absolute;
+  top: -8%;
+  left: 43.7%;
+  font-size: 4rem;
+  color: white;
+  transform: rotate(-225deg);
+}
 
-    }
-
-    .container div {
-        height: 50%;
-        width: 200px;
-        clip-path: polygon(100% 0, 50% 100%, 0 0);
-        transform: translateX(-50%);
-        transform-origin: bottom;
-        position: absolute;
-        left: 21%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 25px;
-        font-family: monospace;
-        font-weight: 1000;
-        color: #FFFFFF;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        writing-mode: vertical-rl;
-        text-align: center;
-        font-family: Arial;
-    }
-
-    .container .one {
-        background: #53534a;
-        left: 50%;
-        font-family: Verdana;
-        font-size: 21px;
-    }
-
-    .container .two {
-        background: #a19c8c;
-        transform: rotate(60deg);
-        font-family: Verdana;
-        font-size: 21px;
-    }
-
-    .container .three {
-        background: #53534a;
-        transform: rotate(120deg);
-        font-family: Verdana;
-        font-size: 21px;
-    }
-
-    .container .four {
-        background: #a19c8c;
-        transform: rotate(180deg);
-        font-family: Verdana;
-        font-size: 21px;
-    }
-
-    .container .five {
-        background: #53534a;
-        transform: rotate(240deg);
-        font-family: Verdana;
-        font-size: 21px;
-    }
-
-    .container .six {
-        background: #a19c8c;
-        transform: rotate(300deg);
-        font-family: Verdana;
-        font-size: 21px;
-    }
-
-
-    .mid {
-        height: 25px;
-        width: 25px;
-        border-radius: 50%;
-        position: absolute;
-        background: #53534a;
-        margin-right: 750px;
-    }
-
-    #spin {
-        height: 60px;
-        width: 200px;
-        background: #53534a;
-        position: absolute;
-        margin-top: 600px;
-        font-size: 30px;
-        color: #FFFFFF;
-        font-weight: 1000;
-        letter-spacing: 4px;
-        border: 1px solid #FFFFFF;
-        cursor: pointer;
-        box-shadow: 0 5px 10px gray;
-        transition: 0.2s all;
-        margin-right: 766px;
-        text-align: center;
-        font-family: Verdana;
-    }
-
-    #spin:hover {
-        box-shadow: none;
-    }
-
-    .stoper {
-        height: 50px;
-        width: 40px;
-        background: #333333;
-        position: absolute;
-        clip-path: polygon(100% 0, 50% 100%, 0 0);
-        margin-top: -350px;
-        margin-right: 750px;
-
-    }
 
     h3 {
         height: 200px;
@@ -186,7 +132,7 @@
 
     #menu {
         position: absolute;
-        top: 30%;
+        top: 33%;
         right: 0;
         height: 47%;
         width: 300px;
@@ -257,24 +203,19 @@
 
 <h4>Explore Random Periods of Lodz's History with a Spin of the Wheel</h4>
 <div class="container">
-    <div class="one">Medival Period</div>
-    <div class="two">Lodz during war</div>
-    <div class="three">Communism age</div>
-    <div class="four">Industrial Lodz</div>
-    <div class="five">Mystery one</div>
-    <div class="six">Mystery one</div>
-
-</div>
-<span class="mid"></span>
-<button id="spin">Spin</button>
-<div class="stoper"></div>
+     <div class="wheel_box">
+      <canvas id="spinWheel"></canvas>
+      <button id="spin_btn">Spin</button>
+      <i class="fa-solid fa-location-arrow"></i>
+     </div>
+  </div>
 
 <h3>Select the particular periods from Lodz's history that you would like to delve into.</h3>
 <ul id="menu">
     <a href="medival.html">
     <li>Medival Lodz</li>
     </a>
-    <a href="interactiveVideo.html">
+    <a href="industrial.html">
         <li>Industrial Lodz</li>
     </a>
     <a href="worldwar.html">
