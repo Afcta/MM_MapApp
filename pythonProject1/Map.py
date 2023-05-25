@@ -35,9 +35,14 @@ class Map:
     """
     top_bar_html = """
         <div class="top-bar">
-            <div class="toggle-theme-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i></div>
-            <div class="title">Explore Lodz</div>
+        <div class="toggle-theme-button" onclick="toggleTheme()"><i class="fas fa-adjust"></i></div>
+        <div class="title">Explore Lodz</div>
+        <div class="menu-links">
+            <a href="menu.html">Menu</a>
+            <a href="history.html">History</a>
+            <a href="culture.html">Culture</a>
         </div>
+    </div>
     <style>
     .title{
         font-size:3.5rem;
