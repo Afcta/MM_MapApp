@@ -6,7 +6,8 @@
       width: 20px;
       background-color: #333;
       color: white;
-      font-family: Garamond;
+      font-family: Arial;
+        font-weight: bold;
       font-size: 1.2rem;
       z-index: 2;
       transition: width 0.2s ease-in-out;

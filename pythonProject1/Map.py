@@ -44,15 +44,15 @@ class Map:
         </div>
     </div>
     <style>
-    .title{
-        font-size:3.5rem;
-        font-weight:bold;
-        text-align: center;
-        position: top;
-        flex-grow: 1;
-        color: white;
-        font-family: Arial;
-    }
+   .title {
+            font-size: 3.2rem;
+            font-weight: bold;
+            text-align: center;
+            flex-grow: 1;
+            color: white;
+            font-family: "Arial Black";
+            margin-right: -8%;
+        }
     .top-bar{
         display: flex;
         align-items: center;
@@ -62,6 +62,19 @@ class Map:
         color: white;
         margin-left: 10px;
     }
+    
+    .menu-links {
+            display: flex;
+            gap: 10px;
+            margin-right: 10px;
+            font-family: Arial;
+        }
+
+        .menu-links a {
+            color: white;
+            text-decoration: none;
+        }
+    
     </style>
     """
 
