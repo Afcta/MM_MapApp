@@ -159,7 +159,7 @@ class Map:
     marker4video = folium.Marker(
         [51.77287876573184, 19.455790267712022],
         popup='''
-                    <h1><a href="https://player.stornaway.io/watch/3e9a9f0e" title = "Explore the history of Industrial Lodz"> Three manufacturers </a><h1> 
+                    <h1><a href="https://player.stornaway.io/watch/ad148155" title = "Explore the history of Industrial Lodz"> Three manufacturers </a><h1> 
             <div style="display:flex; align-items:center;">
 
             <div style="margin-right:10px; margin-left: 70px">
