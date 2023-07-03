@@ -36,7 +36,7 @@
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    flex-grow: 1; /* Added to fill the remaining vertical space */
+    flex-grow: 1;
   }
 
   .portrait {
@@ -110,7 +110,6 @@
     var videoPlayer = document.getElementById('videoPlayer');
     var videoWrapper = document.querySelector('.video');
 
-    // Function to resize the video element to fit its container
     function resizeVideo() {
       var videoWidth = videoWrapper.offsetWidth;
       var videoHeight = videoWidth * (9 / 16); // Assuming 16:9 aspect ratio
@@ -119,7 +118,6 @@
       videoPlayer.style.height = videoHeight + 'px';
     }
 
-    // Resize the video initially and on window resize
     resizeVideo();
     window.addEventListener('resize', resizeVideo);
   </script>

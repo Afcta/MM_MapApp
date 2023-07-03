@@ -231,7 +231,7 @@
     </div>
   </div>
   <div class="button-container" style="position: absolute; bottom: 2%; left: 64.6%; transform: translateX(-50%);">
-    <a href="industrial.html" class="button" style="font-size: 25px; font-family: Arial; font-weight: bold">Go to Industrial Age</a>
+    <a href="https://player.stornaway.io/watch/ad148155" class="button" style="font-size: 25px; font-family: Arial; font-weight: bold">Go to Industrial Age</a>
   </div>
 
   <script>
@@ -283,13 +283,12 @@
       // Play audio
       audioElement.play();
 
-      // Show images at specified times
       for (var i = 0; i < images.length; i++) {
         var image = images[i];
         setTimeout(showImage, image.time * 1000, image.src);
       }
 
-      // Hide images after audio finishes playing
+
       audioElement.addEventListener('ended', hideImages);
     }
 
@@ -325,7 +324,7 @@
       { src: 'photos/festival4.jpg', time: 50 }
     ];
 
-    // Add event listeners to the buttons
+
     button1.addEventListener('click', function() {
       buttonClick(button1AudioSrc, button1Images);
     });

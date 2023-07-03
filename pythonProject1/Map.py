@@ -261,8 +261,33 @@ class Map:
         tooltip="Park Staromiejski",
         icon=folium.Icon(icon="heart", icon_color="pink")
     )
+
     marker9.add_to(fg_monuments)
     marker9video.add_to(fg_videos)
+
+    marker10 = folium.Marker(
+        [51.77714150499855, 19.454678964509412],
+        popup=folium.Popup('''<h1>Detka museum<h1>
+        <img src='photos/detka.jpg' width = 400px/>
+         <h3 style="font-size: 15px;"><a href="communism.html">  Click to see a video about Communism in Lodz</a></h3>
+            <div style="display:flex; align-items:center;">''', max_height=450),
+        tooltip="Detka museum",
+        icon=folium.Icon(icon="heart", icon_color="pink")
+    )
+    marker10video = folium.Marker(
+        [51.77714150499855, 19.454678964509413],
+        popup=folium.Popup('''<h1> Detka museum <h1>
+        <img src='photos/detka.jpg' width = 400px/>
+         <h3 style="font-size: 15px"><a href="communism.html"> Click to see a video about Communism in Lodz</a></h3>
+            <div style="display:flex; align-items:center;">''', max_width=450),
+        tooltip="Detka museum",
+        icon=folium.Icon(icon="heart", icon_color="pink")
+    )
+
+    marker10.add_to(fg_monuments)
+    marker10video.add_to(fg_videos)
+
+    51.77712822866587, 19.454528760811
     # Restaurants
     rest_rating = 4.6
     rating_icon = 'fa-star'
