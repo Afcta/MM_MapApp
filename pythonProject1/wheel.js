@@ -84,7 +84,7 @@ spinBtn.addEventListener("click", () => {
 
       // Redirect to specific page based on the drawn labels
       const labels = ['Medival Ages', 'Industrial Lodz', 'II World War', 'Communism'];
-      const redirectUrls = ['medival.html', 'industrial.html', 'worldwar.html', 'communism.html'];
+      const redirectUrls = ['medival.html', 'https://player.stornaway.io/watch/ad148155', 'worldwar.html', 'communism.html'];
       const degreesPerSection = 90;
       const drawnDegree = 360 - spinChart.options.rotation;
 
