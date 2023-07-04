@@ -208,7 +208,7 @@
 <body>
   <header class="header">
     <nav>
-      <ul class="hidden"> <!-- Add initial hidden class -->
+      <ul class="hidden">
         <li><a href="menu.html">Menu</a></li>
         <li><a href="map.html">Map</a></li>
         <li><a href="culture.html">Culture</a></li>
@@ -253,17 +253,17 @@
 
     var audioElement = null;
 
-    // Function to play audio and show images when a button is clicked
+
     function buttonClick(audioSrc, images) {
       if (audioElement && !audioElement.paused) {
-        // If audio is already playing, return without doing anything
+
         return;
       }
 
       audioElement = new Audio(audioSrc);
       var frame = document.querySelector('.frame');
 
-      // Show images at specific times
+
       function showImage(src) {
         frame.style.opacity = 0; // Fade out the frame
         setTimeout(function() {
