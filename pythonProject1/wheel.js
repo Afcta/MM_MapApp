@@ -82,7 +82,7 @@ spinBtn.addEventListener("click", () => {
       count = 0;
       resultValue = 101;
 
-      // Redirect to specific page based on the drawn labels
+
       const labels = ['Medival Ages', 'Industrial Lodz', 'II World War', 'Communism'];
       const redirectUrls = ['medival.html', 'https://player.stornaway.io/watch/ad148155', 'worldwar.html', 'communism.html'];
       const degreesPerSection = 90;

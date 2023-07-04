@@ -178,7 +178,7 @@ a {
       border-right: 3px solid white;
     }
 
-    /* Add new class to show menu items */
+
     .header nav ul.visible {
       opacity: 1;
       visibility: visible;
